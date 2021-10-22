@@ -68,6 +68,16 @@ const DashboardSidebar = () => {
             Notícias
             <FaAngleDown />
           </NavText>
+          <NavItem eventKey="admin/categoria/nova">
+            <NavText>
+              <a className="link-sidebar-admin" href="/admin/categoria/nova">
+                Nova Categoria
+              </a>
+            </NavText>
+          </NavItem>
+          <NavItem eventKey="/categorias">
+            <NavText>Listar Categorias</NavText>
+          </NavItem>
           <NavItem eventKey="/noticia/nova">
             <NavText>Nova Notícia</NavText>
           </NavItem>

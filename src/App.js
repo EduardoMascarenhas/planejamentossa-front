@@ -11,6 +11,8 @@ import Projeto from "./pages/projeto";
 import AdminRoute from "./auth/AdminRoute";
 import AdminDashboard from "./pages/adminDashboard";
 import Cadastrar from "./pages/cadastrar";
+import AdminDashboardCategorias from "./pages/adminDashboardCategorias";
+import AdminCategoriaNova from "./pages/adminCategoriaNova";
 
 function App() {
   return (
@@ -27,10 +29,20 @@ function App() {
           exact
           component={PlanosEixosInterna}
         />
-        <Route path="/entrar" exact component={Entrar} />
+        <Route path="/painel" exact component={Entrar} />
 
         {/**ADMIN ROUTES */}
         <AdminRoute exact path="/admin/dashboard" component={AdminDashboard} />
+        <AdminRoute
+          exact
+          path="/admin/categoria/nova"
+          component={AdminCategoriaNova}
+        />
+        <AdminRoute
+          exact
+          path="/admin/categorias"
+          component={AdminDashboardCategorias}
+        />
         {/**404 ROUTE */}
         <Route exact component={Erro404} />
       </Switch>

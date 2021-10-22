@@ -133,6 +133,10 @@ th, td {
 .fs-custom{
   font-size: 1.5vw;
 }
+.link-sidebar-admin{
+  color: #000;
+}
+/*media queries*/
 @media screen and (max-width: 991px) {
   .dn-991 {
     display: none;
