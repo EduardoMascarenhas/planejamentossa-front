@@ -68,21 +68,33 @@ const DashboardSidebar = () => {
             Notícias
             <FaAngleDown />
           </NavText>
-          <NavItem eventKey="admin/categoria/nova">
+          <NavItem eventKey="/admin/categoria/nova">
             <NavText>
               <a className="link-sidebar-admin" href="/admin/categoria/nova">
                 Nova Categoria
               </a>
             </NavText>
           </NavItem>
-          <NavItem eventKey="/categorias">
-            <NavText>Listar Categorias</NavText>
+          <NavItem eventKey="/admin/categorias">
+            <NavText>
+              <a className="link-sidebar-admin" href="/admin/categorias">
+                Listar Categorias
+              </a>
+            </NavText>
           </NavItem>
-          <NavItem eventKey="/noticia/nova">
-            <NavText>Nova Notícia</NavText>
+          <NavItem eventKey="/admin/noticia/nova">
+            <NavText>
+              <a className="link-sidebar-admin" href="/admin/noticia/nova">
+                Nova Notícia
+              </a>
+            </NavText>
           </NavItem>
-          <NavItem eventKey="/noticias">
-            <NavText>Listar Notícias</NavText>
+          <NavItem eventKey="/admin/noticias">
+            <NavText>
+              <a className="link-sidebar-admin" href="/admin/noticias">
+                Listar Notícias
+              </a>
+            </NavText>
           </NavItem>
         </NavItem>
         <NavItem eventKey="eixos">

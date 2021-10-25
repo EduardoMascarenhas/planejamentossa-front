@@ -1,46 +1,57 @@
 import React, { useState } from "react";
 import { isAuthenticated } from "../../../../auth";
+import { criarCategoria } from "../../../../core/apiCore";
 
 const CategoriaNova = () => {
   const { user, token } = isAuthenticated();
-  const [values, setValues] = useState({
-    name: "",
-    error: "",
-    redirectToReferrer: false,
-  });
-  const { name, error, redirectToReferrer } = values;
-  const handleChange = (name) => (event) => {
-    setValues({ ...values, error: false, [name]: event.target.value });
+  const [name, setName] = useState('');
+  const [error, setError] = useState('');
+  const [redirectToReferrer, setRedirectToReferrer] = useState(false);
+
+  const handleChange = (e) => {
+    setName(e.target.value);
   };
   const showError = () => {
-    <div
+    return (<div
       class="alert alert-danger"
       style={{ display: error ? "" : "none" }}
       role="alert"
     >
       {error}
-    </div>;
+    </div>)
+
   };
   const redirectUser = () => {
     if (redirectToReferrer) {
       if ((user && user.role === 1) || user.role === 2) {
-        document.location.href = "/admin/dashboard/categorias";
+        document.location.href = "/admin/categorias";
       } else {
         document.location.href = "/";
       }
     }
   };
-  const clickSubmit = (event) => {
-    event.preventDefault();
-    setValues({ ...values, error: false });
+  const clickSubmit = (e) => {
+    e.preventDefault();
+    setError('');
+    // make request to api to create Categoria
+    criarCategoria(user._id, token, { name }).then((data) => {
+      if (data.error || !data) {
+        setError(data.error);
+      } else {
+        setError('');
+        setRedirectToReferrer(true)
+      }
+    });
   };
   return (
     <div className="dashboard-content">
-      <form className="pt-3" onSubmit={clickSubmit}>
+      {showError()}
+      {redirectUser()}
+      <form className="form-dashboard p-3" onSubmit={clickSubmit}>
         <div className="text-center">
           <h1>Criar nova Categoria</h1>
         </div>
-        <div className="form-group-dashboard">
+        <div className="input-500">
           <input
             type="text"
             className="form-control"
@@ -52,8 +63,10 @@ const CategoriaNova = () => {
           />
         </div>
         <h3 className="text-center">
-          <button className="hvr-shutter-out-verticall botao-pesquisar">
-            Criar nova Categoria
+          <button
+            type="submit"
+            className="btn btn-info btn-editar mr-1 fs-custom"
+          > Criar nova Categoria
           </button>
         </h3>
       </form>

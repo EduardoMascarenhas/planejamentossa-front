@@ -2,22 +2,26 @@ import React, { useState, useEffect } from "react";
 import HomeStyle from "../../styledComponents/homeStyles";
 import AdminDashboardStyle from "../../styledComponents/adminDashboardStyle";
 import Layout from "../../components/Layout";
-import Dashboard from "../../components/adminDashboard";
+import DashboardNoticiaEditar from "../../components/adminDashboard/adminNoticiaEditar";
 
-const AdminDashboardCategorias = () => {
-  const [error, setError] = useState(false);
+const AdminNoticiaEditar = (props) => {
 
-  useEffect(() => {}, []);
+  const [slug, setSlug] = useState("");
+
+  useEffect(() => {
+    const slugProp = props.match.params.slug;
+    setSlug(slugProp);
+  }, []);
 
   return (
     <>
       <HomeStyle />
       <AdminDashboardStyle />
       <Layout>
-        <Dashboard />
+        <DashboardNoticiaEditar slug={slug} />
       </Layout>
     </>
   );
 };
 
-export default AdminDashboardCategorias;
+export default AdminNoticiaEditar;

@@ -1,11 +1,35 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import parse from "html-react-parser";
 import img1 from "../../assets/imgs/barra-center-mobile-planejamento.svg";
 import img2 from "../../assets/imgs/barra-center.svg";
 import img3 from "../../assets/imgs/barra-center-mobile.svg";
 import img4 from "../../assets/imgs/bg-card-title.svg";
 import img5 from "../../assets/imgs/barras-pink.svg";
+import { getBlogs } from '../../core/apiCore';
+import moment from 'moment';
 
 const Sessao2 = () => {
+  const [values, setValues] = useState({
+    noticias: [],
+    error: false,
+    errorMsg: "",
+  });
+  const { noticias, error, errorMsg } = values;
+  const init = () => {
+    getBlogs().then((data) => {
+      if (!data) {
+        setValues({ ...values, error: true });
+      } else {
+        setValues({ ...values, noticias: data })
+      }
+    })
+  }
+  const abrirNoticia = (s) => {
+    document.location.href = `/noticia-${s}`;
+  }
+  useEffect(() => {
+    init();
+  }, [])
   return (
     <section className="pb-0 mt-0 position-relative d-flex bg-home-center">
       <div className="opac"></div>
@@ -172,11 +196,7 @@ const Sessao2 = () => {
         </div>
 
         <div className="col-12 col-sm-11 col-lg-8 py-5 mb-5 align-items-center mx-auto card-space-home">
-          <div className="row text-center banner-download-div">
-            <div className="banner-download">
-              <h3>BANNER DOWNLOAD 728X90 px</h3>
-            </div>
-          </div>
+
 
           <div className="card">
             <div className="card-header"></div>
@@ -204,58 +224,22 @@ const Sessao2 = () => {
               <div className="scrolling-area mt-3" id="os">
                 <div className="scrolling-element-inside">
                   <ul className="list-group list-group-flush bg-transparent itens-news">
-                    <li className="list-group-item bg-transparent border-0 pl-0">
-                      <div className="c-color-secondary font-weight-bold">
-                        00/00/0000
-                      </div>
-                      <h4 className="c-color-gray">
-                        In non ante sed risus mattis aliquet sit amet vel ex.
-                        Morbi purus tellus, blandit nec enim at, bibendum
-                        egestas nisl. Sed placerat vehicula mattis.
-                      </h4>
-                      <button type="button" className="text-white border-50">
-                        Saiba mais
-                      </button>
-                    </li>
-                    <li className="list-group-item bg-transparent border-0 pl-0">
-                      <div className="c-color-secondary font-weight-bold">
-                        00/00/0000
-                      </div>
-                      <h4 className="c-color-gray">
-                        In non ante sed risus mattis aliquet sit amet vel ex.
-                        Morbi purus tellus, blandit nec enim at, bibendum
-                        egestas nisl. Sed placerat vehicula mattis.
-                      </h4>
-                      <button type="button" className="text-white border-50">
-                        Saiba mais
-                      </button>
-                    </li>
-                    <li className="list-group-item bg-transparent border-0 pl-0">
-                      <div className="c-color-secondary font-weight-bold">
-                        00/00/0000
-                      </div>
-                      <h4 className="c-color-gray">
-                        In non ante sed risus mattis aliquet sit amet vel ex.
-                        Morbi purus tellus, blandit nec enim at, bibendum
-                        egestas nisl. Sed placerat vehicula mattis.
-                      </h4>
-                      <button type="button" className="text-white border-50">
-                        Saiba mais
-                      </button>
-                    </li>
-                    <li className="list-group-item bg-transparent border-0 pl-0">
-                      <div className="c-color-secondary font-weight-bold">
-                        00/00/0000
-                      </div>
-                      <h4 className="c-color-gray">
-                        In non ante sed risus mattis aliquet sit amet vel ex.
-                        Morbi purus tellus, blandit nec enim at, bibendum
-                        egestas nisl. Sed placerat vehicula mattis.
-                      </h4>
-                      <button type="button" className="text-white border-50">
-                        Saiba mais
-                      </button>
-                    </li>
+                    {noticias.map(({ title, excerpt, slug, _id, createdAt }, i) => {
+                      return (
+                        <li key={i} className="list-group-item bg-transparent border-0 pl-0">
+                          <div className="c-color-secondary font-weight-bold">
+                            {moment(createdAt).format("HH:mm / DD-MM-YYYY")}
+                          </div>
+                          <h3>{title}</h3>
+                          <h4 className="c-color-gray">
+                            {parse(excerpt)}
+                          </h4>
+                          <button onClick={() => abrirNoticia(slug)} type="button" className="text-white border-50">
+                            Saiba mais
+                          </button>
+                        </li>
+                      )
+                    })}
                   </ul>
                 </div>
               </div>

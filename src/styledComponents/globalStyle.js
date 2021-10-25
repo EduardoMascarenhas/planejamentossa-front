@@ -136,6 +136,38 @@ th, td {
 .link-sidebar-admin{
   color: #000;
 }
+.form-dashboard{
+  max-width: calc(85vw - 65px);
+  margin: auto;
+}
+.input-500{
+  max-width: 500px;
+  margin: 25px auto;
+}
+.form-nova-noticia input{
+  margin: 15px 5px 15px 5px;
+}
+.form-nova-noticia thumb{
+  margin: auto;
+}
+.m-a{
+  margin: auto;
+}
+.form-nova-noticia-thumb{
+  align-items: center;
+}
+.img-thumb-editar img{
+  padding: 10px;
+  max-width: 515px
+}
+.body-noticia{
+  word-break: break-all;
+}
+.body-noticia img {
+  max-height: 350px;
+  display: block;
+  margin: 15px auto;
+}
 /*media queries*/
 @media screen and (max-width: 991px) {
   .dn-991 {

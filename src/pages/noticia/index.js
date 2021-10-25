@@ -3,16 +3,19 @@ import Layout from "../../components/Layout";
 import Noticia from "../../components/noticia/Noticia";
 import HomeStyle from "../../styledComponents/homeStyles";
 
-const Noticias = () => {
-  const [error, setError] = useState(false);
+const Noticias = (props) => {
+  const [slug, setSlug] = useState("");
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    const slugProp = props.match.params.slug;
+    setSlug(slugProp);
+  }, []);
 
   return (
     <>
       <HomeStyle />
       <Layout>
-        <Noticia />
+        <Noticia slug={slug} />
       </Layout>
     </>
   );
