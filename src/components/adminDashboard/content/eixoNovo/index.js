@@ -1,36 +1,32 @@
 import React, { useState, useEffect } from "react";
-import { API } from "../../../../config";
 import { isAuthenticated } from "../../../../auth";
-import {
-  createBlog,
-  getCategorias,
-  getBlog,
-  updateBlog,
-} from "../../../../core/apiCore";
+import { createEixo, getProjetos } from "../../../../core/apiCore";
 import Multiselect from "multiselect-react-dropdown";
 import ReactQuill from "react-quill";
 import { QuillModules, QuillFormats } from "../../../../helpers/quill";
 import {} from "../../../../../node_modules/react-quill/dist/quill.snow.css";
 
-const NoticiaEditar = ({ slug }) => {
+const EixoNovo = () => {
   const { user, token } = isAuthenticated();
-  const [body, setBody] = useState("");
+  const [vis, setVis] = useState("");
+  const [met, setMet] = useState("");
+  const [pro, setPro] = useState("");
   const [values, setValues] = useState({
-    categorias: [],
-    categories: [],
+    projetos: [],
+    projetos2: [],
     selectedValues: [],
-    noticia: {},
     title: "",
     subTitle: "",
+    borderColor: "",
     error: false,
     errorMsg: "",
     redirectToReferrer: false,
     formData: "",
   });
   const {
-    categorias,
-    categories,
-    noticia,
+    projetos,
+    projetos2,
+    borderColor,
     selectedValues,
     title,
     subTitle,
@@ -39,12 +35,28 @@ const NoticiaEditar = ({ slug }) => {
     formData,
     redirectToReferrer,
   } = values;
-  const handleBody = (e) => {
-    console.log(e);
-    setBody(e);
-    formData.set("body", e);
+  const handleVis = (e) => {
+    // console.log(e);
+    setVis(e);
+    formData.set("vis", e);
     if (typeof window !== "undefined") {
-      localStorage.setItem("noticia", JSON.stringify(e));
+      localStorage.setItem("eixo-visao", JSON.stringify(e));
+    }
+  };
+  const handleMet = (e) => {
+    // console.log(e);
+    setMet(e);
+    formData.set("met", e);
+    if (typeof window !== "undefined") {
+      localStorage.setItem("eixo-meta", JSON.stringify(e));
+    }
+  };
+  const handlePro = (e) => {
+    // console.log(e);
+    setPro(e);
+    formData.set("pro", e);
+    if (typeof window !== "undefined") {
+      localStorage.setItem("eixo-projetos", JSON.stringify(e));
     }
   };
   const handleChange = (name) => (event) => {
@@ -54,12 +66,12 @@ const NoticiaEditar = ({ slug }) => {
     formData.set(name, value);
   };
   const handleMultiSelect = (name) => (event) => {
-    let arrayCategories = [];
+    let arrayProjetos = [];
     event.map((c) => {
-      arrayCategories.push(c._id);
+      arrayProjetos.push(c._id);
     });
-    setValues({ ...values, [name]: arrayCategories });
-    formData.set("categories", arrayCategories);
+    setValues({ ...values, [name]: arrayProjetos });
+    formData.set("projetos", arrayProjetos);
   };
   const showError = () => {
     return (
@@ -75,92 +87,56 @@ const NoticiaEditar = ({ slug }) => {
   const redirectUser = () => {
     if (redirectToReferrer) {
       if ((user && user.role === 1) || user.role === 2) {
-        document.location.href = "/admin/noticias";
+        document.location.href = "/admin/eixos";
       } else {
         document.location.href = "/";
       }
     }
   };
-  const renderCategorias = () => {
-    if (categorias.length > 0) {
-      return (
-        <Multiselect
-          options={categorias}
-          showCheckbox
-          selectedValues={selectedValues}
-          onSelect={handleMultiSelect("categories")}
-          onRemove={handleMultiSelect("categories")}
-          displayValue="slug"
-          placeholder="Selecionar Categoria"
-          emptyRecordMsg="Nenhuma Categoria foi encontrada!"
-        />
-      );
-    } else {
-      initCategorias();
-    }
-  };
   const clickSubmit = (e) => {
     e.preventDefault();
-    updateBlog(slug, user._id, token, formData).then((data) => {
+    // make request to api to create Projeto
+    createEixo(user._id, token, formData).then((data) => {
       if (data.error) {
         setValues({ ...values, error: true, errorMsg: data.error });
       } else {
         setValues({ ...values, error: false, redirectToReferrer: true });
       }
     });
-    document.location.href = "/admin/noticias";
   };
-  const initCategorias = () => {
-    getCategorias().then((data) => {
+  const initProjetos = () => {
+    getProjetos().then((data) => {
       if (!data || data.error) {
         setValues({ ...values, error: data.error });
-        console.log("erro ao carregar as categorias");
+        console.log("erro ao carregar as projetos");
       } else {
         setValues({
           ...values,
-          categorias: data,
+          projetos: data,
           formData: new FormData(),
-        });
-      }
-    });
-  };
-  const initNoticia = (s) => {
-    getBlog(s).then((data) => {
-      if (!data || data.error) {
-        console.log("Erro ao carregar a notícia");
-      } else {
-        setBody(data.body);
-        setValues({
-          ...values,
-          title: data.title,
-          subTitle: data.subTitle,
-          categories: data.categories,
         });
       }
     });
   };
 
   useEffect(() => {
-    initCategorias();
-    if (slug) {
-      initNoticia(slug);
-    }
-  }, [slug]);
+    initProjetos();
+  }, []);
 
   return (
     <div className="dashboard-content">
       {redirectUser()}
       <form className="form-dashboard p-3" onSubmit={clickSubmit}>
         <div className="text-center">
-          <h1>Editar nova Notícia</h1>
+          <h1>Criar novo Eixo</h1>
         </div>
         <div className="col-12 d-flex">
           <div className="col-6 p-2">
-            <span>Título da Notícia</span>
+            <span>Título do Eixo</span>
             <input
               type="text"
               className="form-control"
-              placeholder="Título da Notícia"
+              placeholder="Título do Eixo"
               onChange={handleChange("title")}
               value={title}
               autoFocus
@@ -169,11 +145,11 @@ const NoticiaEditar = ({ slug }) => {
           </div>
 
           <div className="col-6 p-2">
-            <span>Subtítulo da Notícia</span>
+            <span>Subtítulo do Eixo</span>
             <input
               type="text"
               className="form-control"
-              placeholder="Sub Título da Notícia"
+              placeholder="Sub Título do Eixo"
               onChange={handleChange("subTitle")}
               value={subTitle}
               autoFocus
@@ -181,14 +157,23 @@ const NoticiaEditar = ({ slug }) => {
             />
           </div>
         </div>
-        <div className="col-12 d-flex form-nova-noticia-thumb">
-          <div className="img-thumb-editar">
-            <img
-              className="update-blog-img"
-              src={`${API}/noticia/thumb/${slug}`}
-              alt=""
+        <div className="col-12 d-flex">
+          <div className="col-6 p-2">
+            <span>Cor da borda</span>
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Cor da borda"
+              onChange={handleChange("borderColor")}
+              value={borderColor}
+              autoFocus
+              required
             />
           </div>
+
+          <div className="col-6 p-2"></div>
+        </div>
+        <div className="col-12 d-flex form-novo-eixo-thumb">
           <div className="col text-center p-3">
             <span>Thumbnail</span>
             <br />
@@ -200,14 +185,50 @@ const NoticiaEditar = ({ slug }) => {
             />
           </div>
         </div>
-        <div className="col-12 d-flex p-3">{renderCategorias()}</div>
-        <div>
+        <div className="col-12 d-flex p-3">
+          {projetos && projetos.length > 0 ? (
+            <Multiselect
+              options={projetos}
+              showCheckbox
+              selectedValues={selectedValues}
+              onSelect={handleMultiSelect("projetos2")}
+              onRemove={handleMultiSelect("projetos2")}
+              displayValue="slug"
+              placeholder="Selecionar Projeto"
+              emptyRecordMsg="Nenhuma Projeto foi encontrada!"
+            />
+          ) : (
+            ""
+          )}
+        </div>
+        <div className="mt-3 mb-3">
+          <h4>Visão</h4>
           <ReactQuill
             modules={QuillModules}
             formats={QuillFormats}
-            value={body}
-            placeholder="Corpo da Notícia..."
-            onChange={handleBody}
+            value={vis}
+            placeholder="Visão..."
+            onChange={handleVis}
+          />
+        </div>
+        <div className="mt-3 mb-3">
+          <h4>Metas</h4>
+          <ReactQuill
+            modules={QuillModules}
+            formats={QuillFormats}
+            value={met}
+            placeholder="Metas..."
+            onChange={handleMet}
+          />
+        </div>
+        <div className="mt-3 mb-3">
+          <h4>Projetos</h4>
+          <ReactQuill
+            modules={QuillModules}
+            formats={QuillFormats}
+            value={pro}
+            placeholder="Projetos..."
+            onChange={handlePro}
           />
         </div>
         <div className="col-12 d-flex p-3">
@@ -220,7 +241,7 @@ const NoticiaEditar = ({ slug }) => {
             className="btn btn-info btn-editar mr-1 fs-custom"
           >
             {" "}
-            Editar Notícia
+            Criar novo Eixo
           </button>
         </h3>
       </form>
@@ -228,4 +249,4 @@ const NoticiaEditar = ({ slug }) => {
   );
 };
 
-export default NoticiaEditar;
+export default EixoNovo;

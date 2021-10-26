@@ -17,6 +17,10 @@ import AdminNoticiaNova from "./pages/adminNoticiaNova";
 import AdminNoticias from "./pages/adminNoticias";
 import AdminNoticiaEditar from "./pages/adminNoticiaEditar";
 import AdminDashboardProjetos from "./pages/adminProjetos";
+import AdminProjetoNovo from "./pages/adminProjetoNovo";
+import AdminEixos from "./pages/adminEixos";
+import AdminEixoNovo from "./pages/adminEixoNovo";
+import AdminEixoEditar from "./pages/adminEixoEditar";
 
 function App() {
   return (
@@ -29,7 +33,7 @@ function App() {
         <Route path="/planos-eixos" exact component={PlanosEixos} />
         <Route path="/projeto" exact component={Projeto} />
         <Route
-          path="/planos-eixos-interna"
+          path="/planos-eixos-:slug"
           exact
           component={PlanosEixosInterna}
         />
@@ -40,7 +44,7 @@ function App() {
         <AdminRoute
           exact
           path="/admin/projeto/novo"
-          component={AdminCategoriaNova}
+          component={AdminProjetoNovo}
         />
         <AdminRoute
           exact
@@ -62,15 +66,19 @@ function App() {
           path="/admin/noticia/nova"
           component={AdminNoticiaNova}
         />
-        <AdminRoute
-          exact
-          path="/admin/noticias"
-          component={AdminNoticias}
-        />
+        <AdminRoute exact path="/admin/noticias" component={AdminNoticias} />
         <AdminRoute
           exact
           path="/admin/noticia-:slug"
           component={AdminNoticiaEditar}
+        />
+
+        <AdminRoute exact path="/admin/eixo/novo" component={AdminEixoNovo} />
+        <AdminRoute exact path="/admin/eixos" component={AdminEixos} />
+        <AdminRoute
+          exact
+          path="/admin/eixo-:slug"
+          component={AdminEixoEditar}
         />
         {/**404 ROUTE */}
         <Route exact component={Erro404} />

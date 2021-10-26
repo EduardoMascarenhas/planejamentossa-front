@@ -4,7 +4,7 @@ import { createBlog, getCategorias } from "../../../../core/apiCore";
 import Multiselect from "multiselect-react-dropdown";
 import ReactQuill from "react-quill";
 import { QuillModules, QuillFormats } from "../../../../helpers/quill";
-import { } from "../../../../../node_modules/react-quill/dist/quill.snow.css";
+import {} from "../../../../../node_modules/react-quill/dist/quill.snow.css";
 
 const NoticiaNova = () => {
   const { user, token } = isAuthenticated();
@@ -19,8 +19,18 @@ const NoticiaNova = () => {
     errorMsg: "",
     redirectToReferrer: false,
     formData: "",
-  })
-  const { categorias, categories, selectedValues, title, subTitle, error, errorMsg, formData, redirectToReferrer } = values;
+  });
+  const {
+    categorias,
+    categories,
+    selectedValues,
+    title,
+    subTitle,
+    error,
+    errorMsg,
+    formData,
+    redirectToReferrer,
+  } = values;
   const handleBody = (e) => {
     // console.log(e);
     setBody(e);
@@ -30,31 +40,29 @@ const NoticiaNova = () => {
     }
   };
   const handleChange = (name) => (event) => {
-    const value =
-      name === "thumb"
-        ? event.target.files[0]
-        : event.target.value;
+    const value = name === "thumb" ? event.target.files[0] : event.target.value;
 
     setValues({ ...values, [name]: value });
     formData.set(name, value);
   };
   const handleMultiSelect = (name) => (event) => {
     let arrayCategories = [];
-    event.map((c)=>{
+    event.map((c) => {
       arrayCategories.push(c._id);
-    })
+    });
     setValues({ ...values, [name]: arrayCategories });
     formData.set("categories", arrayCategories);
   };
   const showError = () => {
-    return (<div
-      class="alert alert-danger"
-      style={{ display: error ? "" : "none" }}
-      role="alert"
-    >
-      {errorMsg}
-    </div>)
-
+    return (
+      <div
+        className="alert alert-danger"
+        style={{ display: error ? "" : "none" }}
+        role="alert"
+      >
+        {errorMsg}
+      </div>
+    );
   };
   const redirectUser = () => {
     if (redirectToReferrer) {
@@ -97,7 +105,6 @@ const NoticiaNova = () => {
 
   return (
     <div className="dashboard-content">
-      
       {redirectUser()}
       <form className="form-dashboard p-3" onSubmit={clickSubmit}>
         <div className="text-center">
@@ -129,7 +136,6 @@ const NoticiaNova = () => {
               required
             />
           </div>
-
         </div>
         <div className="col-12 d-flex form-nova-noticia-thumb">
           <div className="col text-center p-3">
@@ -142,7 +148,6 @@ const NoticiaNova = () => {
               accept="image/*"
             />
           </div>
-
         </div>
         <div className="col-12 d-flex p-3">
           {categorias && categorias.length > 0 ? (
@@ -169,13 +174,17 @@ const NoticiaNova = () => {
             onChange={handleBody}
           />
         </div>
-        <div className="col-12 d-flex p-3"><div className="m-a">{showError()}</div> </div>
-        
+        <div className="col-12 d-flex p-3">
+          <div className="m-a">{showError()}</div>{" "}
+        </div>
+
         <h3 className="text-center">
           <button
             type="submit"
             className="btn btn-info btn-editar mr-1 fs-custom"
-          > Criar nova Notícia
+          >
+            {" "}
+            Criar nova Notícia
           </button>
         </h3>
       </form>

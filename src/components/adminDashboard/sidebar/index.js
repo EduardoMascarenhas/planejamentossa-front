@@ -105,11 +105,33 @@ const DashboardSidebar = () => {
             Eixos
             <FaAngleDown />
           </NavText>
+          <NavItem eventKey="/projeto/novo">
+            <NavText>
+              <a className="link-sidebar-admin" href="/admin/projeto/novo">
+                Novo Projeto
+              </a>
+            </NavText>
+          </NavItem>
+          <NavItem eventKey="/projetos">
+            <NavText>
+              <a className="link-sidebar-admin" href="/admin/projetos">
+                Listar Projetos
+              </a>
+            </NavText>
+          </NavItem>
           <NavItem eventKey="/eixo/novo">
-            <NavText>Novo Eixo</NavText>
+            <NavText>
+              <a className="link-sidebar-admin" href="/admin/eixo/novo">
+                Eixo Novo
+              </a>
+            </NavText>
           </NavItem>
           <NavItem eventKey="/eixos">
-            <NavText>Listar Eixos</NavText>
+            <NavText>
+              <a className="link-sidebar-admin" href="/admin/eixos">
+                Listar Eixos
+              </a>
+            </NavText>
           </NavItem>
         </NavItem>
         <NavItem eventKey="perfil">

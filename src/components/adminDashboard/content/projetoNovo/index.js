@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { isAuthenticated } from "../../../../auth";
-import { criarCategoria } from "../../../../core/apiCore";
+import { criarProjeto } from "../../../../core/apiCore";
 
-const CategoriaNova = () => {
+const ProjetoNovo = () => {
   const { user, token } = isAuthenticated();
   const [name, setName] = useState("");
   const [error, setError] = useState("");
@@ -25,7 +25,7 @@ const CategoriaNova = () => {
   const redirectUser = () => {
     if (redirectToReferrer) {
       if ((user && user.role === 1) || user.role === 2) {
-        document.location.href = "/admin/categorias";
+        document.location.href = "/admin/projetos";
       } else {
         document.location.href = "/";
       }
@@ -34,8 +34,8 @@ const CategoriaNova = () => {
   const clickSubmit = (e) => {
     e.preventDefault();
     setError("");
-    // make request to api to create Categoria
-    criarCategoria(user._id, token, { name }).then((data) => {
+    // make request to api to create Projeto
+    criarProjeto(user._id, token, { name }).then((data) => {
       if (data.error || !data) {
         setError(data.error);
       } else {
@@ -50,13 +50,13 @@ const CategoriaNova = () => {
       {redirectUser()}
       <form className="form-dashboard p-3" onSubmit={clickSubmit}>
         <div className="text-center">
-          <h1>Criar nova Categoria</h1>
+          <h1>Criar novo Projeto</h1>
         </div>
         <div className="input-500">
           <input
             type="text"
             className="form-control"
-            placeholder="Nome da nova Categoria"
+            placeholder="Nome da nova Projeto"
             onChange={handleChange}
             value={name}
             autoFocus
@@ -69,7 +69,7 @@ const CategoriaNova = () => {
             className="btn btn-info btn-editar mr-1 fs-custom"
           >
             {" "}
-            Criar nova Categoria
+            Criar novo Projeto
           </button>
         </h3>
       </form>
@@ -77,4 +77,4 @@ const CategoriaNova = () => {
   );
 };
 
-export default CategoriaNova;
+export default ProjetoNovo;

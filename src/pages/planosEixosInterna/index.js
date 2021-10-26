@@ -4,17 +4,20 @@ import PEIDesktop from "../../components/planosEixosInterna/Desktop";
 import PEIMobile from "../../components/planosEixosInterna/Mobile";
 import PlanosEixosInternaStyle from "../../styledComponents/planosEixosInternaStyles";
 
-const PlanosEixosInterna = () => {
-  const [error, setError] = useState(false);
+const PlanosEixosInterna = (props) => {
+  const [slug, setSlug] = useState("");
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    const slugProp = props.match.params.slug;
+    setSlug(slugProp);
+  }, []);
 
   return (
     <>
       <PlanosEixosInternaStyle />
       <Layout>
-        <PEIDesktop />
-        <PEIMobile />
+        <PEIDesktop slug={slug} />
+        <PEIMobile slug={slug} />
       </Layout>
     </>
   );

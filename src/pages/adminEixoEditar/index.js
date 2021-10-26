@@ -2,22 +2,25 @@ import React, { useState, useEffect } from "react";
 import HomeStyle from "../../styledComponents/homeStyles";
 import AdminDashboardStyle from "../../styledComponents/adminDashboardStyle";
 import Layout from "../../components/Layout";
-import DashboardProjetos from "../../components/adminDashboard/adminProjetos";
+import DashboardEixoEditar from "../../components/adminDashboard/adminEixoEditar";
 
-const AdminDashboardProjetos = () => {
-  const [error, setError] = useState(false);
+const AdminEixoEditar = (props) => {
+  const [slug, setSlug] = useState("");
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    const slugProp = props.match.params.slug;
+    setSlug(slugProp);
+  }, []);
 
   return (
     <>
       <HomeStyle />
       <AdminDashboardStyle />
       <Layout>
-        <DashboardProjetos />
+        <DashboardEixoEditar slug={slug} />
       </Layout>
     </>
   );
 };
 
-export default AdminDashboardProjetos;
+export default AdminEixoEditar;

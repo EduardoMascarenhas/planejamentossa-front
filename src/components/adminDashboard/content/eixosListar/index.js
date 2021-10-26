@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { FaPlusCircle } from "react-icons/fa";
 import { isAuthenticated, signup } from "../../../../auth";
-import { getCategorias, deleteCategoria } from "../../../../core/apiCore";
+import { getEixos, deleteEixo } from "../../../../core/apiCore";
 import {
   ModalBody,
   ModalFooter,
@@ -12,17 +12,16 @@ import Modal from "react-modal";
 
 Modal.setAppElement("#root");
 
-const DashboardCategoriasListar = () => {
+const DashboardEixosListar = () => {
   const { user, token } = isAuthenticated();
   const [values, setValues] = useState({
-    categorias: [],
+    eixos: [],
     modalName: "",
     modalSlug: "",
     error: "",
     redirectToReferrer: false,
   });
-  const { categorias, modalName, modalSlug, error, redirectToReferrer } =
-    values;
+  const { eixos, modalName, modalSlug, error, redirectToReferrer } = values;
   const [modalIsOpen, setIsOpen] = useState(false);
   const [modalIsOpen2, setIsOpen2] = useState(false);
   function closeModal() {
@@ -59,11 +58,11 @@ const DashboardCategoriasListar = () => {
   };
 
   const destroy = (slug) => {
-    deleteCategoria(slug, user._id, token).then((data) => {
+    deleteEixo(slug, user._id, token).then((data) => {
       if (data.error) {
         console.log(data.error);
       } else {
-        document.location.href = "/admin/categorias";
+        document.location.href = "/admin/eixos";
       }
     });
   };
@@ -76,23 +75,26 @@ const DashboardCategoriasListar = () => {
       {error}
     </div>;
   };
+  const editarEixo = (s) => {
+    document.location.href = `/admin/eixo-${s}`;
+  };
   const redirectUser = () => {
     if (redirectToReferrer) {
       if ((user && user.role === 1) || user.role === 2) {
-        document.location.href = "/admin/categorias";
+        document.location.href = "/admin/eixos";
       } else {
         document.location.href = "/";
       }
     }
   };
   const init = () => {
-    getCategorias().then((data) => {
+    getEixos().then((data) => {
       if (!data) {
-        console.log("A busca de categorias não teve nenhum retorno.");
+        console.log("A busca por eixos não teve nenhum retorno.");
       } else if (data.error) {
         setValues({ ...values, error: data.error });
       } else {
-        setValues({ ...values, categorias: data });
+        setValues({ ...values, eixos: data });
       }
     });
   };
@@ -108,6 +110,9 @@ const DashboardCategoriasListar = () => {
             <th scope="col">
               <strong className="fs-custom">Nome</strong>
             </th>
+            <th scope="col">
+              <strong className="fs-custom">Slug</strong>
+            </th>
             {user.role === 2 ? (
               <th scope="col">
                 <strong className="fs-custom">Ações</strong>
@@ -118,13 +123,14 @@ const DashboardCategoriasListar = () => {
           </tr>
         </thead>
         <tbody>
-          {categorias.map(({ name, slug, _id }, i) => {
+          {eixos.map(({ title, slug, _id }, i) => {
             return (
               <tr key={i}>
                 <th className="td-custom-responsive fs-custom" scope="row">
                   {i + 1}
                 </th>
-                <td className="td-custom-responsive fs-custom">{name}</td>
+                <td className="td-custom-responsive fs-custom">{title}</td>
+                <td className="td-custom-responsive fs-custom">{slug}</td>
                 {user.role === 2 ? (
                   <td className="td-custom-responsive fs-custom">
                     {user._id === _id ? (
@@ -133,8 +139,15 @@ const DashboardCategoriasListar = () => {
                       <div className="div-btns-acoes">
                         <button
                           type="button"
+                          className="btn btn-warning btn-cancelar ml-1 fs-custom"
+                          onClick={() => editarEixo(slug)}
+                        >
+                          Editar
+                        </button>
+                        <button
+                          type="button"
                           className="btn btn-danger btn-cancelar ml-1 fs-custom"
-                          onClick={() => openModal2(name, slug)}
+                          onClick={() => openModal2(title, slug)}
                         >
                           Remover
                         </button>
@@ -191,7 +204,7 @@ const DashboardCategoriasListar = () => {
         <ModalBody>
           <ModalHeader>
             <h2>
-              Deletar Categoria <span className="span-red">{modalName}</span>?
+              Deletar Eixo <span className="span-red">{modalName}</span>?
             </h2>
           </ModalHeader>
           <ModalFooter className="w-f-a">
@@ -220,4 +233,4 @@ const DashboardCategoriasListar = () => {
   );
 };
 
-export default DashboardCategoriasListar;
+export default DashboardEixosListar;

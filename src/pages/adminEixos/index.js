@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import HomeStyle from "../../styledComponents/homeStyles";
 import AdminDashboardStyle from "../../styledComponents/adminDashboardStyle";
 import Layout from "../../components/Layout";
-import DashboardProjetos from "../../components/adminDashboard/adminProjetos";
+import DashboardEixos from "../../components/adminDashboard/adminEixos";
 
-const AdminDashboardProjetos = () => {
+const AdminEixos = () => {
   const [error, setError] = useState(false);
 
   useEffect(() => {}, []);
@@ -14,10 +14,10 @@ const AdminDashboardProjetos = () => {
       <HomeStyle />
       <AdminDashboardStyle />
       <Layout>
-        <DashboardProjetos />
+        <DashboardEixos />
       </Layout>
     </>
   );
 };
 
-export default AdminDashboardProjetos;
+export default AdminEixos;

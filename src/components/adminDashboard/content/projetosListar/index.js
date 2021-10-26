@@ -21,13 +21,7 @@ const DashboardProjetosListar = () => {
     error: "",
     redirectToReferrer: false,
   });
-  const {
-    projetos,
-    modalName,
-    modalSlug,
-    error,
-    redirectToReferrer,
-  } = values;
+  const { projetos, modalName, modalSlug, error, redirectToReferrer } = values;
   const [modalIsOpen, setIsOpen] = useState(false);
   const [modalIsOpen2, setIsOpen2] = useState(false);
   function closeModal() {
@@ -71,11 +65,10 @@ const DashboardProjetosListar = () => {
         document.location.href = "/admin/projetos";
       }
     });
-    
   };
   const showError = () => {
     <div
-      class="alert alert-danger"
+      className="alert alert-danger"
       style={{ display: error ? "" : "none" }}
       role="alert"
     >
@@ -92,7 +85,6 @@ const DashboardProjetosListar = () => {
     }
   };
   const init = () => {
-
     getProjetos().then((data) => {
       if (!data) {
         console.log("A busca de projetos não teve nenhum retorno.");

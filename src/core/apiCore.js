@@ -358,3 +358,70 @@ export const deleteProjeto = (slug, userId, token) => {
     })
     .catch((err) => console.log(err));
 };
+
+export const createEixo = (userId, token, eixo) => {
+  return fetch(`${API}/eixo/criar/${userId}`, {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: eixo,
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
+export const deleteEixo = (slug, userId, token) => {
+  return fetch(`${API}/eixo/${slug}/${userId}`, {
+    method: "DELETE",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .catch((err) => console.log(err));
+};
+
+export const updateEixo = (slug, userId, token, eixo) => {
+  return fetch(`${API}/eixo/${userId}/${slug}`, {
+    method: "PUT",
+    headers: {
+      Accept: "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: eixo,
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .catch((err) => console.log(err));
+};
+
+export const getEixo = (slug) => {
+  return fetch(`${API}/eixo/${slug}`, {
+    method: "GET",
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .catch((err) => console.log(err));
+};
+
+export const getEixos = () => {
+  return fetch(`${API}/eixos`, {
+    method: "GET",
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .catch((err) => console.log(err));
+};

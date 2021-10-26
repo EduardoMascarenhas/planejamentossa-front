@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { getEixo } from "../../core/apiCore";
 import img1 from "../../assets/imgs/Terreiro-de-Jesus---PROPEG_PMS_TDEJESUS_V3.jpg";
 import img2 from "../../assets/imgs/barra-center-interna.svg";
 import img3 from "../../assets/imgs/Ativo 2.png";
@@ -7,7 +8,47 @@ import img5 from "../../assets/imgs/btn-eixo-interna-1.png";
 import img6 from "../../assets/imgs/btn-eixo-interna-2.png";
 import img7 from "../../assets/imgs/btn-eixo-interna-3.png";
 
-const PEIDesktop = () => {
+const PEIDesktop = ({ slug }) => {
+  const [vis, setVis] = useState("");
+  const [met, setMet] = useState("");
+  const [pro, setPro] = useState("");
+  const [values, setValues] = useState({
+    projetos: [],
+    projeto: {},
+    title: "",
+    subTitle: "",
+    visAtivo: true,
+    metAtivo: false,
+    proAtivo: false,
+    error: false,
+    errorMsg: "",
+    redirectToReferrer: false,
+    formData: "",
+  });
+  const { title, visAtivo, metAtivo, proAtivo, subTitle } = values;
+
+  const initEixo = (s) => {
+    getEixo(s).then((data) => {
+      if (!data || data.error) {
+        console.log("Erro ao carregar a notícia");
+      } else {
+        setVis(data.vis);
+        setMet(data.met);
+        setPro(data.pro);
+        setValues({
+          ...values,
+          title: data.title,
+          subTitle: data.subTitle,
+        });
+      }
+    });
+  };
+
+  useEffect(() => {
+    if (slug) {
+      initEixo(slug);
+    }
+  }, [slug]);
   return (
     <main className="h-100 dn-991">
       <div className="container-fluid position-relative pb-5 pt-5 bg-blue-0-deg">
@@ -32,7 +73,8 @@ const PEIDesktop = () => {
         <section className="d-flex pt-5 my-4">
           <div className="container">
             <div className="col-xs-12 col-sm-6 c-color-yellow-light title">
-              CAPITAL DA INOVAÇÃO E DESENVOLVIMENTO INCLUSIVO
+              {" "}
+              {title}
             </div>
             <div className="col-xs-12 col-sm-6"></div>
           </div>
@@ -65,7 +107,20 @@ const PEIDesktop = () => {
                     </div>
                   </div>
                   <div className="text-white position-relative">
-                    <span className="name fw-bold">VISÃO</span>
+                    <span
+                      onClick={() =>
+                        setValues({
+                          ...values,
+                          visAtivo: true,
+                          metAtivo: false,
+                          proAtivo: false,
+                        })
+                      }
+                      className="name fw-bold botao-eixo-interna"
+                      style={visAtivo ? { color: "#48a2da" } : {}}
+                    >
+                      VISÃO
+                    </span>
                   </div>
                 </li>
                 <li
@@ -82,7 +137,20 @@ const PEIDesktop = () => {
                     </div>
                   </div>
                   <div className="text-white position-relative">
-                    <span className="name fw-bold">METAS</span>
+                    <span
+                      onClick={() =>
+                        setValues({
+                          ...values,
+                          metAtivo: true,
+                          visAtivo: false,
+                          proAtivo: false,
+                        })
+                      }
+                      className="name fw-bold botao-eixo-interna"
+                      style={metAtivo ? { color: "#48a2da" } : {}}
+                    >
+                      METAS
+                    </span>
                   </div>
                 </li>
                 <li
@@ -99,7 +167,20 @@ const PEIDesktop = () => {
                     </div>
                   </div>
                   <div className="text-white position-relative">
-                    <span className="name fw-bold">PROJETOS</span>
+                    <span
+                      onClick={() =>
+                        setValues({
+                          ...values,
+                          proAtivo: true,
+                          visAtivo: false,
+                          metAtivo: false,
+                        })
+                      }
+                      className="name fw-bold botao-eixo-interna"
+                      style={proAtivo ? { color: "#48a2da" } : {}}
+                    >
+                      PROJETOS
+                    </span>
                   </div>
                 </li>
               </ul>
@@ -110,57 +191,33 @@ const PEIDesktop = () => {
                   id="conteudo-titulo"
                   className="c-color-yellow-light title-text"
                 >
-                  In non ante sed risus mattis aliquet sit amet vel ex.
+                  {subTitle}
                 </h4>
               </div>
               <div className="scrolling-area mt-3" id="os">
                 <div className="scrolling-element-inside">
                   <div className="container position-relative">
-                    <p className="c-color-grey" id="conteudo-corpo">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Integer accumsan viverra viverra. Sed bibendum sapien et
-                      fermentum lacinia. Proin eu fringilla augue. Phasellus sit
-                      amet lectus dui. Etiam vitae volutpat sem, quis fermentum
-                      elit. Etiam id dignissim massa, a porta leo. Etiam non mi
-                      velit. Cras ultrices dignissim tellus, dictum varius
-                      mauris suscipit a.
-                      <br /> <br />
-                      Sed tincidunt lorem in justo accumsan, sit amet cursus
-                      eros sodales. In hac habitasse platea dictumst. Sed at
-                      nisi sed orci aliquet consequat id et sem. Praesent et
-                      orci luctus, pretium lacus et, imperdiet nisl. Vestibulum
-                      sagittis dolor vitae mauris consequat, placerat lobortis
-                      neque tincidunt. Nam ac leo scelerisque, mollis lectus
-                      quis, convallis sem. Maecenas varius sapien eget nisi
-                      efficitur luctus ac non turpis. Nullam vitae tortor
-                      aliquet leo vulputate imperdiet luctus vel dolor. Cras
-                      vitae efficitur purus, sodales interdum magna. Aliquam
-                      facilisis tempor pharetra.
-                      <br /> <br />
-                      Donec condimentum magna eget hendrerit porta. Sed posuere
-                      quis lorem et sagittis. Duis consequat condimentum sapien
-                      a scelerisque. Nam lacinia fringilla sem eget lacinia.
-                      Fusce ipsum justo, vulputate vel sem id, faucibus
-                      scelerisque libero. Aliquam accumsan justo ac feugiat
-                      commodo. Aenean sit amet lobortis massa. Nunc vel ultrices
-                      diam. Aliquam tincidunt eros ac felis laoreet iaculis.
-                      <br /> <br />
-                      Donec condimentum magna eget hendrerit porta. Sed posuere
-                      quis lorem et sagittis. Duis consequat condimentum sapien
-                      a scelerisque. Nam lacinia fringilla sem eget lacinia.
-                      Fusce ipsum justo, vulputate vel sem id, faucibus
-                      scelerisque libero. Aliquam accumsan justo ac feugiat
-                      commodo. Aenean sit amet lobortis massa. Nunc vel ultrices
-                      diam. Aliquam tincidunt eros ac felis laoreet iaculis.
-                      <br /> <br />
-                      Donec condimentum magna eget hendrerit porta. Sed posuere
-                      quis lorem et sagittis. Duis consequat condimentum sapien
-                      a scelerisque. Nam lacinia fringilla sem eget lacinia.
-                      Fusce ipsum justo, vulputate vel sem id, faucibus
-                      scelerisque libero. Aliquam accumsan justo ac feugiat
-                      commodo. Aenean sit amet lobortis massa. Nunc vel ultrices
-                      diam. Aliquam tincidunt eros ac felis laoreet iaculis.
-                    </p>
+                    {visAtivo ? (
+                      <p
+                        className="c-color-grey text-break"
+                        id="conteudo-corpo"
+                        dangerouslySetInnerHTML={{ __html: vis }}
+                      />
+                    ) : metAtivo ? (
+                      <p
+                        className="c-color-grey text-break"
+                        id="conteudo-corpo"
+                        dangerouslySetInnerHTML={{ __html: met }}
+                      />
+                    ) : proAtivo ? (
+                      <p
+                        className="c-color-grey text-break"
+                        id="conteudo-corpo"
+                        dangerouslySetInnerHTML={{ __html: pro }}
+                      />
+                    ) : (
+                      ""
+                    )}
                   </div>
                 </div>
               </div>

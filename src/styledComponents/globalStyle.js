@@ -171,6 +171,9 @@ display: -webkit-flex;
   display: block;
   margin: 15px auto;
 }
+.botao-eixo-interna{
+  cursor: pointer;
+}
 /*media queries*/
 @media screen and (max-width: 991px) {
   .dn-991 {
