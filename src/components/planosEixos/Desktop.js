@@ -37,7 +37,7 @@ const PEDesktop = () => {
                   <ul className="list-group" id="contact-list">
                     <li
                       className="list-group-item pb-4 px-0 bg-transparent border-0"
-                      onClick={() => redirectTo("/planos-eixos-um")}
+                      onClick={() => redirectTo("/planos-eixos-interna")}
                     >
                       <div className="me-2">
                         <div className="space-thumb">
@@ -56,7 +56,7 @@ const PEDesktop = () => {
                     </li>
                     <li
                       className="list-group-item pb-4 px-0 bg-transparent border-0"
-                      onClick={() => redirectTo("/planos-eixos-dois")}
+                      onClick={() => redirectTo("/planos-eixos-interna")}
                     >
                       <div className="me-2">
                         <div className="space-thumb">
@@ -76,7 +76,7 @@ const PEDesktop = () => {
                     </li>
                     <li
                       className="list-group-item pb-4 px-0 bg-transparent border-0"
-                      onClick={() => redirectTo("/planos-eixos-tres")}
+                      onClick={() => redirectTo("/planos-eixos-interna")}
                     >
                       <div className="me-2">
                         <div className="space-thumb">
@@ -96,7 +96,7 @@ const PEDesktop = () => {
                     </li>
                     <li
                       className="list-group-item pb-4 px-0 bg-transparent border-0"
-                      onClick={() => redirectTo("/planos-eixos-quatro")}
+                      onClick={() => redirectTo("/planos-eixos-interna")}
                     >
                       <div className="me-2">
                         <div className="space-thumb">
@@ -116,7 +116,7 @@ const PEDesktop = () => {
                     </li>
                     <li
                       className="list-group-item pb-4 px-0 bg-transparent border-0"
-                      onClick={() => redirectTo("/planos-eixos-cinco")}
+                      onClick={() => redirectTo("/planos-eixos-interna")}
                     >
                       <div className="me-2">
                         <div className="space-thumb">
@@ -136,7 +136,7 @@ const PEDesktop = () => {
                     </li>
                     <li
                       className="list-group-item pb-4 px-0 bg-transparent border-0"
-                      onClick={() => redirectTo("/planos-eixos-seis")}
+                      onClick={() => redirectTo("/planos-eixos-interna")}
                     >
                       <div className="me-2">
                         <div className="space-thumb">
@@ -156,7 +156,7 @@ const PEDesktop = () => {
                     </li>
                     <li
                       className="list-group-item pb-4 px-0 bg-transparent border-0"
-                      onClick={() => redirectTo("/planos-eixos-sete")}
+                      onClick={() => redirectTo("/planos-eixos-interna")}
                     >
                       <div className="me-2">
                         <div className="space-thumb">
