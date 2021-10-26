@@ -161,7 +161,7 @@ th, td {
   max-width: 515px
 }
 .body-noticia{
-  word-break: break-all;
+  word-break: break-word;
 }
 .body-noticia img {
   max-height: 350px;
