@@ -315,3 +315,46 @@ export const getBlogs = () => {
     })
     .catch((err) => console.log(err));
 };
+
+export const criarProjeto = (userId, token, projeto) => {
+  return fetch(`${API}/projeto/criar/${userId}`, {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify(projeto),
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
+export const getProjetos = () => {
+  return fetch(`${API}/projetos`, {
+    method: "GET",
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .catch((err) => console.log(err));
+};
+
+export const deleteProjeto = (slug, userId, token) => {
+  return fetch(`${API}/projeto/${slug}/${userId}`, {
+    method: "DELETE",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .catch((err) => console.log(err));
+};

@@ -113,10 +113,8 @@ body {
   font-size: 35px;
 }
 .brd-obj-title-planos {
-  display: flex;
-display: -webkit-flex;
+  display: block;
   flex-direction: column;
--webkit-flex-direction: column;
   align-items: flex-end;
   padding-right: 45px;
 }
@@ -500,9 +498,7 @@ display: -webkit-flex;
   .bg-inputs {
     min-height: 50px;
     display: flex;
-display: -webkit-flex;
     flex-direction: column;
--webkit-flex-direction: column;
     justify-content: space-evenly;
   }
   .card {
@@ -639,7 +635,6 @@ display: -webkit-flex;
     padding-left: 55px;
     height: 80px;
     display: flex;
-display: -webkit-flex;
     align-items: center;
     padding-right: 15px;
   }
@@ -726,9 +721,7 @@ display: -webkit-flex;
   .bg-inputs {
     min-height: 50px;
     display: flex;
-display: -webkit-flex;
     flex-direction: column;
--webkit-flex-direction: column;
     justify-content: space-evenly;
   }
   .card {
@@ -860,7 +853,6 @@ display: -webkit-flex;
     padding-left: 30px;
     height: 56px;
     display: flex;
-display: -webkit-flex;
     align-items: center;
     padding-right: 15px;
   }
@@ -1255,7 +1247,6 @@ main > .container {
 .list-group-item {
   display: grid;
   flex-direction: column;
--webkit-flex-direction: column;
   align-items: center;
   grid-template-columns: 95px 1fr;
   cursor: pointer;
@@ -1267,7 +1258,6 @@ main > .container {
 
 .list-title {
   display: flex;
-display: -webkit-flex;
 }
 
 /*custom class*/
@@ -1320,7 +1310,6 @@ display: -webkit-flex;
 }
 .row-flex {
   display: flex;
-display: -webkit-flex;
 }
 .col-um {
   width: 30%;

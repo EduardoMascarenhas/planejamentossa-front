@@ -1672,8 +1672,9 @@ display: -webkit-flex;
 }
 .noticia-corpo p {
   margin: 0;
-  font-weight: 700;
   color: #636366;
+  padding-top: 20px;
+  font-size: 1.4rem;
 }
 .noticia-corpo {
   max-height: 500px;

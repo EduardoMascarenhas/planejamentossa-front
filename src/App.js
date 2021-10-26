@@ -16,6 +16,7 @@ import AdminCategoriaNova from "./pages/adminCategoriaNova";
 import AdminNoticiaNova from "./pages/adminNoticiaNova";
 import AdminNoticias from "./pages/adminNoticias";
 import AdminNoticiaEditar from "./pages/adminNoticiaEditar";
+import AdminDashboardProjetos from "./pages/adminProjetos";
 
 function App() {
   return (
@@ -36,6 +37,16 @@ function App() {
 
         {/**ADMIN ROUTES */}
         <AdminRoute exact path="/admin/dashboard" component={AdminDashboard} />
+        <AdminRoute
+          exact
+          path="/admin/projeto/novo"
+          component={AdminCategoriaNova}
+        />
+        <AdminRoute
+          exact
+          path="/admin/projetos"
+          component={AdminDashboardProjetos}
+        />
         <AdminRoute
           exact
           path="/admin/categoria/nova"
