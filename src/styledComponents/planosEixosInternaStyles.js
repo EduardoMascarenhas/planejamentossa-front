@@ -476,6 +476,7 @@ body {
     min-height: 50px;
     display: flex;
     flex-direction: column;
+-webkit-flex-direction: column;
     justify-content: space-evenly;
   }
   .card {
@@ -702,6 +703,7 @@ body {
     min-height: 50px;
     display: flex;
     flex-direction: column;
+-webkit-flex-direction: column;
     justify-content: space-evenly;
   }
   .card {
@@ -1252,6 +1254,7 @@ body {
   width: 100%;
   display: inline-flex;
   flex-direction: column;
+-webkit-flex-direction: column;
   gap: 5px;
 }
 
@@ -1375,6 +1378,7 @@ body {
 
 .list-group-item-custom {
   flex-direction: column;
+-webkit-flex-direction: column;
   align-items: center;
   grid-template-columns: 95px 1fr;
 }

@@ -35,7 +35,9 @@ th, td {
     margin: auto;
     min-height: inherit;
     display: flex;
+display: -webkit-flex;
     flex-direction: column;
+-webkit-flex-direction: column;
     justify-content: center;
 }
 .form-estiloso{
@@ -120,6 +122,7 @@ th, td {
 }
 .form-cadastro-modal {
   display: flex;
+display: -webkit-flex;
 }
 .form-cadastro-modal input, .form-cadastro-modal button {
   margin: 10px;
@@ -223,7 +226,9 @@ export const GLink = styled.a`
 `;
 export const ModalBody = styled.div`
   display: flex;
+  display: -webkit-flex;
   flex-direction: column;
+  -webkit-flex-direction: column;
   align-items: center;
 `;
 
@@ -251,7 +256,9 @@ export const ModalMeio = styled.div`
   text-align: center;
   position: relative;
   display: flex;
+  display: -webkit-flex;
   flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
   align-content: center;
   align-items: center;
   justify-content: center;
@@ -272,6 +279,7 @@ export const ModalFooter = styled.div`
   text-align: center;
   position: relative;
   display: flex;
+  display: -webkit-flex;
   justify-content: center;
   & button {
     margin: 20px;

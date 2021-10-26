@@ -34,8 +34,10 @@ body.os-dragging * {
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
     flex-direction: column;
+-webkit-flex-direction: column;
     -ms-flex-wrap: nowrap;
     flex-wrap: nowrap;
+-webkit-flex-wrap: nowrap;
     -webkit-box-pack: start;
     -ms-flex-pack: start;
     justify-content: flex-start;
@@ -52,6 +54,7 @@ body.os-dragging * {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    display: -webkit-flex;
 }
 
 .os-host-flexbox>.os-size-auto-observer {
@@ -286,8 +289,9 @@ body.os-dragging * {
 }
 
 .os-resize-observer-host.observed {
-    display: flex;
+    display: -webkit-flex;
     flex-direction: column;
+-webkit-flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
 }
@@ -305,7 +309,7 @@ body.os-dragging * {
 
 .os-resize-observer-host.observed>.os-resize-observer,
 .os-resize-observer-host.observed>.os-resize-observer:before {
-    display: flex;
+    display: -webkit-flex;
     position: relative;
     flex-grow: 1;
     flex-shrink: 0;

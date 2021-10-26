@@ -476,7 +476,9 @@ body {
   .bg-inputs {
     min-height: 50px;
     display: flex;
+display: -webkit-flex;
     flex-direction: column;
+-webkit-flex-direction: column;
     justify-content: space-evenly;
   }
   .card {
@@ -540,6 +542,7 @@ body {
   .navbar > .container-xl,
   .navbar > .container-xxl {
     flex-wrap: initial;
+-webkit-flex-wrap: initial;
   }
   .dots.dots-r {
     top: 53px;
@@ -621,6 +624,7 @@ body {
     padding-left: 30px;
     height: 56px;
     display: flex;
+display: -webkit-flex;
     align-items: center;
     padding-right: 15px;
   }
@@ -707,7 +711,9 @@ body {
   .bg-inputs {
     min-height: 50px;
     display: flex;
+display: -webkit-flex;
     flex-direction: column;
+-webkit-flex-direction: column;
     justify-content: space-evenly;
   }
   .card {
@@ -771,6 +777,7 @@ body {
   .navbar > .container-xl,
   .navbar > .container-xxl {
     flex-wrap: initial;
+-webkit-flex-wrap: initial;
   }
   .dots.dots-r {
     top: 53px;
@@ -852,6 +859,7 @@ body {
     padding-left: 30px;
     height: 56px;
     display: flex;
+display: -webkit-flex;
     align-items: center;
     padding-right: 15px;
   }
@@ -1203,6 +1211,7 @@ body {
   top: 0;
   color: var(--bs-secondary-light);
   display: flex;
+display: -webkit-flex;
   align-items: center;
   justify-content: center;
   font-size: 2rem;
@@ -1309,6 +1318,7 @@ body {
   width: 250px;
   top: -63px;
   display: flex;
+display: -webkit-flex;
   justify-content: center;
   border-top-right-radius: 10px;
   opacity: 0;
@@ -1322,6 +1332,7 @@ body {
 
 .eixos .aba-hover-txt {
   display: flex;
+display: -webkit-flex;
   align-items: center;
   justify-content: center;
   margin-top: -8px;
@@ -1347,6 +1358,7 @@ body {
   position: relative;
   width: 100%;
   display: flex;
+display: -webkit-flex;
   justify-content: space-around;
   align-items: center;
   border-right: 2px solid #ffffff63;
@@ -1389,6 +1401,7 @@ body {
   width: 100%;
   display: inline-flex;
   flex-direction: column;
+-webkit-flex-direction: column;
   gap: 5px;
 }
 
@@ -1571,6 +1584,7 @@ body {
   height: 90px;
   color: #fff;
   display: flex;
+display: -webkit-flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
@@ -1670,7 +1684,9 @@ body {
 }
 .pagina-erro {
   display: flex;
+display: -webkit-flex;
   flex-direction: column;
+-webkit-flex-direction: column;
   align-items: center;
   margin: 30vh 0 30vh 0;
 }

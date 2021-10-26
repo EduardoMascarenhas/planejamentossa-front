@@ -5,6 +5,7 @@ const AdminDashboardStyle = createGlobalStyle`
   min-height: 100vh;
   position: relative;
   display: flex;
+display: -webkit-flex;
 }
 .dashboard-content {
   padding: 2vw;
