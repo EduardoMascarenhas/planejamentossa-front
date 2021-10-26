@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { getEixos } from "../../core/apiCore";
+import { API } from "../../config";
 import img1 from "../../assets/imgs/eixos-planos.svg";
 import img2 from "../../assets/imgs/Terreiro-de-Jesus---PROPEG_PMS_TDEJESUS_V3.jpg";
 import img3 from "../../assets/imgs/02_09_19_Iluminacao_Itapua.jpg";
@@ -76,7 +77,7 @@ const PEDesktop = () => {
                                 }
                               >
                                 <img
-                                  src={`http://localhost:8000/api/eixo/thumb/${e.slug}`}
+                                  src={`${API}/eixo/thumb/${e.slug}`}
                                   alt=""
                                   className="thumbnail rounded-circle"
                                   style={
@@ -106,7 +107,7 @@ const PEDesktop = () => {
             {/**TORNAR DINAMICO COM O HOVER NOS LI's */}
             {eixos && eixos.length ? (
               <img
-                src={`http://localhost:8000/api/eixo/thumb/${eixos[0].slug}`}
+                src={`${API}/eixo/thumb/${eixos[0].slug}`}
                 className="img-content"
                 alt=""
               />

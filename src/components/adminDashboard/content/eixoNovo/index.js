@@ -153,7 +153,6 @@ const EixoNovo = () => {
               onChange={handleChange("subTitle")}
               value={subTitle}
               autoFocus
-              required
             />
           </div>
         </div>
