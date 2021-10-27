@@ -101,7 +101,7 @@ const Sessao1 = () => {
                     </div>
                   </div>
                 </div>
-                <a href="/planos-eixos">
+                <a href="/carta-carta-do-prefeito">
                   <figure className="on-hover">
                     <img
                       src={img9}
@@ -116,7 +116,7 @@ const Sessao1 = () => {
                   </figure>
                 </a>
                 <div className="d-lg-none text-break text-btn-mob-barra">
-                  <a href="/planos-eixos"> CARTA DO PREFEITO </a>
+                  <a href="/carta-carta-do-prefeito"> CARTA DO PREFEITO </a>
                 </div>
               </div>
               <div className="space-button border-0 space-b">

@@ -18,6 +18,7 @@ import AdminNoticias from "./pages/adminNoticias";
 import AdminNoticiaEditar from "./pages/adminNoticiaEditar";
 import AdminDashboardProjetos from "./pages/adminProjetos";
 import AdminProjetoNovo from "./pages/adminProjetoNovo";
+import AdminProjetoEditar from "./pages/adminProjetoEditar";
 import AdminEixos from "./pages/adminEixos";
 import AdminEixoNovo from "./pages/adminEixoNovo";
 import AdminEixoEditar from "./pages/adminEixoEditar";
@@ -55,6 +56,11 @@ function App() {
           exact
           path="/admin/projetos"
           component={AdminDashboardProjetos}
+        />
+        <AdminRoute
+          exact
+          path="/admin/projeto-:slug"
+          component={AdminProjetoEditar}
         />
         <AdminRoute
           exact

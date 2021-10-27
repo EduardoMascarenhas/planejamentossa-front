@@ -46,6 +46,9 @@ const DashboardProjetosListar = () => {
       modalSlug: slug,
     });
   }
+  const editarProjeto = (s) => {
+    document.location.href = `/admin/projeto-${s}`;
+  };
   const customStyles = {
     content: {
       top: "50%",
@@ -130,6 +133,13 @@ const DashboardProjetosListar = () => {
                       " "
                     ) : (
                       <div className="div-btns-acoes">
+                        <button
+                          type="button"
+                          className="btn btn-warning btn-cancelar ml-1 fs-custom"
+                          onClick={() => editarProjeto(slug)}
+                        >
+                          Editar
+                        </button>
                         <button
                           type="button"
                           className="btn btn-danger btn-cancelar ml-1 fs-custom"

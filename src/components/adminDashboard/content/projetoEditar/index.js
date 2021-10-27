@@ -1,25 +1,45 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
+import { API } from "../../../../config";
 import { isAuthenticated } from "../../../../auth";
-import { criarProjeto } from "../../../../core/apiCore";
+import { getProjeto, updateProjeto } from "../../../../core/apiCore";
 import ReactQuill from "react-quill";
 import { QuillModules, QuillFormats } from "../../../../helpers/quill";
 import {} from "../../../../../node_modules/react-quill/dist/quill.snow.css";
 
-const ProjetoNovo = () => {
+const ProjetoEditar = ({ slug }) => {
   const { user, token } = isAuthenticated();
   const [body, setBody] = useState("");
   const [values, setValues] = useState({
+    selectedValues: [],
+    projeto: {},
     name: "",
     subTitle: "",
+    error: false,
+    errorMsg: "",
+    redirectToReferrer: false,
     formData: "",
   });
-  const [error, setError] = useState("");
-  const [redirectToReferrer, setRedirectToReferrer] = useState(false);
-
-  const { name, subTitle, formData } = values;
-
+  const {
+    projeto,
+    selectedValues,
+    name,
+    subTitle,
+    error,
+    errorMsg,
+    formData,
+    redirectToReferrer,
+  } = values;
+  const handleBody = (e) => {
+    console.log(e);
+    setBody(e);
+    formData.set("body", e);
+    if (typeof window !== "undefined") {
+      localStorage.setItem("projeto", JSON.stringify(e));
+    }
+  };
   const handleChange = (name) => (event) => {
     const value = name === "thumb" ? event.target.files[0] : event.target.value;
+
     setValues({ ...values, [name]: value });
     formData.set(name, value);
   };
@@ -30,7 +50,7 @@ const ProjetoNovo = () => {
         style={{ display: error ? "" : "none" }}
         role="alert"
       >
-        {error}
+        {errorMsg}
       </div>
     );
   };
@@ -45,38 +65,49 @@ const ProjetoNovo = () => {
   };
   const clickSubmit = (e) => {
     e.preventDefault();
-    setError("");
-    // make request to api to create Projeto
-    criarProjeto(user._id, token, formData).then((data) => {
-      if (data.error || !data) {
-        setError(data.error);
+    updateProjeto(slug, user._id, token, formData).then((data) => {
+      if (data.error) {
+        setValues({ ...values, error: true, errorMsg: data.error });
       } else {
-        setError("");
-        setRedirectToReferrer(true);
+        setValues({ ...values, error: false, redirectToReferrer: true });
+      }
+    });
+    document.location.href = "/admin/projetos";
+  };
+  const init = () => {
+    setValues({
+      ...values,
+      formData: new FormData(),
+    });
+  };
+  const initProjeto = (s) => {
+    getProjeto(s).then((data) => {
+      if (!data || data.error) {
+        console.log("Erro ao carregar o projeto");
+      } else {
+        setBody(data.body);
+        setValues({
+          ...values,
+          name: data.name,
+          subTitle: data.subTitle,
+        });
       }
     });
   };
-  const handleBody = (e) => {
-    // console.log(e);
-    setBody(e);
-    formData.set("body", e);
-    if (typeof window !== "undefined") {
-      localStorage.setItem("noticia", JSON.stringify(e));
-    }
-  };
-  const init = () => {
-    setValues({ ...values, formData: new FormData() });
-  };
+
   useEffect(() => {
     init();
-  }, []);
+    if (slug) {
+      initProjeto(slug);
+    }
+  }, [slug]);
+
   return (
     <div className="dashboard-content">
-      {showError()}
       {redirectUser()}
       <form className="form-dashboard p-3" onSubmit={clickSubmit}>
         <div className="text-center">
-          <h1>Criar novo Projeto</h1>
+          <h1>Editar Projeto</h1>
         </div>
         <div className="col-12 d-flex">
           <div className="col-6 p-2">
@@ -84,7 +115,7 @@ const ProjetoNovo = () => {
             <input
               type="text"
               className="form-control"
-              placeholder="Título da Notícia"
+              placeholder="Título da Projeto"
               onChange={handleChange("name")}
               value={name}
               autoFocus
@@ -97,7 +128,7 @@ const ProjetoNovo = () => {
             <input
               type="text"
               className="form-control"
-              placeholder="Sub Título da Notícia"
+              placeholder="Sub Título da Projeto"
               onChange={handleChange("subTitle")}
               value={subTitle}
               autoFocus
@@ -109,7 +140,7 @@ const ProjetoNovo = () => {
             modules={QuillModules}
             formats={QuillFormats}
             value={body}
-            placeholder="Corpo da Notícia..."
+            placeholder="Corpo do Projeto..."
             onChange={handleBody}
           />
         </div>
@@ -123,7 +154,7 @@ const ProjetoNovo = () => {
             className="btn btn-info btn-editar mr-1 fs-custom"
           >
             {" "}
-            Criar nova Notícia
+            Editar Projeto
           </button>
         </h3>
       </form>
@@ -131,4 +162,4 @@ const ProjetoNovo = () => {
   );
 };
 
-export default ProjetoNovo;
+export default ProjetoEditar;

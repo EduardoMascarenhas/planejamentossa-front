@@ -316,15 +316,37 @@ export const getBlogs = () => {
     .catch((err) => console.log(err));
 };
 
+export const getProjeto = (slug) => {
+  return fetch(`${API}/projeto/${slug}`, {
+    method: "GET",
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .catch((err) => console.log(err));
+};
+export const updateProjeto = (slug, userId, token, projeto) => {
+  return fetch(`${API}/projeto/${userId}/${slug}`, {
+    method: "PUT",
+    headers: {
+      Accept: "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: projeto,
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .catch((err) => console.log(err));
+};
 export const criarProjeto = (userId, token, projeto) => {
   return fetch(`${API}/projeto/criar/${userId}`, {
     method: "POST",
     headers: {
       Accept: "application/json",
-      "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
     },
-    body: JSON.stringify(projeto),
+    body: projeto,
   })
     .then((response) => {
       return response.json();
