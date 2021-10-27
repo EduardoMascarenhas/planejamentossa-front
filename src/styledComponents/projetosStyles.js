@@ -1590,8 +1590,7 @@ body {
 .div-voltar {
   display: flex;
   justify-content: center;
-  padding-top: 35px;
-  height: 150px;
+  height: 115px;
 }
 .dots-voltar {
   max-height: 10px;
@@ -1712,6 +1711,9 @@ body {
 @media screen and (max-width: 600px) {
   #contact-list {
     gap: 0;
+  }
+  .div-titulo-projeto h1{
+    font-size: 2rem;
   }
 }
 @media screen and (max-width: 500px) {
