@@ -449,7 +449,7 @@ body {
 
 @media (min-width: 1920px) {
   #contact-list {
-    max-width: 500px; 
+    max-width: 500px!important; 
   }
 }
 @media (min-width: 1440px) {
