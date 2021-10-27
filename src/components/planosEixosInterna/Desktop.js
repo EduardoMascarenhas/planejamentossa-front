@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { API } from "../../config";
 import { getEixo } from "../../core/apiCore";
 import img1 from "../../assets/imgs/Terreiro-de-Jesus---PROPEG_PMS_TDEJESUS_V3.jpg";
 import img2 from "../../assets/imgs/barra-center-interna.svg";
@@ -56,7 +57,11 @@ const PEIDesktop = ({ slug }) => {
         <section className="position-relative bar-yellow c-bgc-yellow-light">
           <div className="container position-relative d-flex align-items-center justify-content-center">
             <div className="space-thumb">
-              <img src={img1} alt="" className="thumbnail rounded-circle" />
+              <img
+                src={`${API}/eixo/thumb/${slug}`}
+                alt=""
+                className="thumbnail rounded-circle"
+              />
             </div>
             <object
               type="image/svg+xml"

@@ -174,6 +174,9 @@ display: -webkit-flex;
 .botao-eixo-interna{
   cursor: pointer;
 }
+#conteudo-corpo p br {
+    display: none;
+}
 /*media queries*/
 @media screen and (max-width: 991px) {
   .dn-991 {
@@ -297,6 +300,11 @@ export const ModalFooter = styled.div`
     & button {
       margin: 5px;
     }
+  }
+`;
+export const DivBorderDynamic = styled.div.attrs((props) => props)`
+  &::after {
+    background: ${(props) => props.color}!important;
   }
 `;
 export default GlobalStyle;

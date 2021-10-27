@@ -133,6 +133,7 @@ const NoticiaEditar = ({ slug }) => {
         setValues({
           ...values,
           title: data.title,
+          selectedValues: data.categories,
           subTitle: data.subTitle,
           categories: data.categories,
         });

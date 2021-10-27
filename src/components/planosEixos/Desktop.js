@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { getEixos } from "../../core/apiCore";
+import { DivBorderDynamic } from "../../styledComponents/globalStyle";
 import { API } from "../../config";
 import img1 from "../../assets/imgs/eixos-planos.svg";
 import img2 from "../../assets/imgs/Terreiro-de-Jesus---PROPEG_PMS_TDEJESUS_V3.jpg";
@@ -12,10 +13,11 @@ const PEDesktop = () => {
 
   const [values, setValues] = useState({
     eixos: [],
+    slug: "",
     borderDinamica: false,
     borderDinamicaColor: "",
   });
-  const { eixos, borderDinamica, borderDinamicaColor } = values;
+  const { eixos, slug, borderDinamica, borderDinamicaColor } = values;
 
   const initEixos = () => {
     getEixos().then((data) => {
@@ -26,8 +28,13 @@ const PEDesktop = () => {
       }
     });
   };
-  const changeBorder = (bc) => {
-    setValues({ ...values, borderDinamica: true, borderDinamicaColor: bc });
+  const changeBorder = (bc, sl) => {
+    setValues({
+      ...values,
+      borderDinamica: true,
+      borderDinamicaColor: bc,
+      slug: sl,
+    });
   };
   useEffect(() => {
     initEixos();
@@ -36,7 +43,11 @@ const PEDesktop = () => {
     <main className="dn-991">
       <div className="row">
         <div className="col-12 d-flex">
-          <div className="col-5 bg-blue-0-deg brd-pink" id="brd-pink">
+          <DivBorderDynamic
+            className="col-5 bg-blue-0-deg brd-pink"
+            color={borderDinamicaColor}
+            id="brd-pink"
+          >
             <div className="col-12 pt-4 position-relative">
               <div className="conheca-bg-top bg-pink-b d-flex">Conheça</div>
               <div className="div-button-voltar">
@@ -73,20 +84,14 @@ const PEDesktop = () => {
                               <div
                                 className="space-thumb"
                                 onMouseOver={() =>
-                                  changeBorder(`${e.borderColor}`)
+                                  changeBorder(`${e.borderColor}`, `${e.slug}`)
                                 }
                               >
                                 <img
                                   src={`${API}/eixo/thumb/${e.slug}`}
                                   alt=""
                                   className="thumbnail rounded-circle"
-                                  style={
-                                    borderDinamica
-                                      ? {
-                                          background: `${borderDinamicaColor}!important`,
-                                        }
-                                      : {}
-                                  }
+                                  style={{ background: `${e.borderColor}` }}
                                 />
                               </div>
                             </div>
@@ -102,17 +107,25 @@ const PEDesktop = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </DivBorderDynamic>
           <div className="col-7">
             {/**TORNAR DINAMICO COM O HOVER NOS LI's */}
-            {eixos && eixos.length ? (
+            {slug === "" ? (
+              eixos && eixos.length ? (
+                <img
+                  src={`${API}/eixo/thumb/${eixos[0].slug}`}
+                  className="img-content"
+                  alt=""
+                />
+              ) : (
+                ""
+              )
+            ) : (
               <img
-                src={`${API}/eixo/thumb/${eixos[0].slug}`}
+                src={`${API}/eixo/thumb/${slug}`}
                 className="img-content"
                 alt=""
               />
-            ) : (
-              <img src={img2} className="img-content" alt="" />
             )}
           </div>
         </div>

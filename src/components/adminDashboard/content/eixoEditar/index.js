@@ -23,6 +23,7 @@ const EixoEditar = ({ slug }) => {
     selectedValues: [],
     projeto: {},
     title: "",
+    borderColor: "",
     subTitle: "",
     error: false,
     errorMsg: "",
@@ -33,6 +34,7 @@ const EixoEditar = ({ slug }) => {
     projetos,
     projetos2,
     projeto,
+    borderColor,
     selectedValues,
     title,
     subTitle,
@@ -153,6 +155,8 @@ const EixoEditar = ({ slug }) => {
         setValues({
           ...values,
           title: data.title,
+          selectedValues: data.projetos,
+          borderColor: data.borderColor,
           subTitle: data.subTitle,
           projetos2: data.projetos2,
         });
@@ -200,6 +204,22 @@ const EixoEditar = ({ slug }) => {
               required
             />
           </div>
+        </div>
+        <div className="col-12 d-flex">
+          <div className="col-6 p-2">
+            <span>Cor da borda</span>
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Cor da borda"
+              onChange={handleChange("borderColor")}
+              value={borderColor}
+              autoFocus
+              required
+            />
+          </div>
+
+          <div className="col-6 p-2"></div>
         </div>
         <div className="col-12 d-flex form-novo-noticia-thumb">
           <div className="img-thumb-editar">
