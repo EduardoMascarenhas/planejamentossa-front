@@ -177,6 +177,9 @@ display: -webkit-flex;
 #conteudo-corpo p br {
     display: none;
 }
+#conteudo-corpo h5 {
+    color: #fcb831;
+}
 /*media queries*/
 @media screen and (max-width: 991px) {
   .dn-991 {
