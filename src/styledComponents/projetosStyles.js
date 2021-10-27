@@ -1644,7 +1644,7 @@ body {
   margin-top: -50px;
   margin-bottom: 70px;
   text-align: center;
-  font-size: 4vw;
+  font-size: 3rem;
 }
 .bar-yellow-projetos {
   min-height: 0px;
