@@ -63,7 +63,7 @@ const CartaPrefeito = ({ slug }) => {
             <h3>{subTitle}</h3>
             <h1>{title}</h1>
             <p>{postedBy}</p>
-            <p>{moment(createdAt).format("HH:mm / DD-MM-YYYY")}</p>
+            <p>{moment(createdAt).format("DD-MM-YYYY")}</p>
           </div>
           <div className="noticia-corpo scrolling-area mt-4" id="os">
             <div className="ltr">
