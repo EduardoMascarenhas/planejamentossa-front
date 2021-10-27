@@ -87,6 +87,9 @@ const DashboardProjetosListar = () => {
       }
     }
   };
+  const redirectTo = (link) => {
+    document.location.href = link;
+  };
   const init = () => {
     getProjetos().then((data) => {
       if (!data) {
@@ -103,6 +106,15 @@ const DashboardProjetosListar = () => {
   }, []);
   return (
     <div className="dashboard-content">
+      <div>
+        <button
+          type="button"
+          className="btn btn-info btn-editar mr-1 fs-custom"
+          onClick={() => redirectTo("/admin/projeto/novo")}
+        >
+          <FaPlusCircle /> Novo Projeto
+        </button>
+      </div>
       <table className="table table-striped table-hover table-responsive">
         <thead>
           <tr>

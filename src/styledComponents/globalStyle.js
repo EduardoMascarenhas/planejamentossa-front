@@ -134,7 +134,7 @@ display: -webkit-flex;
   left: 10px
 }
 .fs-custom{
-  font-size: 1.5vw;
+  font-size: 1rem;
 }
 .link-sidebar-admin{
   color: #000;
@@ -185,14 +185,8 @@ display: -webkit-flex;
   .dn-991 {
     display: none;
   }
-  .fs-custom{
-  font-size: 2vw;
-}
 }
 @media screen and (max-width: 768px) {
-  .fs-custom{
-  font-size: 2.5vw;
-  }
   .div-btns-acoes{
     text-align: center
   }
@@ -222,11 +216,6 @@ display: -webkit-flex;
   }
   .ReactModal__Content.ReactModal__Content--after-open{
     padding: 5px!important;
-  }
-}
-@media screen and (max-width: 425px){
-  .fs-custom{
-  font-size: 3vw;
   }
 }
 `;

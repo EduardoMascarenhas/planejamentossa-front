@@ -87,6 +87,9 @@ const DashboardEixosListar = () => {
       }
     }
   };
+  const redirectTo = (link) => {
+    document.location.href = link;
+  };
   const init = () => {
     getEixos().then((data) => {
       if (!data) {
@@ -103,6 +106,15 @@ const DashboardEixosListar = () => {
   }, []);
   return (
     <div className="dashboard-content">
+      <div>
+        <button
+          type="button"
+          className="btn btn-info btn-editar mr-1 fs-custom"
+          onClick={() => redirectTo("/admin/eixo/novo")}
+        >
+          <FaPlusCircle /> Novo Eixo
+        </button>
+      </div>
       <table className="table table-striped table-hover table-responsive">
         <thead>
           <tr>

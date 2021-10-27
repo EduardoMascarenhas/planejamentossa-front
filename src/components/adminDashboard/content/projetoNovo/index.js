@@ -84,7 +84,7 @@ const ProjetoNovo = () => {
             <input
               type="text"
               className="form-control"
-              placeholder="Título da Notícia"
+              placeholder="Título do Projeto"
               onChange={handleChange("name")}
               value={name}
               autoFocus
@@ -97,7 +97,7 @@ const ProjetoNovo = () => {
             <input
               type="text"
               className="form-control"
-              placeholder="Sub Título da Notícia"
+              placeholder="Sub Título do Projeto"
               onChange={handleChange("subTitle")}
               value={subTitle}
               autoFocus
@@ -109,7 +109,7 @@ const ProjetoNovo = () => {
             modules={QuillModules}
             formats={QuillFormats}
             value={body}
-            placeholder="Corpo da Notícia..."
+            placeholder="Corpo do Projeto..."
             onChange={handleBody}
           />
         </div>
@@ -123,7 +123,7 @@ const ProjetoNovo = () => {
             className="btn btn-info btn-editar mr-1 fs-custom"
           >
             {" "}
-            Criar nova Notícia
+            Criar novo Projeto
           </button>
         </h3>
       </form>

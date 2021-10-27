@@ -115,7 +115,7 @@ const ProjetoEditar = ({ slug }) => {
             <input
               type="text"
               className="form-control"
-              placeholder="Título da Projeto"
+              placeholder="Título do Projeto"
               onChange={handleChange("name")}
               value={name}
               autoFocus
@@ -128,7 +128,7 @@ const ProjetoEditar = ({ slug }) => {
             <input
               type="text"
               className="form-control"
-              placeholder="Sub Título da Projeto"
+              placeholder="Sub Título do Projeto"
               onChange={handleChange("subTitle")}
               value={subTitle}
               autoFocus

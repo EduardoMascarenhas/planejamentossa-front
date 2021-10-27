@@ -85,6 +85,9 @@ const DashboardCategoriasListar = () => {
       }
     }
   };
+  const redirectTo = (link) => {
+    document.location.href = link;
+  };
   const init = () => {
     getCategorias().then((data) => {
       if (!data) {
@@ -101,6 +104,15 @@ const DashboardCategoriasListar = () => {
   }, []);
   return (
     <div className="dashboard-content">
+      <div>
+        <button
+          type="button"
+          className="btn btn-info btn-editar mr-1 fs-custom"
+          onClick={() => redirectTo("/admin/categoria/nova")}
+        >
+          <FaPlusCircle /> Nova Categoria
+        </button>
+      </div>
       <table className="table table-striped table-hover table-responsive">
         <thead>
           <tr>

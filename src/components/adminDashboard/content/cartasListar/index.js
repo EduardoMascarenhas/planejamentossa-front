@@ -87,6 +87,9 @@ const DashboardCartasListar = () => {
       }
     }
   };
+  const redirectTo = (link) => {
+    document.location.href = link;
+  };
   const init = () => {
     getCartas().then((data) => {
       if (!data) {
@@ -103,6 +106,15 @@ const DashboardCartasListar = () => {
   }, []);
   return (
     <div className="dashboard-content">
+      <div>
+        <button
+          type="button"
+          className="btn btn-info btn-editar mr-1 fs-custom"
+          onClick={() => redirectTo("/admin/carta/nova")}
+        >
+          <FaPlusCircle /> Nova Carta
+        </button>
+      </div>
       <table className="table table-striped table-hover table-responsive">
         <thead>
           <tr>

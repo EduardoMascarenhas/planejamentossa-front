@@ -21,13 +21,7 @@ const DashboardNoticiasListar = () => {
     error: "",
     redirectToReferrer: false,
   });
-  const {
-    noticias,
-    modalName,
-    modalSlug,
-    error,
-    redirectToReferrer,
-  } = values;
+  const { noticias, modalName, modalSlug, error, redirectToReferrer } = values;
   const [modalIsOpen, setIsOpen] = useState(false);
   const [modalIsOpen2, setIsOpen2] = useState(false);
   function closeModal() {
@@ -71,7 +65,6 @@ const DashboardNoticiasListar = () => {
         document.location.href = "/admin/noticias";
       }
     });
-    
   };
   const showError = () => {
     <div
@@ -94,8 +87,10 @@ const DashboardNoticiasListar = () => {
       }
     }
   };
+  const redirectTo = (link) => {
+    document.location.href = link;
+  };
   const init = () => {
-
     getBlogs().then((data) => {
       if (!data) {
         console.log("A busca por notícias não teve nenhum retorno.");
@@ -111,6 +106,15 @@ const DashboardNoticiasListar = () => {
   }, []);
   return (
     <div className="dashboard-content">
+      <div>
+        <button
+          type="button"
+          className="btn btn-info btn-editar mr-1 fs-custom"
+          onClick={() => redirectTo("/admin/noticia/nova")}
+        >
+          <FaPlusCircle /> Nova Noticia
+        </button>
+      </div>
       <table className="table table-striped table-hover table-responsive">
         <thead>
           <tr>
