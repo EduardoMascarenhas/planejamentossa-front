@@ -447,6 +447,11 @@ body {
   }
 }
 
+@media (min-width: 1920px) {
+  #contact-list {
+    max-width: 500px; 
+  }
+}
 @media (min-width: 1440px) {
   #brd-image img {
     width: 90vw;
@@ -1356,13 +1361,13 @@ main > .container {
 }
 @media screen and (min-width: 992px) {
   .obj-title-planos {
-    max-width: 20vw;
+    max-width: 18em;
     margin-top: 1rem;
   }
   .brd-obj-title-planos:after {
     height: 3px;
     display: block;
-    width: 20vw;
+    width: 18em;
     background: #0179c0;
     border-radius: 10px;
     content: "";

@@ -24,7 +24,7 @@ const PEIMobile = ({ slug }) => {
     redirectToReferrer: false,
     formData: "",
   });
-  const { title, visAtivo, metAtivo, proAtivo, subTitle } = values;
+  const { title, projetos, visAtivo, metAtivo, proAtivo, subTitle } = values;
 
   const initEixo = (s) => {
     getEixo(s).then((data) => {
@@ -38,9 +38,13 @@ const PEIMobile = ({ slug }) => {
           ...values,
           title: data.title,
           subTitle: data.subTitle,
+          projetos: data.projetos,
         });
       }
     });
+  };
+  const abrirProjeto = (s) => {
+    window.location.href = `/projeto-${s}`;
   };
 
   useEffect(() => {
@@ -240,10 +244,21 @@ const PEIMobile = ({ slug }) => {
                       />
                     ) : proAtivo ? (
                       <p
-                        className="c-color-grey text-break"
+                        className="c-color-grey text-break text-uppercase"
                         id="conteudo-corpo"
-                        dangerouslySetInnerHTML={{ __html: pro }}
-                      />
+                      >
+                        {projetos.map(({ name, slug }, i) => {
+                          return (
+                            <h5
+                              key={i}
+                              onClick={() => abrirProjeto(slug)}
+                              className="cursor-pointer-custom"
+                            >
+                              {name}
+                            </h5>
+                          );
+                        })}
+                      </p>
                     ) : (
                       ""
                     )}

@@ -18,7 +18,9 @@ const PDesktop = ({ slug }) => {
       }
     });
   };
-
+  const paginaAnterior = () => {
+    console.log(window.history.back());
+  };
   useEffect(() => {
     init(slug);
   }, [slug]);
@@ -31,7 +33,7 @@ const PDesktop = ({ slug }) => {
           </div>
           <button className="button-voltar">
             {" "}
-            <a href="/planos-eixos">
+            <a href="#" onClick={() => paginaAnterior()}>
               Voltar <i className="fas fa-arrow-left"></i>
             </a>{" "}
           </button>
