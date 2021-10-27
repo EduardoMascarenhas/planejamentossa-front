@@ -131,7 +131,6 @@ const ProjetoEditar = ({ slug }) => {
               placeholder="Sub Título do Projeto"
               onChange={handleChange("subTitle")}
               value={subTitle}
-              autoFocus
             />
           </div>
         </div>

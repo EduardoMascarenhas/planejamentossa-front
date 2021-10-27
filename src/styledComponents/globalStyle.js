@@ -136,6 +136,15 @@ display: -webkit-flex;
 .fs-custom{
   font-size: 1rem;
 }
+.ql-editor{
+  height: 25vh!important;
+}
+.cursor-pointer-custom{
+  cursor: pointer;
+}
+.cursor-pointer-custom:hover {
+  color: #00306e!important;
+}
 .link-sidebar-admin{
   color: #000;
 }

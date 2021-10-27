@@ -37,7 +37,7 @@ function App() {
         <Route path="/noticia-:slug" exact component={Noticia} />
         <Route path="/carta-:slug" exact component={CartaPrefeito} />
         <Route path="/planos-eixos" exact component={PlanosEixos} />
-        <Route path="/projeto" exact component={Projeto} />
+        <Route path="/projeto-:slug" exact component={Projeto} />
         <Route
           path="/planos-eixos-:slug"
           exact

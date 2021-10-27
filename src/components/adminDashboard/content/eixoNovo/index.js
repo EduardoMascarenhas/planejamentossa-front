@@ -152,7 +152,6 @@ const EixoNovo = () => {
               placeholder="Sub Título do Eixo"
               onChange={handleChange("subTitle")}
               value={subTitle}
-              autoFocus
             />
           </div>
         </div>
@@ -165,7 +164,6 @@ const EixoNovo = () => {
               placeholder="Cor da borda"
               onChange={handleChange("borderColor")}
               value={borderColor}
-              autoFocus
               required
             />
           </div>

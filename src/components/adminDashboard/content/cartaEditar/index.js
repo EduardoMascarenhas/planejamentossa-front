@@ -132,7 +132,6 @@ const CartaEditar = ({ slug }) => {
               placeholder="Sub Título da Carta"
               onChange={handleChange("subTitle")}
               value={subTitle}
-              autoFocus
             />
           </div>
         </div>

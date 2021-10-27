@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { FaPlusCircle } from "react-icons/fa";
+import { Pagination } from "antd";
 import { isAuthenticated, signup } from "../../../../auth";
 import { getProjetos, deleteProjeto } from "../../../../core/apiCore";
 import {
