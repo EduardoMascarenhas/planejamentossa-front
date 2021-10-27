@@ -176,7 +176,7 @@ const EixoEditar = ({ slug }) => {
       {redirectUser()}
       <form className="form-dashboard p-3" onSubmit={clickSubmit}>
         <div className="text-center">
-          <h1>Editar novo Eixo</h1>
+          <h1>Editar Eixo</h1>
         </div>
         <div className="col-12 d-flex">
           <div className="col-6 p-2">

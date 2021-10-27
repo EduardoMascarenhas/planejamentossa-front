@@ -97,6 +97,29 @@ const DashboardSidebar = () => {
             </NavText>
           </NavItem>
         </NavItem>
+        <NavItem eventKey="cartas">
+          <NavIcon>
+            <FaRegNewspaper className="side-dash-ico" />
+          </NavIcon>
+          <NavText>
+            Cartas
+            <FaAngleDown />
+          </NavText>
+          <NavItem eventKey="/admin/carta/nova">
+            <NavText>
+              <a className="link-sidebar-admin" href="/admin/carta/nova">
+                Nova Carta
+              </a>
+            </NavText>
+          </NavItem>
+          <NavItem eventKey="/admin/cartas">
+            <NavText>
+              <a className="link-sidebar-admin" href="/admin/cartas">
+                Listar cartas
+              </a>
+            </NavText>
+          </NavItem>
+        </NavItem>
         <NavItem eventKey="eixos">
           <NavIcon>
             <FaCog className="side-dash-ico" />

@@ -21,6 +21,10 @@ import AdminProjetoNovo from "./pages/adminProjetoNovo";
 import AdminEixos from "./pages/adminEixos";
 import AdminEixoNovo from "./pages/adminEixoNovo";
 import AdminEixoEditar from "./pages/adminEixoEditar";
+import CartaPrefeito from "./pages/cartaPrefeito";
+import AdminCartaNova from "./pages/adminCartaNova";
+import AdminCartas from "./pages/adminCartas";
+import AdminCartaEditar from "./pages/adminCartaEditar";
 
 function App() {
   return (
@@ -30,6 +34,7 @@ function App() {
         {/**GLOBAL ROUTES */}
         <Route path="/" exact component={Home} />
         <Route path="/noticia-:slug" exact component={Noticia} />
+        <Route path="/carta-:slug" exact component={CartaPrefeito} />
         <Route path="/planos-eixos" exact component={PlanosEixos} />
         <Route path="/projeto" exact component={Projeto} />
         <Route
@@ -71,6 +76,14 @@ function App() {
           exact
           path="/admin/noticia-:slug"
           component={AdminNoticiaEditar}
+        />
+
+        <AdminRoute exact path="/admin/carta/nova" component={AdminCartaNova} />
+        <AdminRoute exact path="/admin/cartas" component={AdminCartas} />
+        <AdminRoute
+          exact
+          path="/admin/carta-:slug"
+          component={AdminCartaEditar}
         />
 
         <AdminRoute exact path="/admin/eixo/novo" component={AdminEixoNovo} />

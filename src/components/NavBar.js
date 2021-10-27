@@ -1,6 +1,7 @@
 import React from "react";
 import logoNav from "../assets/imgs/logo-topo-home.png";
 import dotAtivo2 from "../assets/imgs/Ativo 2.png";
+import livroPDF from "../assets/files/Livro_PlanejamentoEstrategico_SSA.pdf";
 import { isAuthenticated, signout } from "../auth";
 
 const NavBar = () => {
@@ -31,7 +32,7 @@ const NavBar = () => {
                   </a>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="/planos-eixos">
+                  <a className="dropdown-item" href="/carta-carta-do-prefeito">
                     CARTA DO PREFEITO
                   </a>
                 </li>
@@ -51,7 +52,12 @@ const NavBar = () => {
                   </a>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="/planos-eixos">
+                  <a
+                    className="dropdown-item"
+                    href={livroPDF}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                  >
                     LIVRO EM PDF
                   </a>
                 </li>
