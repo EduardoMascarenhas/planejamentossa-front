@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { getCarta } from "../../core/apiCore";
 import { API } from "../../config";
+import moment from "moment";
 import img1 from "../../assets/imgs/img-noticia-1.png";
 
 const CartaPrefeito = ({ slug }) => {
@@ -62,7 +63,7 @@ const CartaPrefeito = ({ slug }) => {
             <h3>{subTitle}</h3>
             <h1>{title}</h1>
             <p>{postedBy}</p>
-            <p>{createdAt}</p>
+            <p>{moment(createdAt).format("HH:mm / DD-MM-YYYY")}</p>
           </div>
           <div className="noticia-corpo scrolling-area mt-4" id="os">
             <div className="ltr">

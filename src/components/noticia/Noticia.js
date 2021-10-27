@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { getBlog } from "../../core/apiCore";
 import { API } from "../../config";
+import moment from "moment";
 import img1 from "../../assets/imgs/img-noticia-1.png";
 
 const noticias = {
@@ -75,7 +76,7 @@ const Noticia = ({ slug }) => {
             <h3>{subTitle}</h3>
             <h1>{title}</h1>
             <p>{postedBy}</p>
-            <p>{noticias.createdAt}</p>
+            <p>{moment(createdAt).format("HH:mm / DD-MM-YYYY")}</p>
           </div>
           <div className="noticia-corpo scrolling-area mt-4" id="os">
             <div className="ltr">
