@@ -1565,7 +1565,7 @@ display: -webkit-flex;
 .scrolling-area {
   max-height: 350px;
   overflow: auto;
-  padding: 1rem;
+  padding: 0.5rem;
   direction: rtl;
 }
 

@@ -148,6 +148,12 @@ display: -webkit-flex;
 .link-sidebar-admin{
   color: #000;
 }
+.conteudo-corpo-2 p br {
+  display: none;
+}
+.conteudo-corpo-2 p img {
+  width: 100%;
+}
 .form-dashboard{
   max-width: calc(85vw - 65px);
   margin: auto;

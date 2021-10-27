@@ -1490,7 +1490,7 @@ body {
 .scrolling-area {
   max-height: 450px;
   overflow: auto;
-  padding: 1rem;
+  padding: 0.5rem;
 }
 
 .itens-news div {

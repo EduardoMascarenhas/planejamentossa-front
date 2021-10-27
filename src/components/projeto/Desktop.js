@@ -52,7 +52,7 @@ const PDesktop = ({ slug }) => {
         </section>
       </div>
       <div className="container-fluid position-relative content-center p0-991">
-        <div className="container container-eixos-interna">
+        <div className="container-eixos-interna">
           <div className="row">
             <div className="col-12 position-relative pb-5 mb-5 corpo">
               <div className="scrolling-area mt-3" id="os">
