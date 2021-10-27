@@ -100,7 +100,16 @@ const PEIMobile = ({ slug }) => {
                   className="list-group-item list-group-item-custom pb-5 px-0 bg-transparent border-0 text-center"
                 >
                   <div>
-                    <div>
+                    <div
+                      onClick={() =>
+                        setValues({
+                          ...values,
+                          proAtivo: false,
+                          visAtivo: true,
+                          metAtivo: false,
+                        })
+                      }
+                    >
                       <img
                         src={img3}
                         alt=""
@@ -130,7 +139,16 @@ const PEIMobile = ({ slug }) => {
                   className="list-group-item list-group-item-custom pb-5 px-0 bg-transparent border-0 text-center"
                 >
                   <div>
-                    <div>
+                    <div
+                      onClick={() =>
+                        setValues({
+                          ...values,
+                          proAtivo: false,
+                          visAtivo: false,
+                          metAtivo: true,
+                        })
+                      }
+                    >
                       <img
                         src={img4}
                         alt=""
@@ -160,7 +178,16 @@ const PEIMobile = ({ slug }) => {
                   className="list-group-item list-group-item-custom pb-5 px-0 bg-transparent border-0 text-center"
                 >
                   <div>
-                    <div>
+                    <div
+                      onClick={() =>
+                        setValues({
+                          ...values,
+                          proAtivo: true,
+                          visAtivo: false,
+                          metAtivo: false,
+                        })
+                      }
+                    >
                       <img
                         src={img5}
                         alt=""

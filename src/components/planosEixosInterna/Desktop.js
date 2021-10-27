@@ -108,7 +108,17 @@ const PEIDesktop = ({ slug }) => {
                   className="list-group-item list-group-item-custom pb-5 px-0 bg-transparent border-0"
                 >
                   <div className="me-2">
-                    <div className="space-thumb">
+                    <div
+                      className="space-thumb"
+                      onClick={() =>
+                        setValues({
+                          ...values,
+                          visAtivo: true,
+                          metAtivo: false,
+                          proAtivo: false,
+                        })
+                      }
+                    >
                       <img
                         src={img5}
                         alt=""
@@ -138,7 +148,17 @@ const PEIDesktop = ({ slug }) => {
                   className="list-group-item list-group-item-custom pb-5 px-0 bg-transparent border-0"
                 >
                   <div className="me-2">
-                    <div className="space-thumb">
+                    <div
+                      className="space-thumb"
+                      onClick={() =>
+                        setValues({
+                          ...values,
+                          visAtivo: false,
+                          metAtivo: true,
+                          proAtivo: false,
+                        })
+                      }
+                    >
                       <img
                         src={img6}
                         alt=""
@@ -168,7 +188,17 @@ const PEIDesktop = ({ slug }) => {
                   className="list-group-item list-group-item-custom pb-5 px-0 bg-transparent border-0"
                 >
                   <div className="me-2">
-                    <div className="space-thumb">
+                    <div
+                      className="space-thumb"
+                      onClick={() =>
+                        setValues({
+                          ...values,
+                          visAtivo: false,
+                          metAtivo: false,
+                          proAtivo: true,
+                        })
+                      }
+                    >
                       <img
                         src={img7}
                         alt=""

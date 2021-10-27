@@ -194,6 +194,10 @@ display: -webkit-flex;
 }
 #conteudo-corpo h5 {
     color: #fcb831;
+    padding-bottom: 10px;
+}
+.space-thumb{
+  cursor: pointer;
 }
 /*media queries*/
 @media screen and (max-width: 991px) {

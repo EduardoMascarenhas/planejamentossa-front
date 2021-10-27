@@ -592,6 +592,9 @@ body {
   .brd-obj-title-planos:after {
     margin: 15px auto !important;
   }
+  .space-thumb {
+    cursor: pointer;
+  }
   #contact-list .space-thumb .thumbnail {
     padding: 0.2rem;
     width: 100% !important;
