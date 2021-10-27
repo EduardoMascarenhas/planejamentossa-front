@@ -178,7 +178,6 @@ const NoticiaEditar = ({ slug }) => {
               onChange={handleChange("subTitle")}
               value={subTitle}
               autoFocus
-              required
             />
           </div>
         </div>
