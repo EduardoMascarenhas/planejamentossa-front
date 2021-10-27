@@ -17,6 +17,7 @@ import img15 from "../../assets/imgs/btn-eixo3.png";
 import img16 from "../../assets/imgs/btn-eixo3h.png";
 import img17 from "../../assets/imgs/btn-eixo4.png";
 import img18 from "../../assets/imgs/btn-eixo4h.png";
+import livroPDF from "../../assets/files/Livro_PlanejamentoEstrategico_SSA.pdf";
 
 const Sessao1 = () => {
   return (
@@ -204,7 +205,7 @@ const Sessao1 = () => {
                     </div>
                   </div>
                 </div>
-                <a href="/planos-eixos">
+                <a href={livroPDF} target="_blank" rel="noreferrer noopener">
                   <figure className="on-hover">
                     <img
                       src={img17}
@@ -219,7 +220,10 @@ const Sessao1 = () => {
                   </figure>
                 </a>
                 <div className="d-lg-none text-break text-btn-mob-barra">
-                  <a href="/planos-eixos"> LIVRO EM PDF</a>
+                  <a href={livroPDF} target="_blank" rel="noreferrer noopener">
+                    {" "}
+                    LIVRO EM PDF
+                  </a>
                 </div>
               </div>
             </div>
