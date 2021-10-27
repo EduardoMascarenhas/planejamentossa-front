@@ -77,7 +77,7 @@ const PEIDesktop = ({ slug }) => {
         </section>
         <section className="d-flex pt-5 my-4">
           <div className="container">
-            <div className="col-xs-12 col-sm-6 c-color-yellow-light title">
+            <div className="col-xs-12 col-sm-6 c-color-yellow-light title text-uppercase">
               {" "}
               {title}
             </div>

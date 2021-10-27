@@ -79,14 +79,12 @@ const PEDesktop = () => {
                             onClick={() =>
                               redirectTo(`/planos-eixos-${e.slug}`)
                             }
+                            onMouseOver={() =>
+                              changeBorder(`${e.borderColor}`, `${e.slug}`)
+                            }
                           >
                             <div className="me-2">
-                              <div
-                                className="space-thumb"
-                                onMouseOver={() =>
-                                  changeBorder(`${e.borderColor}`, `${e.slug}`)
-                                }
-                              >
+                              <div className="space-thumb">
                                 <img
                                   src={`${API}/eixo/thumb/${e.slug}`}
                                   alt=""

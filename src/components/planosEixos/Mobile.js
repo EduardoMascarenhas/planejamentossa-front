@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { API } from "../../config";
+import { getEixos } from "../../core/apiCore";
 import img1 from "../../assets/imgs/eixos-planos.svg";
 import img2 from "../../assets/imgs/Terreiro-de-Jesus---PROPEG_PMS_TDEJESUS_V3.jpg";
 import img3 from "../../assets/imgs/02_09_19_Iluminacao_Itapua.jpg";
@@ -7,6 +9,24 @@ const PEMobile = () => {
   const redirectTo = (link) => {
     window.location.href = link;
   };
+  const [values, setValues] = useState({
+    eixos: [],
+    slug: "",
+  });
+  const { eixos, slug } = values;
+
+  const initEixos = () => {
+    getEixos().then((data) => {
+      if (!data || data.error) {
+        console.log("Erro ao carregar os eixos");
+      } else {
+        setValues({ ...values, eixos: data });
+      }
+    });
+  };
+  useEffect(() => {
+    initEixos();
+  }, []);
   return (
     <main className="db-991 bg-blue-0-deg">
       <div className="row">
@@ -40,105 +60,32 @@ const PEMobile = () => {
                 <div className="col-um"></div>
                 <div className="col-dois">
                   <ul className="list-group" id="contact-list">
-                    <li
-                      className="list-group-item pb-5 px-0 bg-transparent border-0"
-                      onClick={() => redirectTo("/planos-eixos-interna")}
-                    >
-                      <div className="me-2">
-                        <div className="space-thumb">
-                          <img
-                            src={img2}
-                            alt=""
-                            className="thumbnail rounded-circle"
-                          />
-                        </div>
-                      </div>
-                      <div className="text-white list-title">
-                        <div className="name fw-bold">
-                          CAPITAL DA INOVAÇÃO E DESENVOLVIMENTO INCLUSIVO
-                        </div>
-                      </div>
-                    </li>
-                    <li
-                      className="list-group-item pb-5 px-0 bg-transparent border-0"
-                      onClick={() => redirectTo("/planos-eixos-interna")}
-                    >
-                      <div className="me-2">
-                        <div className="space-thumb">
-                          <img
-                            src={img2}
-                            alt=""
-                            className="thumbnail rounded-circle"
-                          />
-                        </div>
-                      </div>
-                      <div className="text-white list-title">
-                        <div className="name fw-bold">
-                          CAPITAL DA MOBILIDADE
-                        </div>
-                        <br />
-                      </div>
-                    </li>
-                    <li
-                      className="list-group-item pb-5 px-0 bg-transparent border-0"
-                      onClick={() => redirectTo("/planos-eixos-interna")}
-                    >
-                      <div className="me-2">
-                        <div className="space-thumb">
-                          <img
-                            src={img3}
-                            alt=""
-                            className="thumbnail rounded-circle"
-                          />
-                        </div>
-                      </div>
-                      <div className="text-white list-title">
-                        <div className="name fw-bold">
-                          CAPITAL DA MODERNIDADE E SUSTENTABILIDADE
-                        </div>
-                        <br />
-                      </div>
-                    </li>
-                    <li
-                      className="list-group-item pb-5 px-0 bg-transparent border-0"
-                      onClick={() => redirectTo("/planos-eixos-interna")}
-                    >
-                      <div className="me-2">
-                        <div className="space-thumb">
-                          <img
-                            src={img2}
-                            alt=""
-                            className="thumbnail rounded-circle"
-                          />
-                        </div>
-                      </div>
-                      <div className="text-white list-title">
-                        <div className="name fw-bold">
-                          CAPITAL DA IGUALDADE SOCIAL
-                        </div>
-                        <br />
-                      </div>
-                    </li>
-                    <li
-                      className="list-group-item pb-5 px-0 bg-transparent border-0"
-                      onClick={() => redirectTo("/planos-eixos-interna")}
-                    >
-                      <div className="me-2">
-                        <div className="space-thumb">
-                          <img
-                            src={img2}
-                            alt=""
-                            className="thumbnail rounded-circle"
-                          />
-                        </div>
-                      </div>
-                      <div className="text-white list-title">
-                        <div className="name fw-bold">
-                          CAPITAL DO CONHECIMENTO
-                        </div>
-                        <br />
-                      </div>
-                    </li>
+                    {eixos &&
+                      eixos.map((e, i) => {
+                        return (
+                          <li
+                            key={i}
+                            className="list-group-item pb-5 px-0 bg-transparent border-0"
+                            onClick={() =>
+                              redirectTo(`/planos-eixos-${e.slug}`)
+                            }
+                          >
+                            <div className="me-2">
+                              <div className="space-thumb">
+                                <img
+                                  src={`${API}/eixo/thumb/${e.slug}`}
+                                  alt=""
+                                  className="thumbnail rounded-circle"
+                                  style={{ background: `${e.borderColor}` }}
+                                />
+                              </div>
+                            </div>
+                            <div className="text-white list-title text-uppercase">
+                              <div className="name fw-bold">{e.title}</div>
+                            </div>
+                          </li>
+                        );
+                      })}
                   </ul>
                 </div>
               </div>
@@ -146,50 +93,24 @@ const PEMobile = () => {
           </div>
           <div className="col-6 col-com-img">
             <div className="position-relative" id="brd-image">
-              {" "}
-              <img src={img2} className="img-content" alt="" />
+              {slug === "" ? (
+                eixos && eixos.length ? (
+                  <img
+                    src={`${API}/eixo/thumb/${eixos[0].slug}`}
+                    className="img-content"
+                    alt=""
+                  />
+                ) : (
+                  ""
+                )
+              ) : (
+                <img
+                  src={`${API}/eixo/thumb/${slug}`}
+                  className="img-content"
+                  alt=""
+                />
+              )}
             </div>
-
-            <ul className="list-group" id="contact-list">
-              <li
-                className="list-group-item pb-5 px-0 bg-transparent border-0"
-                onClick={() => redirectTo("/planos-eixos-interna")}
-              >
-                <div className="me-2">
-                  <div className="space-thumb">
-                    <img
-                      src={img2}
-                      alt=""
-                      className="thumbnail rounded-circle"
-                    />
-                  </div>
-                </div>
-                <div className="text-white list-title">
-                  <div className="name fw-bold">
-                    CAPITAL DA QUALIDADE DE VIDA
-                  </div>
-                  <br />
-                </div>
-              </li>
-              <li
-                className="list-group-item pb-5 px-0 bg-transparent border-0"
-                onClick={() => redirectTo("/planos-eixos-interna")}
-              >
-                <div className="me-2">
-                  <div className="space-thumb">
-                    <img
-                      src={img2}
-                      alt=""
-                      className="thumbnail rounded-circle"
-                    />
-                  </div>
-                </div>
-                <div className="text-white list-title">
-                  <div className="name fw-bold">CAPITAL DA EFICIÊNCIA</div>
-                  <br />
-                </div>
-              </li>
-            </ul>
           </div>
         </div>
       </div>
