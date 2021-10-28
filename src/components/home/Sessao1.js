@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { API } from "../../config";
-import { getBanners } from "../../core/apiCore";
+import { getSliders } from "../../core/apiCore";
 import img1 from "../../assets/imgs/06_11_2020_Entrega-da-Baixa-Fria_Fot-Bruno-Concha_Secom_Pms-12_PB-sem-desfoque.jpg";
 import img2 from "../../assets/imgs/12_11_20_Pref-ACM-Neto_Jardim-Botanico_foto-VAlter-Pontes_SECOM51 - PB.jpg";
 import img3 from "../../assets/imgs/Ativo 1.png";
@@ -22,35 +22,35 @@ import img18 from "../../assets/imgs/btn-eixo4h.png";
 import livroPDF from "../../assets/files/Livro_PlanejamentoEstrategico_SSA.pdf";
 
 const Sessao1 = () => {
-  const [bannerActive, setBannerActive] = useState(0);
+  const [sliderActive, setSliderActive] = useState(1);
   const [values, setValues] = useState({
-    banners: [],
+    sliders: [],
   });
-  const { banners } = values;
+  const { sliders } = values;
 
   const btnPrev = () => {
-    let count = bannerActive;
-    if (count - 1 < 0) {
-    } else {
-      setBannerActive(count - 1);
+    if (sliderActive === 1) {
+      setSliderActive(sliders.length);
+    }
+    if (sliderActive > 1) {
+      setSliderActive(sliderActive - 1);
     }
   };
   const btnNext = () => {
-    let count = bannerActive;
-    console.log(banners.length);
-    if (count + 1 > banners.length) {
-      setBannerActive(0);
-    } else {
-      setBannerActive(count + 1);
+    if (sliderActive === sliders.length) {
+      setSliderActive(1);
+    }
+    if (sliderActive < sliders.length) {
+      setSliderActive(sliderActive + 1);
     }
   };
 
   const init = () => {
-    getBanners().then((data) => {
+    getSliders().then((data) => {
       if (!data || data.error) {
-        console.log("Erro ao tentar carregar os banners!");
+        console.log("Erro ao tentar carregar os sliders!");
       } else {
-        setValues({ ...values, banners: data });
+        setValues({ ...values, sliders: data });
       }
     });
   };
@@ -80,19 +80,19 @@ const Sessao1 = () => {
               interval="4000"
             >
               <div className="carousel-inner">
-                {banners &&
-                  banners.map((b, i) => {
+                {sliders &&
+                  sliders.map((s, i) => {
                     return (
                       <div
                         className={
-                          bannerActive === i
+                          sliderActive === i + 1
                             ? "carousel-item active"
                             : "carousel-item"
                         }
-                        key={i}
+                        key={i + 1}
                       >
                         <img
-                          src={`${API}/banner/image/${b._id}`}
+                          src={`${API}/slider/image/${s._id}`}
                           className="d-block w-100"
                           alt="..."
                         />
@@ -104,8 +104,6 @@ const Sessao1 = () => {
                 className="carousel-control-prev"
                 type="button"
                 onClick={() => btnPrev()}
-                data-bs-target="#carouselExampleInterval"
-                data-bs-slide="prev"
               >
                 <img alt="" src={img4} />
               </button>
@@ -113,8 +111,6 @@ const Sessao1 = () => {
                 className="carousel-control-next"
                 type="button"
                 onClick={() => btnNext()}
-                data-bs-target="#carouselExampleInterval"
-                data-bs-slide="next"
               >
                 <img alt="" src={img5} />
               </button>
