@@ -229,8 +229,8 @@ const Sessao2 = () => {
                             key={i}
                             className="list-group-item bg-transparent border-0 pl-0"
                           >
-                            <h3>{title}</h3>
-                            <h4 className="c-color-gray">{subTitle}</h4>
+                            <h3>{subTitle}</h3>
+                            <h4 className="c-color-gray">{title}</h4>
                             <button
                               onClick={() => abrirNoticia(link)}
                               type="button"
