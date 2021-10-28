@@ -229,9 +229,6 @@ const Sessao2 = () => {
                             key={i}
                             className="list-group-item bg-transparent border-0 pl-0"
                           >
-                            <div className="c-color-secondary font-weight-bold">
-                              {moment(createdAt).format("DD-MM-YYYY")}
-                            </div>
                             <h3>{title}</h3>
                             <h4 className="c-color-gray">{subTitle}</h4>
                             <button
