@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { isAuthenticated } from "../../../../auth";
-import { createBlog, getCategorias } from "../../../../core/apiCore";
+import { createBlog } from "../../../../core/apiCore";
 import Multiselect from "multiselect-react-dropdown";
 import ReactQuill from "react-quill";
 import { QuillModules, QuillFormats } from "../../../../helpers/quill";
@@ -10,22 +10,18 @@ const NoticiaNova = () => {
   const { user, token } = isAuthenticated();
   const [body, setBody] = useState("");
   const [values, setValues] = useState({
-    categorias: [],
-    categories: [],
-    selectedValues: [],
     title: "",
     subTitle: "",
+    link: "",
     error: false,
     errorMsg: "",
     redirectToReferrer: false,
     formData: "",
   });
   const {
-    categorias,
-    categories,
-    selectedValues,
     title,
     subTitle,
+    link,
     error,
     errorMsg,
     formData,
@@ -44,14 +40,6 @@ const NoticiaNova = () => {
 
     setValues({ ...values, [name]: value });
     formData.set(name, value);
-  };
-  const handleMultiSelect = (name) => (event) => {
-    let arrayCategories = [];
-    event.map((c) => {
-      arrayCategories.push(c._id);
-    });
-    setValues({ ...values, [name]: arrayCategories });
-    formData.set("categories", arrayCategories);
   };
   const showError = () => {
     return (
@@ -84,23 +72,15 @@ const NoticiaNova = () => {
       }
     });
   };
-  const initCategorias = () => {
-    getCategorias().then((data) => {
-      if (!data || data.error) {
-        setValues({ ...values, error: data.error });
-        console.log("erro ao carregar as categorias");
-      } else {
-        setValues({
-          ...values,
-          categorias: data,
-          formData: new FormData(),
-        });
-      }
+  const init = () => {
+    setValues({
+      ...values,
+      formData: new FormData(),
     });
   };
 
   useEffect(() => {
-    initCategorias();
+    init();
   }, []);
 
   return (
@@ -135,42 +115,19 @@ const NoticiaNova = () => {
             />
           </div>
         </div>
-        <div className="col-12 d-flex form-nova-noticia-thumb">
-          <div className="col text-center p-3">
-            <span>Thumbnail</span>
-            <br />
+        <div className="col-12 d-flex">
+          <div className="col-6 p-2">
+            <span>Link da Notícia</span>
             <input
-              onChange={handleChange("thumb")}
-              type="file"
-              name="thumb"
-              accept="image/*"
+              type="text"
+              className="form-control"
+              placeholder="Link da Notícia"
+              onChange={handleChange("link")}
+              value={link}
+              autoFocus
+              required
             />
           </div>
-        </div>
-        <div className="col-12 d-flex p-3">
-          {categorias && categorias.length > 0 ? (
-            <Multiselect
-              options={categorias}
-              showCheckbox
-              selectedValues={selectedValues}
-              onSelect={handleMultiSelect("categories")}
-              onRemove={handleMultiSelect("categories")}
-              displayValue="slug"
-              placeholder="Selecionar Categoria"
-              emptyRecordMsg="Nenhuma Categoria foi encontrada!"
-            />
-          ) : (
-            ""
-          )}
-        </div>
-        <div>
-          <ReactQuill
-            modules={QuillModules}
-            formats={QuillFormats}
-            value={body}
-            placeholder="Corpo da Notícia..."
-            onChange={handleBody}
-          />
         </div>
         <div className="col-12 d-flex p-3">
           <div className="m-a">{showError()}</div>{" "}

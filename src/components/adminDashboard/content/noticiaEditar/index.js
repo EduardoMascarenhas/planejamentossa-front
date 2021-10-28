@@ -1,65 +1,36 @@
 import React, { useState, useEffect } from "react";
 import { API } from "../../../../config";
 import { isAuthenticated } from "../../../../auth";
-import {
-  createBlog,
-  getCategorias,
-  getBlog,
-  updateBlog,
-} from "../../../../core/apiCore";
-import Multiselect from "multiselect-react-dropdown";
-import ReactQuill from "react-quill";
-import { QuillModules, QuillFormats } from "../../../../helpers/quill";
-import {} from "../../../../../node_modules/react-quill/dist/quill.snow.css";
+import { getBlog, updateBlog } from "../../../../core/apiCore";
 
 const NoticiaEditar = ({ slug }) => {
   const { user, token } = isAuthenticated();
-  const [body, setBody] = useState("");
   const [values, setValues] = useState({
-    categorias: [],
-    categories: [],
-    selectedValues: [],
     noticia: {},
     title: "",
     subTitle: "",
+    link: "",
     error: false,
     errorMsg: "",
     redirectToReferrer: false,
     formData: "",
   });
   const {
-    categorias,
-    categories,
     noticia,
-    selectedValues,
     title,
     subTitle,
+    link,
     error,
     errorMsg,
     formData,
     redirectToReferrer,
   } = values;
-  const handleBody = (e) => {
-    console.log(e);
-    setBody(e);
-    formData.set("body", e);
-    if (typeof window !== "undefined") {
-      localStorage.setItem("noticia", JSON.stringify(e));
-    }
-  };
+
   const handleChange = (name) => (event) => {
     const value = name === "thumb" ? event.target.files[0] : event.target.value;
 
     setValues({ ...values, [name]: value });
     formData.set(name, value);
-  };
-  const handleMultiSelect = (name) => (event) => {
-    let arrayCategories = [];
-    event.map((c) => {
-      arrayCategories.push(c._id);
-    });
-    setValues({ ...values, [name]: arrayCategories });
-    formData.set("categories", arrayCategories);
   };
   const showError = () => {
     return (
@@ -81,24 +52,7 @@ const NoticiaEditar = ({ slug }) => {
       }
     }
   };
-  const renderCategorias = () => {
-    if (categorias.length > 0) {
-      return (
-        <Multiselect
-          options={categorias}
-          showCheckbox
-          selectedValues={selectedValues}
-          onSelect={handleMultiSelect("categories")}
-          onRemove={handleMultiSelect("categories")}
-          displayValue="slug"
-          placeholder="Selecionar Categoria"
-          emptyRecordMsg="Nenhuma Categoria foi encontrada!"
-        />
-      );
-    } else {
-      initCategorias();
-    }
-  };
+
   const clickSubmit = (e) => {
     e.preventDefault();
     updateBlog(slug, user._id, token, formData).then((data) => {
@@ -110,18 +64,10 @@ const NoticiaEditar = ({ slug }) => {
     });
     document.location.href = "/admin/noticias";
   };
-  const initCategorias = () => {
-    getCategorias().then((data) => {
-      if (!data || data.error) {
-        setValues({ ...values, error: data.error });
-        console.log("erro ao carregar as categorias");
-      } else {
-        setValues({
-          ...values,
-          categorias: data,
-          formData: new FormData(),
-        });
-      }
+  const init = () => {
+    setValues({
+      ...values,
+      formData: new FormData(),
     });
   };
   const initNoticia = (s) => {
@@ -129,20 +75,18 @@ const NoticiaEditar = ({ slug }) => {
       if (!data || data.error) {
         console.log("Erro ao carregar a notícia");
       } else {
-        setBody(data.body);
         setValues({
           ...values,
           title: data.title,
-          selectedValues: data.categories,
           subTitle: data.subTitle,
-          categories: data.categories,
+          link: data.link,
         });
       }
     });
   };
 
   useEffect(() => {
-    initCategorias();
+    init();
     if (slug) {
       initNoticia(slug);
     }
@@ -180,34 +124,19 @@ const NoticiaEditar = ({ slug }) => {
             />
           </div>
         </div>
-        <div className="col-12 d-flex form-nova-noticia-thumb">
-          <div className="img-thumb-editar">
-            <img
-              className="update-blog-img"
-              src={`${API}/noticia/thumb/${slug}`}
-              alt=""
-            />
-          </div>
-          <div className="col text-center p-3">
-            <span>Thumbnail</span>
-            <br />
+        <div className="col-12 d-flex">
+          <div className="col-6 p-2">
+            <span>Link da Notícia</span>
             <input
-              onChange={handleChange("thumb")}
-              type="file"
-              name="thumb"
-              accept="image/*"
+              type="text"
+              className="form-control"
+              placeholder="Link da Notícia"
+              onChange={handleChange("link")}
+              value={link}
+              autoFocus
+              required
             />
           </div>
-        </div>
-        <div className="col-12 d-flex p-3">{renderCategorias()}</div>
-        <div>
-          <ReactQuill
-            modules={QuillModules}
-            formats={QuillFormats}
-            value={body}
-            placeholder="Corpo da Notícia..."
-            onChange={handleBody}
-          />
         </div>
         <div className="col-12 d-flex p-3">
           <div className="m-a">{showError()}</div>{" "}

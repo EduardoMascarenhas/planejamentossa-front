@@ -26,6 +26,9 @@ import CartaPrefeito from "./pages/cartaPrefeito";
 import AdminCartaNova from "./pages/adminCartaNova";
 import AdminCartas from "./pages/adminCartas";
 import AdminCartaEditar from "./pages/adminCartaEditar";
+import EmDesenvolvimento from "./pages/emDesenvolvimento";
+import AdminSlider from "./pages/adminSlider";
+import AdminSliders from "./pages/adminSliders";
 
 function App() {
   return (
@@ -38,6 +41,8 @@ function App() {
         <Route path="/carta-:slug" exact component={CartaPrefeito} />
         <Route path="/planos-eixos" exact component={PlanosEixos} />
         <Route path="/projeto-:slug" exact component={Projeto} />
+        <Route path="/apresentacao-plano" exact component={EmDesenvolvimento} />
+        <Route path="/selos" exact component={EmDesenvolvimento} />
         <Route
           path="/planos-eixos-:slug"
           exact
@@ -47,6 +52,8 @@ function App() {
 
         {/**ADMIN ROUTES */}
         <AdminRoute exact path="/admin/dashboard" component={AdminDashboard} />
+        <AdminRoute exact path="/admin/slider/novo" component={AdminSlider} />
+        <AdminRoute exact path="/admin/sliders" component={AdminSliders} />
         <AdminRoute
           exact
           path="/admin/projeto/novo"

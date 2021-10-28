@@ -514,3 +514,70 @@ export const getCartas = () => {
     })
     .catch((err) => console.log(err));
 };
+
+export const createSlider = (userId, token, slider) => {
+  return fetch(`${API}/slider/criar/${userId}`, {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: slider,
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
+export const deleteSlider = (sliderId, userId, token) => {
+  return fetch(`${API}/slider/${sliderId}/${userId}`, {
+    method: "DELETE",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .catch((err) => console.log(err));
+};
+
+export const updateSlider = (_id, userId, token, slider) => {
+  return fetch(`${API}/slider/${userId}/${slider}`, {
+    method: "PUT",
+    headers: {
+      Accept: "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: slider,
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .catch((err) => console.log(err));
+};
+
+export const getSlider = (_id) => {
+  return fetch(`${API}/slider/${_id}`, {
+    method: "GET",
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .catch((err) => console.log(err));
+};
+
+export const getSliders = () => {
+  return fetch(`${API}/sliders`, {
+    method: "GET",
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .catch((err) => console.log(err));
+};

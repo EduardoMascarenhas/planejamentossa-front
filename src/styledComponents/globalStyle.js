@@ -71,7 +71,9 @@ display: -webkit-flex;
   max-width: 140px;
   position: relative;
 }
-
+#conteudo-button {
+  padding-bottom: 10px;
+}
 .button-voltar:hover {
   animation-name: gradientVoltar;
   -webkit-animation-name: gradientVoltar;

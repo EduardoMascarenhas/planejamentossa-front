@@ -5,6 +5,7 @@ import {
   FaCog,
   FaUserAlt,
   FaRegNewspaper,
+  FaEnvelope,
 } from "react-icons/fa";
 import { isAuthenticated, signout } from "../../../auth";
 import { listUsers } from "../../../core/apiCore";
@@ -99,7 +100,7 @@ const DashboardSidebar = () => {
         </NavItem>
         <NavItem eventKey="cartas">
           <NavIcon>
-            <FaRegNewspaper className="side-dash-ico" />
+            <FaEnvelope className="side-dash-ico" />
           </NavIcon>
           <NavText>
             Cartas

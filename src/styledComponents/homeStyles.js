@@ -1717,7 +1717,7 @@ display: -webkit-flex;
 }
 @media screen and (max-width: 480px) {
   .eixos .txt-eixos {
-    font-size: 3vw;
+    font-size: 2.5vw;
   }
 }
 
