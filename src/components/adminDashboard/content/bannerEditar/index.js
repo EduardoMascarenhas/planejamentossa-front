@@ -45,9 +45,9 @@ const BannerEditar = ({ id }) => {
         setValues({ ...values, error: true, errorMsg: data.error });
       } else {
         setValues({ ...values, error: false, redirectToReferrer: true });
+        document.location.href = "/admin/banners";
       }
     });
-    document.location.href = "/admin/banners";
   };
   const init = () => {
     setValues({
