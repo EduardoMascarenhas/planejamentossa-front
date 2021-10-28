@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { API } from "../../config";
+import { getBanners } from "../../core/apiCore";
 import img1 from "../../assets/imgs/06_11_2020_Entrega-da-Baixa-Fria_Fot-Bruno-Concha_Secom_Pms-12_PB-sem-desfoque.jpg";
 import img2 from "../../assets/imgs/12_11_20_Pref-ACM-Neto_Jardim-Botanico_foto-VAlter-Pontes_SECOM51 - PB.jpg";
 import img3 from "../../assets/imgs/Ativo 1.png";
@@ -20,6 +22,41 @@ import img18 from "../../assets/imgs/btn-eixo4h.png";
 import livroPDF from "../../assets/files/Livro_PlanejamentoEstrategico_SSA.pdf";
 
 const Sessao1 = () => {
+  const [bannerActive, setBannerActive] = useState(0);
+  const [values, setValues] = useState({
+    banners: [],
+  });
+  const { banners } = values;
+
+  const btnPrev = () => {
+    let count = bannerActive;
+    if (count - 1 < 0) {
+    } else {
+      setBannerActive(count - 1);
+    }
+  };
+  const btnNext = () => {
+    let count = bannerActive;
+    console.log(banners.length);
+    if (count + 1 > banners.length) {
+      setBannerActive(0);
+    } else {
+      setBannerActive(count + 1);
+    }
+  };
+
+  const init = () => {
+    getBanners().then((data) => {
+      if (!data || data.error) {
+        console.log("Erro ao tentar carregar os banners!");
+      } else {
+        setValues({ ...values, banners: data });
+      }
+    });
+  };
+  useEffect(() => {
+    init();
+  }, []);
   return (
     <section
       className="text-white position-relative align-items-top d-flex flex-column section-top-home"
@@ -43,19 +80,30 @@ const Sessao1 = () => {
               interval="4000"
             >
               <div className="carousel-inner">
-                <div className="carousel-item active" data-bs-interval="10000">
-                  <img src={img3} className="d-block w-100" alt="..." />
-                </div>
-                <div className="carousel-item" data-bs-interval="2000">
-                  <img src={img3} className="d-block w-100" alt="..." />
-                </div>
-                <div className="carousel-item">
-                  <img src={img3} className="d-block w-100" alt="..." />
-                </div>
+                {banners &&
+                  banners.map((b, i) => {
+                    return (
+                      <div
+                        className={
+                          bannerActive === i
+                            ? "carousel-item active"
+                            : "carousel-item"
+                        }
+                        key={i}
+                      >
+                        <img
+                          src={`${API}/banner/image/${b._id}`}
+                          className="d-block w-100"
+                          alt="..."
+                        />
+                      </div>
+                    );
+                  })}
               </div>
               <button
                 className="carousel-control-prev"
                 type="button"
+                onClick={() => btnPrev()}
                 data-bs-target="#carouselExampleInterval"
                 data-bs-slide="prev"
               >
@@ -64,6 +112,7 @@ const Sessao1 = () => {
               <button
                 className="carousel-control-next"
                 type="button"
+                onClick={() => btnNext()}
                 data-bs-target="#carouselExampleInterval"
                 data-bs-slide="next"
               >
