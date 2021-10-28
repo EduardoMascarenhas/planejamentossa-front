@@ -114,11 +114,11 @@ const NoticiaEditar = ({ slug }) => {
           </div>
 
           <div className="col-6 p-2">
-            <span>Subtítulo da Notícia</span>
+            <span>Macrotema da Notícia</span>
             <input
               type="text"
               className="form-control"
-              placeholder="Sub Título da Notícia"
+              placeholder="Macrotema da Notícia"
               onChange={handleChange("subTitle")}
               value={subTitle}
             />

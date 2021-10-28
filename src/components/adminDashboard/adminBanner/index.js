@@ -1,14 +1,14 @@
 import React from "react";
-import DashboardSliderContent from "../content/sliderNovo";
+import DashboardBannerContent from "../content/bannerNovo";
 import DashboardSidebar from "../sidebar";
 
-const DashboardSlider = () => {
+const DashboardBanner = () => {
   return (
     <div className="dashboard">
       <DashboardSidebar />
-      <DashboardSliderContent />
+      <DashboardBannerContent />
     </div>
   );
 };
 
-export default DashboardSlider;
+export default DashboardBanner;

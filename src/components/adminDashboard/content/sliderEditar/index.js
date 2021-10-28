@@ -1,43 +1,20 @@
 import React, { useState, useEffect } from "react";
+import { API } from "../../../../config";
 import { isAuthenticated } from "../../../../auth";
-import { createBlog } from "../../../../core/apiCore";
-import Multiselect from "multiselect-react-dropdown";
-import ReactQuill from "react-quill";
-import { QuillModules, QuillFormats } from "../../../../helpers/quill";
-import {} from "../../../../../node_modules/react-quill/dist/quill.snow.css";
+import { getSlider, updateSlider } from "../../../../core/apiCore";
 
-const NoticiaNova = () => {
+const SliderEditar = ({ id }) => {
   const { user, token } = isAuthenticated();
-  const [body, setBody] = useState("");
   const [values, setValues] = useState({
-    title: "",
-    subTitle: "",
     link: "",
     error: false,
     errorMsg: "",
     redirectToReferrer: false,
     formData: "",
   });
-  const {
-    title,
-    subTitle,
-    link,
-    error,
-    errorMsg,
-    formData,
-    redirectToReferrer,
-  } = values;
-  const handleBody = (e) => {
-    // console.log(e);
-    setBody(e);
-    formData.set("body", e);
-    if (typeof window !== "undefined") {
-      localStorage.setItem("noticia", JSON.stringify(e));
-    }
-  };
+  const { link, error, errorMsg, formData, redirectToReferrer } = values;
   const handleChange = (name) => (event) => {
-    const value = name === "thumb" ? event.target.files[0] : event.target.value;
-
+    const value = name === "image" ? event.target.files[0] : event.target.value;
     setValues({ ...values, [name]: value });
     formData.set(name, value);
   };
@@ -55,7 +32,7 @@ const NoticiaNova = () => {
   const redirectUser = () => {
     if (redirectToReferrer) {
       if ((user && user.role === 1) || user.role === 2) {
-        document.location.href = "/admin/noticias";
+        document.location.href = "/admin/sliders";
       } else {
         document.location.href = "/";
       }
@@ -63,12 +40,12 @@ const NoticiaNova = () => {
   };
   const clickSubmit = (e) => {
     e.preventDefault();
-    // make request to api to create Categoria
-    createBlog(user._id, token, formData).then((data) => {
+    updateSlider(id, user._id, token, formData).then((data) => {
       if (data.error) {
         setValues({ ...values, error: true, errorMsg: data.error });
       } else {
         setValues({ ...values, error: false, redirectToReferrer: true });
+        document.location.href = "/admin/sliders";
       }
     });
   };
@@ -78,54 +55,66 @@ const NoticiaNova = () => {
       formData: new FormData(),
     });
   };
+  const initSlider = (id) => {
+    if (id) {
+      getSlider(id).then((data) => {
+        if (!data || data.error) {
+          console.log("Erro ao carregar o Slider");
+        } else {
+          setValues({
+            ...values,
+            link: data.link,
+          });
+        }
+      });
+    }
+  };
 
   useEffect(() => {
     init();
-  }, []);
+    if (id) {
+      initSlider(id);
+    }
+  }, [id]);
 
   return (
     <div className="dashboard-content">
       {redirectUser()}
       <form className="form-dashboard p-3" onSubmit={clickSubmit}>
         <div className="text-center">
-          <h1>Criar nova Notícia</h1>
+          <h1>Editar Slider</h1>
         </div>
         <div className="col-12 d-flex">
-          <div className="col-6 p-2">
-            <span>Título da Notícia</span>
+          <div className="col-6 p-2 m-a">
+            <span>Link do Slider</span>
             <input
               type="text"
               className="form-control"
-              placeholder="Título da Notícia"
-              onChange={handleChange("title")}
-              value={title}
-              autoFocus
-              required
-            />
-          </div>
-
-          <div className="col-6 p-2">
-            <span>Macrotema da Notícia</span>
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Macrotema da Notícia"
-              onChange={handleChange("subTitle")}
-              value={subTitle}
-            />
-          </div>
-        </div>
-        <div className="col-12 d-flex">
-          <div className="col-6 p-2">
-            <span>Link da Notícia</span>
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Link da Notícia"
+              placeholder="Link do Slider"
               onChange={handleChange("link")}
               value={link}
-              autoFocus
-              required
+            />
+          </div>
+        </div>
+        <div
+          className="col-12 d-flex form-novo-noticia-thumb"
+          style={{ flexWrap: "wrap", justifyContent: "center" }}
+        >
+          <div className="img-thumb-editar">
+            <img
+              className="update-blog-img"
+              src={`${API}/slider/image/${id}`}
+              alt=""
+            />
+          </div>
+          <div className="col text-center p-3">
+            <span>Imagem Slider</span>
+            <br />
+            <input
+              onChange={handleChange("image")}
+              type="file"
+              name="image"
+              accept="image/*"
             />
           </div>
         </div>
@@ -139,7 +128,7 @@ const NoticiaNova = () => {
             className="btn btn-info btn-editar mr-1 fs-custom"
           >
             {" "}
-            Criar nova Notícia
+            Editar Slider
           </button>
         </h3>
       </form>
@@ -147,4 +136,4 @@ const NoticiaNova = () => {
   );
 };
 
-export default NoticiaNova;
+export default SliderEditar;

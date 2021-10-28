@@ -29,6 +29,10 @@ import AdminCartaEditar from "./pages/adminCartaEditar";
 import EmDesenvolvimento from "./pages/emDesenvolvimento";
 import AdminSlider from "./pages/adminSlider";
 import AdminSliders from "./pages/adminSliders";
+import AdminSliderEditar from "./pages/adminSliderEditar";
+import AdminBanner from "./pages/adminBanner";
+import AdminBanners from "./pages/adminBanners";
+import AdminBannerEditar from "./pages/adminBannerEditar";
 
 function App() {
   return (
@@ -52,8 +56,20 @@ function App() {
 
         {/**ADMIN ROUTES */}
         <AdminRoute exact path="/admin/dashboard" component={AdminDashboard} />
+        <AdminRoute exact path="/admin/banner/novo" component={AdminBanner} />
+        <AdminRoute exact path="/admin/banners" component={AdminBanners} />
+        <AdminRoute
+          exact
+          path="/admin/banner-:bannerId"
+          component={AdminBannerEditar}
+        />
         <AdminRoute exact path="/admin/slider/novo" component={AdminSlider} />
         <AdminRoute exact path="/admin/sliders" component={AdminSliders} />
+        <AdminRoute
+          exact
+          path="/admin/slider-:sliderId"
+          component={AdminSliderEditar}
+        />
         <AdminRoute
           exact
           path="/admin/projeto/novo"

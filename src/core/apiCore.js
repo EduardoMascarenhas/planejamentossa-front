@@ -547,8 +547,8 @@ export const deleteSlider = (sliderId, userId, token) => {
     .catch((err) => console.log(err));
 };
 
-export const updateSlider = (_id, userId, token, slider) => {
-  return fetch(`${API}/slider/${userId}/${slider}`, {
+export const updateSlider = (sliderId, userId, token, slider) => {
+  return fetch(`${API}/slider/${userId}/${sliderId}`, {
     method: "PUT",
     headers: {
       Accept: "application/json",
@@ -562,8 +562,8 @@ export const updateSlider = (_id, userId, token, slider) => {
     .catch((err) => console.log(err));
 };
 
-export const getSlider = (_id) => {
-  return fetch(`${API}/slider/${_id}`, {
+export const getSlider = (sliderId) => {
+  return fetch(`${API}/slider/${sliderId}`, {
     method: "GET",
   })
     .then((response) => {
@@ -574,6 +574,73 @@ export const getSlider = (_id) => {
 
 export const getSliders = () => {
   return fetch(`${API}/sliders`, {
+    method: "GET",
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .catch((err) => console.log(err));
+};
+
+export const createBanner = (userId, token, banner) => {
+  return fetch(`${API}/banner/criar/${userId}`, {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: banner,
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
+export const deleteBanner = (bannerId, userId, token) => {
+  return fetch(`${API}/banner/${bannerId}/${userId}`, {
+    method: "DELETE",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .catch((err) => console.log(err));
+};
+
+export const updateBanner = (bannerId, userId, token, banner) => {
+  return fetch(`${API}/banner/${userId}/${bannerId}`, {
+    method: "PUT",
+    headers: {
+      Accept: "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: banner,
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .catch((err) => console.log(err));
+};
+
+export const getBanner = (bannerId) => {
+  return fetch(`${API}/banner/${bannerId}`, {
+    method: "GET",
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .catch((err) => console.log(err));
+};
+
+export const getBanners = () => {
+  return fetch(`${API}/banners`, {
     method: "GET",
   })
     .then((response) => {

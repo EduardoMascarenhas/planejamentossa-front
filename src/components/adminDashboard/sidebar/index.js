@@ -61,6 +61,43 @@ const DashboardSidebar = () => {
             <a href="/admin/dashboard">Usuários do Sistema</a>
           </NavText>
         </NavItem>
+        <NavItem eventKey="slider">
+          <NavIcon>
+            <FaRegNewspaper className="side-dash-ico" />
+          </NavIcon>
+          <NavText>
+            Slider / Banner
+            <FaAngleDown />
+          </NavText>
+          <NavItem eventKey="/admin/slider/novo">
+            <NavText>
+              <a className="link-sidebar-admin" href="/admin/slider/novo">
+                Novo Slider
+              </a>
+            </NavText>
+          </NavItem>
+          <NavItem eventKey="/admin/sliders">
+            <NavText>
+              <a className="link-sidebar-admin" href="/admin/sliders">
+                Listar Sliders
+              </a>
+            </NavText>
+          </NavItem>
+          <NavItem eventKey="/admin/banner/novo">
+            <NavText>
+              <a className="link-sidebar-admin" href="/admin/banner/novo">
+                Novo Banner
+              </a>
+            </NavText>
+          </NavItem>
+          <NavItem eventKey="/admin/banners">
+            <NavText>
+              <a className="link-sidebar-admin" href="/admin/banners">
+                Listar Banners
+              </a>
+            </NavText>
+          </NavItem>
+        </NavItem>
         <NavItem eventKey="noticias">
           <NavIcon>
             <FaRegNewspaper className="side-dash-ico" />

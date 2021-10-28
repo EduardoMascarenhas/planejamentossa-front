@@ -212,7 +212,6 @@ const EixoEditar = ({ slug }) => {
               placeholder="Cor da borda"
               onChange={handleChange("borderColor")}
               value={borderColor}
-              required
             />
           </div>
 
