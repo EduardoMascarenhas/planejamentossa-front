@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import { isAuthenticated } from "../../../../auth";
 import { createCarta } from "../../../../core/apiCore";
 import Multiselect from "multiselect-react-dropdown";
-import ReactQuill from "react-quill";
+import ReactQuill, { Quill } from "react-quill";
 import { QuillModules, QuillFormats } from "../../../../helpers/quill";
-import {} from "../../../../../node_modules/react-quill/dist/quill.snow.css";
+import "react-quill/dist/quill.snow.css";
 
 const CartaNova = () => {
   const { user, token } = isAuthenticated();
@@ -18,6 +18,7 @@ const CartaNova = () => {
     redirectToReferrer: false,
     formData: "",
   });
+
   const {
     selectedValues,
     title,
