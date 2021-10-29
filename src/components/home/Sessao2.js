@@ -156,7 +156,11 @@ const Sessao2 = () => {
                     {projetos &&
                       projetos.map((p, i) => {
                         return (
-                          <Option key={i} value={p.slug}>
+                          <Option
+                            onClick={() => fazerBusca()}
+                            key={i}
+                            value={p.slug}
+                          >
                             {p.name}
                           </Option>
                         );
