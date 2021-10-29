@@ -146,6 +146,9 @@ display: -webkit-flex;
 .ql-editor{
   height: 25vh!important;
 }
+.cursor-pointer{
+  cursor: pointer;
+}
 .cursor-pointer-custom{
   cursor: pointer;
 }

@@ -214,8 +214,8 @@ const Sessao2 = () => {
                         onClick={() => abrirLink(b.link)}
                         className={
                           bannerActive === i + 1
-                            ? "carousel-item active"
-                            : "carousel-item"
+                            ? "carousel-item active cursor-pointer"
+                            : "carousel-item cursor-pointer"
                         }
                         key={i + 1}
                       >
