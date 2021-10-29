@@ -1,17 +1,21 @@
 import React, { useEffect, useState } from "react";
 import { API } from "../../config";
+import { Select } from "antd";
 import parse from "html-react-parser";
 import img1 from "../../assets/imgs/barra-center-mobile-planejamento.svg";
 import img2 from "../../assets/imgs/barra-center.svg";
 import img3 from "../../assets/imgs/barra-center-mobile.svg";
 import img4 from "../../assets/imgs/bg-card-title.svg";
 import img5 from "../../assets/imgs/barras-pink.svg";
-import { getBlogs, getBanners } from "../../core/apiCore";
+import { getBlogs, getBanners, getProjetos } from "../../core/apiCore";
 import moment from "moment";
+
+const { Option } = Select;
 
 const Sessao2 = () => {
   const [bannerActive, setBannerActive] = useState(1);
   const [banners, setBanners] = useState([]);
+  const [projetos, setProjetos] = useState([]);
   const [values, setValues] = useState({
     noticias: [],
     error: false,
@@ -27,6 +31,9 @@ const Sessao2 = () => {
       }
     });
   };
+  function handleChange(value) {
+    console.log(`selected ${value}`);
+  }
   const initBanners = () => {
     getBanners().then((data) => {
       if (!data) {
@@ -36,12 +43,22 @@ const Sessao2 = () => {
       }
     });
   };
+  const initProjetos = () => {
+    getProjetos().then((data) => {
+      if (!data) {
+        setValues({ ...values, error: true });
+      } else {
+        setProjetos(data);
+      }
+    });
+  };
   const abrirLink = (link) => {
     window.open(link, "_blank");
   };
   useEffect(() => {
     initBlogs();
     initBanners();
+    initProjetos();
   }, []);
   return (
     <section className="pb-0 mt-0 position-relative d-flex bg-home-center">

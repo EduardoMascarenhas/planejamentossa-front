@@ -47,7 +47,7 @@ const ApresentacaoPlano = () => {
                 return <></>;
               } else {
                 return (
-                  <div key={i}>
+                  <div className="pt-3" key={i}>
                     <div className="noticia-topo">
                       <h3>{a.subTitle}</h3>
                       <h1>{a.title}</h1>
