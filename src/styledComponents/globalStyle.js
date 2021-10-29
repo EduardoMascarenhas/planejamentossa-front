@@ -190,6 +190,7 @@ display: -webkit-flex;
 }
 .body-noticia{
   word-break: break-word;
+  line-height: 2.3rem;
 }
 .body-noticia img {
   max-height: 350px;

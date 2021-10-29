@@ -22,7 +22,7 @@
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    
+
     <title>Planejamento SSA</title>
   </head>
   <body>
@@ -54,69 +54,6 @@
       integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/"
       crossorigin="anonymous"
     ></script>
-    <script>
-      $(".list-group-item").click(function (ev) {
-        $(location).prop("href", $(this).data("href"));
-      });
-      $(".list-group-item").hover(function (ev) {
-        ev.stopPropagation();
-        $(".img-content").attr(
-          "src",
-          this.children[0].children[0].children[0].attributes.src.value
-        );
-        $(".brd-pink").toggleClass("brd-yellow");
-        $(this).find(".list-title").toggleClass("brd-yellow");
-      });
-    </script>
-    <script>
-      const dataTest = {
-        conteudo1: {
-          titulo: "titulo 1",
-          corpo: "corpo 1",
-          botao: "botao 1",
-        },
-        conteudo2: {
-          titulo: "titulo 2",
-          corpo: "corpo 2",
-          botao: "botao 2",
-        },
-        conteudo3: {
-          titulo: "titulo 3",
-          corpo: "corpo 3",
-          botao: "botao 3",
-        },
-      };
-      $("#contact-list li").hover(function (ev) {
-        ev.stopPropagation();
-        let src = $(this).find(".thumbnail").attr("src").toString();
-        //console.log(src);
-        //return;
-        $(this).find(".thumbnail").attr("src").match("h.png")
-          ? $(this).find(".thumbnail").attr("src", src.replace("h.png", ".png"))
-          : $(this)
-              .find(".thumbnail")
-              .attr("src", src.replace(".png", "h.png"));
-      });
-      $(".list-group li").click(function (ev) {
-        ev.preventDefault();
-        let data = $(this).data("id");
-        let value = dataTest[data];
-
-        $("#conteudo-titulo").text(value.titulo);
-        $("#conteudo-corpo").text(value.corpo);
-        $("#conteudo-button").attr("data-link", value.botao);
-        $("#conteudo-titulo-2").text(value.titulo);
-        $("#conteudo-corpo-2").text(value.corpo);
-        $("#conteudo-button-2").attr("data-link", value.botao);
-      });
-      $("#conteudo-button").on("click", function (ev) {
-        ev.preventDefault();
-        console.log($(this).attr("data-link"));
-      });
-      $("#conteudo-button-2").on("click", function (ev) {
-        ev.preventDefault();
-        console.log($(this).attr("data-link"));
-      });
-    </script>
+    <script src="./assets/js/image.resize.js"></script>
   </body>
 </html>

@@ -1670,7 +1670,6 @@ display: -webkit-flex;
   color: #636366;
 }
 .noticia-corpo img {
-  max-height: 420px;
   float: left;
   padding-right: 2rem;
   max-width: 65%;

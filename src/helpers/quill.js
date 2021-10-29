@@ -9,7 +9,12 @@ export const QuillModules = {
     ["link", "image"],
     [{ size: ["small", false, "large", "huge"] }], // custom dropdown
 
-    [{ align: [] }],
+    [
+      { align: "" },
+      { align: "center" },
+      { align: "right" },
+      { align: "justify" },
+    ],
 
     ["clean"], // remove formatting button
   ],
@@ -24,7 +29,8 @@ export const QuillFormats = [
   "underline",
   "strike",
   "blockquote",
-  "list",
+  "res",
+  "imageResize",
   "bullet",
   "link",
   "image",

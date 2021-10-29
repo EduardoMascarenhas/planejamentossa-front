@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { isAuthenticated } from "../../../../auth";
 import { createCarta } from "../../../../core/apiCore";
-import Multiselect from "multiselect-react-dropdown";
 import ReactQuill, { Quill } from "react-quill";
 import { QuillModules, QuillFormats } from "../../../../helpers/quill";
 import "react-quill/dist/quill.snow.css";
