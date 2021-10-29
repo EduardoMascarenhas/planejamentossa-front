@@ -36,7 +36,7 @@ const Sessao2 = () => {
       }
     });
   };
-  const abrirNoticia = (link) => {
+  const abrirLink = (link) => {
     window.open(link, "_blank");
   };
   useEffect(() => {
@@ -211,6 +211,7 @@ const Sessao2 = () => {
                   banners.map((b, i) => {
                     return (
                       <div
+                        onClick={() => abrirLink(b.link)}
                         className={
                           bannerActive === i + 1
                             ? "carousel-item active"
@@ -268,7 +269,7 @@ const Sessao2 = () => {
                             <h3>{subTitle}</h3>
                             <h4 className="c-color-gray">{title}</h4>
                             <button
-                              onClick={() => abrirNoticia(link)}
+                              onClick={() => abrirLink(link)}
                               type="button"
                               className="text-white border-50"
                             >
