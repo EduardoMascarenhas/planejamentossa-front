@@ -47,7 +47,7 @@ const NavBar = () => {
                   </a>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="/planos-eixos">
+                  <a className="dropdown-item" href="/selos">
                     SELOS
                   </a>
                 </li>

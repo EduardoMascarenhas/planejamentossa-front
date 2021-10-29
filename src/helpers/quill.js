@@ -13,9 +13,6 @@ export const QuillModules = {
 
     ["clean"], // remove formatting button
   ],
-  imageResize: {
-    modules: ["Resize", "DisplaySize"],
-  },
 };
 
 export const QuillFormats = [

@@ -100,20 +100,26 @@ const Sessao1 = () => {
                     );
                   })}
               </div>
-              <button
-                className="carousel-control-prev"
-                type="button"
-                onClick={() => btnPrev()}
-              >
-                <img alt="" src={img4} />
-              </button>
-              <button
-                className="carousel-control-next"
-                type="button"
-                onClick={() => btnNext()}
-              >
-                <img alt="" src={img5} />
-              </button>
+              {sliders.length > 1 ? (
+                <>
+                  <button
+                    className="carousel-control-prev"
+                    type="button"
+                    onClick={() => btnPrev()}
+                  >
+                    <img alt="" src={img4} />
+                  </button>
+                  <button
+                    className="carousel-control-next"
+                    type="button"
+                    onClick={() => btnNext()}
+                  >
+                    <img alt="" src={img5} />
+                  </button>
+                </>
+              ) : (
+                ""
+              )}
             </div>
           </div>
         </div>
@@ -218,7 +224,7 @@ const Sessao1 = () => {
                     <div className="aba-hover-txt position-absolute">SELOS</div>
                   </div>
                 </div>
-                <a href="/planos-eixos">
+                <a href="/selos">
                   <figure className="on-hover">
                     <img
                       src={img15}
@@ -233,7 +239,7 @@ const Sessao1 = () => {
                   </figure>
                 </a>
                 <div className="d-lg-none text-break text-btn-mob-barra">
-                  <a href="/planos-eixos"> SELOS</a>
+                  <a href="/selos"> SELOS</a>
                 </div>
               </div>
               <div className="space-button border-0 space-e d-none d-md-flex">

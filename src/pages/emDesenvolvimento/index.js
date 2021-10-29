@@ -11,9 +11,7 @@ const EmDesenvolvimento = () => {
     <>
       <HomeStyle />
       <Layout>
-        <div className="pagina-erro">
-          <h3>Página em Desenvolvimento</h3>
-        </div>
+        <div className="pagina-erro"></div>
       </Layout>
     </>
   );

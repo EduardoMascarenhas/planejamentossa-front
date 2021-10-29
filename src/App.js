@@ -47,7 +47,6 @@ function App() {
         <Route path="/apresentacao-plano" exact component={ApresentacaoPlano} />
         <Route path="/planos-eixos" exact component={PlanosEixos} />
         <Route path="/projeto-:slug" exact component={Projeto} />
-        <Route path="/apresentacao-plano" exact component={EmDesenvolvimento} />
         <Route path="/selos" exact component={EmDesenvolvimento} />
         <Route
           path="/planos-eixos-:slug"
