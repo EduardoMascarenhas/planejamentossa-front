@@ -10,18 +10,28 @@ import img5 from "../../assets/imgs/barras-pink.svg";
 import { getBlogs, getBanners, getProjetos } from "../../core/apiCore";
 import moment from "moment";
 
-const { Option } = Select;
-
 const Sessao2 = () => {
   const [bannerActive, setBannerActive] = useState(1);
   const [banners, setBanners] = useState([]);
   const [projetos, setProjetos] = useState([]);
   const [values, setValues] = useState({
     noticias: [],
+    acaoProjetos: false,
+    acaoSelos: false,
+    acao: "",
     error: false,
     errorMsg: "",
   });
-  const { noticias, error, errorMsg } = values;
+  const { noticias, acao, acaoProjetos, acaoSelos, error, errorMsg } = values;
+
+  const { Option } = Select;
+
+  function handleChangeProjetos(value) {
+    setValues({ ...values, acaoProjetos: true, acaoSelos: false, acao: value });
+  }
+  function handleChangeSelos(value) {
+    setValues({ ...values, acaoProjetos: false, acaoSelos: true, acao: value });
+  }
   const initBlogs = () => {
     getBlogs().then((data) => {
       if (!data) {
@@ -31,9 +41,6 @@ const Sessao2 = () => {
       }
     });
   };
-  function handleChange(value) {
-    console.log(`selected ${value}`);
-  }
   const initBanners = () => {
     getBanners().then((data) => {
       if (!data) {
@@ -54,6 +61,14 @@ const Sessao2 = () => {
   };
   const abrirLink = (link) => {
     window.open(link, "_blank");
+  };
+  const fazerBusca = () => {
+    if (acaoProjetos === true) {
+      window.location.href = `/projeto-${acao}`;
+    }
+    if (acaoSelos === true) {
+      window.location.href = `/`;
+    }
   };
   useEffect(() => {
     initBlogs();
@@ -78,26 +93,29 @@ const Sessao2 = () => {
                 />
               </div>
               <div className="col-6 col-md-4">
-                <button
-                  type="button"
-                  name=""
-                  id=""
-                  className="form-control"
-                  aria-describedby="helpId"
+                <Select
+                  showSearch
+                  defaultValue="Projeto/Meta"
+                  onChange={handleChangeProjetos}
                 >
-                  Projeto/meta
-                </button>
+                  {projetos &&
+                    projetos.map((p, i) => {
+                      return (
+                        <Option key={i} value={p.name}>
+                          {p.name}
+                        </Option>
+                      );
+                    })}
+                </Select>
               </div>
               <div className="col-6 col-md-4">
-                <button
-                  type="button"
-                  name=""
-                  id=""
-                  className="form-control"
-                  aria-describedby="helpId"
+                <Select
+                  showSearch
+                  defaultValue="Unidade/Selo"
+                  onChange={handleChangeSelos}
                 >
-                  Unidade/selo
-                </button>
+                  <Option value=""></Option>
+                </Select>
               </div>
             </div>
           </div>
@@ -130,32 +148,36 @@ const Sessao2 = () => {
                   />
                 </div>
                 <div className="col-6 col-md-4">
-                  <button
-                    type="button"
-                    name=""
-                    id=""
-                    className="form-control"
-                    aria-describedby="helpId"
+                  <Select
+                    showSearch
+                    defaultValue="Projeto/Meta"
+                    onChange={handleChangeProjetos}
                   >
-                    Projeto/meta
-                  </button>
+                    {projetos &&
+                      projetos.map((p, i) => {
+                        return (
+                          <Option key={i} value={p.name}>
+                            {p.name}
+                          </Option>
+                        );
+                      })}
+                  </Select>
                 </div>
                 <div className="col-6 col-md-4">
-                  <button
-                    type="button"
-                    name=""
-                    id=""
-                    className="form-control"
-                    aria-describedby="helpId"
+                  <Select
+                    showSearch
+                    defaultValue="Unidade/Selo"
+                    onChange={handleChangeSelos}
                   >
-                    Unidade/selo
-                  </button>
+                    <Option value=""></Option>
+                  </Select>
                 </div>
               </div>
             </div>
             <a
               className="d-none d-md-flex position-absolute btn-search"
-              href="/"
+              onClick={() => fazerBusca()}
+              href="#"
             >
               <i className="fas fa-search"></i>
             </a>

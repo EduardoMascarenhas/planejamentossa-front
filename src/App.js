@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+import "antd/dist/antd.css";
 import GlobalStyle from "./styledComponents/globalStyle";
 import Entrar from "./pages/entrar";
 import Erro404 from "./pages/erro404";

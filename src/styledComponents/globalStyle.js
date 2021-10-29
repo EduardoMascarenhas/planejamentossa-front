@@ -188,6 +188,16 @@ display: -webkit-flex;
   padding: 10px;
   max-width: 515px
 }
+.ant-select:not(.ant-select-customize-input) .ant-select-selector {
+  border-left: 2px solid #376cb1 !important;
+  border-top: none!important;
+  border-right: none!important;
+  border-bottom: none!important;
+}
+.ant-select {
+    width: -webkit-fill-available;
+    margin-top: -2px;
+}
 .body-noticia{
   word-break: break-word;
   line-height: 2.3rem;
