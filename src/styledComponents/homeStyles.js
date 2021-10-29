@@ -1568,7 +1568,10 @@ display: -webkit-flex;
   padding: 0.5rem;
   direction: rtl;
 }
-
+.scroll-apresentacao-plano{
+  max-height: initial!important;
+  overflow-y: auto!important;
+}
 .scrolling-element-inside {
   direction: ltr;
 }

@@ -54,7 +54,10 @@ const ApresentacaoPlano = () => {
                       <p>{a.postedBy.name}</p>
                       <p>{moment(a.createdAt).format("DD-MM-YYYY")}</p>
                     </div>
-                    <div className="noticia-corpo scrolling-area mt-4" id="os">
+                    <div
+                      className="noticia-corpo scrolling-area scroll-apresentacao-plano mt-4"
+                      id="os"
+                    >
                       <div className="ltr">
                         <img
                           className="update-blog-img"
