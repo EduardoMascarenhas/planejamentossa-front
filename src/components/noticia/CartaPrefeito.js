@@ -4,11 +4,12 @@ import { API } from "../../config";
 import moment from "moment";
 import img1 from "../../assets/imgs/img-noticia-1.png";
 
-const CartaPrefeito = ({ slug }) => {
+const CartaPrefeito = () => {
   const [body, setBody] = useState("");
   const [values, setValues] = useState({
     title: "",
     subTitle: "",
+    slug: "",
     createdAt: "",
     postedBy: "",
     error: false,
@@ -18,6 +19,7 @@ const CartaPrefeito = ({ slug }) => {
   });
   const {
     title,
+    slug,
     createdAt,
     postedBy,
     subTitle,
@@ -37,6 +39,7 @@ const CartaPrefeito = ({ slug }) => {
           title: data.title,
           subTitle: data.subTitle,
           postedBy: data.postedBy.name,
+          slug: data.slug,
           createdAt: data.createdAt,
         });
       }
@@ -44,10 +47,8 @@ const CartaPrefeito = ({ slug }) => {
   };
 
   useEffect(() => {
-    if (slug) {
-      initNoticia(slug);
-    }
-  }, [slug]);
+    initNoticia("carta-do-prefeito");
+  }, []);
 
   return (
     <section className="mt-0">

@@ -1,21 +1,24 @@
 import React, { useEffect, useState } from "react";
+import { API } from "../../config";
 import parse from "html-react-parser";
 import img1 from "../../assets/imgs/barra-center-mobile-planejamento.svg";
 import img2 from "../../assets/imgs/barra-center.svg";
 import img3 from "../../assets/imgs/barra-center-mobile.svg";
 import img4 from "../../assets/imgs/bg-card-title.svg";
 import img5 from "../../assets/imgs/barras-pink.svg";
-import { getBlogs } from "../../core/apiCore";
+import { getBlogs, getBanners } from "../../core/apiCore";
 import moment from "moment";
 
 const Sessao2 = () => {
+  const [bannerActive, setBannerActive] = useState(1);
+  const [banners, setBanners] = useState([]);
   const [values, setValues] = useState({
     noticias: [],
     error: false,
     errorMsg: "",
   });
   const { noticias, error, errorMsg } = values;
-  const init = () => {
+  const initBlogs = () => {
     getBlogs().then((data) => {
       if (!data) {
         setValues({ ...values, error: true });
@@ -24,11 +27,21 @@ const Sessao2 = () => {
       }
     });
   };
+  const initBanners = () => {
+    getBanners().then((data) => {
+      if (!data) {
+        setValues({ ...values, error: true });
+      } else {
+        setBanners(data);
+      }
+    });
+  };
   const abrirNoticia = (link) => {
     window.open(link, "_blank");
   };
   useEffect(() => {
-    init();
+    initBlogs();
+    initBanners();
   }, []);
   return (
     <section className="pb-0 mt-0 position-relative d-flex bg-home-center">
@@ -185,13 +198,36 @@ const Sessao2 = () => {
           </a>
         </div>
 
-        <div className="col-12 mt-5 pt-5 align-items-center ads-home">
-          <div className="ads728x90 mx-auto">
-            <img
-              src="https://picsum.photos/728/90"
-              className="img-fluid"
-              alt=""
-            />
+        <div className="col-12 mt-5 pt-5 align-items-center">
+          <div className="w728-h90 mx-auto">
+            <div
+              id="carouselExampleInterval2"
+              className="carousel carousel-fade"
+              data-bs-ride="carousel"
+              interval="1000"
+            >
+              <div className="carousel-inner">
+                {banners &&
+                  banners.map((b, i) => {
+                    return (
+                      <div
+                        className={
+                          bannerActive === i + 1
+                            ? "carousel-item active"
+                            : "carousel-item"
+                        }
+                        key={i + 1}
+                      >
+                        <img
+                          src={`${API}/banner/image/${b._id}`}
+                          className="d-block w-100"
+                          alt="..."
+                        />
+                      </div>
+                    );
+                  })}
+              </div>
+            </div>
           </div>
         </div>
 

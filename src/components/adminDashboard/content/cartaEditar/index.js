@@ -31,7 +31,6 @@ const CartaEditar = ({ slug }) => {
     redirectToReferrer,
   } = values;
   const handleBody = (e) => {
-    console.log(e);
     setBody(e);
     formData.set("body", e);
     if (typeof window !== "undefined") {
@@ -76,22 +75,19 @@ const CartaEditar = ({ slug }) => {
     document.location.href = "/admin/cartas";
   };
   const init = () => {
-    setValues({
-      ...values,
-      formData: new FormData(),
-    });
+    setValues({ ...values, formData: new FormData() });
   };
   const initCarta = (s) => {
     getCarta(s).then((data) => {
       if (!data || data.error) {
         console.log("Erro ao carregar a carta");
       } else {
-        setBody(data.body);
         setValues({
           ...values,
           title: data.title,
           subTitle: data.subTitle,
         });
+        setBody(data.body);
       }
     });
   };
@@ -160,7 +156,7 @@ const CartaEditar = ({ slug }) => {
             formats={QuillFormats}
             value={body}
             placeholder="Corpo da Carta..."
-            onChange={handleBody}
+            onChange={() => handleBody()}
           />
         </div>
         <div className="col-12 d-flex p-3">

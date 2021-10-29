@@ -140,20 +140,20 @@ const DashboardSidebar = () => {
             <FaEnvelope className="side-dash-ico" />
           </NavIcon>
           <NavText>
-            Cartas
+            Carta / Apresentação
             <FaAngleDown />
           </NavText>
           <NavItem eventKey="/admin/carta/nova">
             <NavText>
               <a className="link-sidebar-admin" href="/admin/carta/nova">
-                Nova Carta
+                Nova
               </a>
             </NavText>
           </NavItem>
           <NavItem eventKey="/admin/cartas">
             <NavText>
               <a className="link-sidebar-admin" href="/admin/cartas">
-                Listar cartas
+                Listar
               </a>
             </NavText>
           </NavItem>

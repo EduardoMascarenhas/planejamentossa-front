@@ -112,7 +112,7 @@ const DashboardCartasListar = () => {
           className="btn btn-info btn-editar mr-1 fs-custom"
           onClick={() => redirectTo("/admin/carta/nova")}
         >
-          <FaPlusCircle /> Nova Carta
+          <FaPlusCircle /> Nova
         </button>
       </div>
       <table className="table table-striped table-hover table-responsive">
@@ -149,20 +149,32 @@ const DashboardCartasListar = () => {
                       " "
                     ) : (
                       <div className="div-btns-acoes">
-                        <button
-                          type="button"
-                          className="btn btn-warning btn-cancelar ml-1 fs-custom"
-                          onClick={() => editarNoticia(slug)}
-                        >
-                          Editar
-                        </button>
-                        <button
-                          type="button"
-                          className="btn btn-danger btn-cancelar ml-1 fs-custom"
-                          onClick={() => openModal2(title, slug)}
-                        >
-                          Remover
-                        </button>
+                        {slug === "carta-do-prefeito" ? (
+                          <button
+                            type="button"
+                            className="btn btn-warning btn-cancelar ml-1 fs-custom"
+                            onClick={() => editarNoticia(slug)}
+                          >
+                            Editar
+                          </button>
+                        ) : (
+                          <>
+                            <button
+                              type="button"
+                              className="btn btn-warning btn-cancelar ml-1 fs-custom"
+                              onClick={() => editarNoticia(slug)}
+                            >
+                              Editar
+                            </button>
+                            <button
+                              type="button"
+                              className="btn btn-danger btn-cancelar ml-1 fs-custom"
+                              onClick={() => openModal2(title, slug)}
+                            >
+                              Remover
+                            </button>
+                          </>
+                        )}
                       </div>
                     )}
                   </td>

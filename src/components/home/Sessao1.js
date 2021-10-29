@@ -146,7 +146,7 @@ const Sessao1 = () => {
                     </div>
                   </div>
                 </div>
-                <a href="/carta-carta-do-prefeito">
+                <a href="/carta-do-prefeito">
                   <figure className="on-hover">
                     <img
                       src={img9}
@@ -161,7 +161,7 @@ const Sessao1 = () => {
                   </figure>
                 </a>
                 <div className="d-lg-none text-break text-btn-mob-barra">
-                  <a href="/carta-carta-do-prefeito"> CARTA DO PREFEITO </a>
+                  <a href="/carta-do-prefeito"> CARTA DO PREFEITO </a>
                 </div>
               </div>
               <div className="space-button border-0 space-b">
@@ -178,7 +178,7 @@ const Sessao1 = () => {
                     </div>
                   </div>
                 </div>
-                <a href="/planos-eixos">
+                <a href="/apresentacao-plano">
                   <figure className="on-hover">
                     <img
                       src={img12}
@@ -193,7 +193,7 @@ const Sessao1 = () => {
                   </figure>
                 </a>
                 <div className="d-lg-none text-break text-btn-mob-barra">
-                  <a href="/planos-eixos"> APRESENTAÇÃO DO PLANO</a>
+                  <a href="/apresentacao-plano"> APRESENTAÇÃO DO PLANO</a>
                 </div>
               </div>
               <div className="space-button center my-1 px-2 mx-5 space-c">

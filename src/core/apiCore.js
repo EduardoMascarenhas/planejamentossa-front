@@ -481,7 +481,7 @@ export const deleteCarta = (slug, userId, token) => {
 };
 
 export const updateCarta = (slug, userId, token, carta) => {
-  return fetch(`${API}/carta/${userId}/${carta}`, {
+  return fetch(`${API}/carta/${userId}/${slug}`, {
     method: "PUT",
     headers: {
       Accept: "application/json",

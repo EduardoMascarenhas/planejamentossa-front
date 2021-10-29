@@ -45,6 +45,11 @@ display: -webkit-flex;
     padding: 3vw;
     margin: 0 15px 0 15px;
 }
+.w728-h90{
+  max-width: 728px;
+  max-height: 90px;
+  overflow: hidden;
+}
 .button-voltar {
   -webkit-appearance: none;
   background: -webkit-gradient(to right, #9e4b96 0%, #f756b4 30%, #ed028c 100%);

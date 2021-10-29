@@ -33,6 +33,7 @@ import AdminSliderEditar from "./pages/adminSliderEditar";
 import AdminBanner from "./pages/adminBanner";
 import AdminBanners from "./pages/adminBanners";
 import AdminBannerEditar from "./pages/adminBannerEditar";
+import ApresentacaoPlano from "./pages/apresentacaoPlano";
 
 function App() {
   return (
@@ -42,7 +43,8 @@ function App() {
         {/**GLOBAL ROUTES */}
         <Route path="/" exact component={Home} />
         <Route path="/noticia-:slug" exact component={Noticia} />
-        <Route path="/carta-:slug" exact component={CartaPrefeito} />
+        <Route path="/carta-do-prefeito" exact component={CartaPrefeito} />
+        <Route path="/apresentacao-plano" exact component={ApresentacaoPlano} />
         <Route path="/planos-eixos" exact component={PlanosEixos} />
         <Route path="/projeto-:slug" exact component={Projeto} />
         <Route path="/apresentacao-plano" exact component={EmDesenvolvimento} />

@@ -32,12 +32,12 @@ const NavBar = () => {
                   </a>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="/carta-carta-do-prefeito">
+                  <a className="dropdown-item" href="/carta-do-prefeito">
                     CARTA DO PREFEITO
                   </a>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="planos-eixos">
+                  <a className="dropdown-item" href="apresentacao-plano">
                     APRESENTAÇÃO DO PLANO
                   </a>
                 </li>

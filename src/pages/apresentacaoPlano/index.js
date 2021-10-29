@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from "react";
 import Layout from "../../components/Layout";
-import Carta from "../../components/noticia/CartaPrefeito";
+import ApresentacoesPlano from "../../components/noticia/ApresentacaoPlano";
 import HomeStyle from "../../styledComponents/homeStyles";
 
-const CartaPrefeito = () => {
+const ApresentacaoPlano = () => {
   return (
     <>
       <HomeStyle />
       <Layout>
-        <Carta />
+        <ApresentacoesPlano />
       </Layout>
     </>
   );
 };
 
-export default CartaPrefeito;
+export default ApresentacaoPlano;
