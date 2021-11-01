@@ -49,10 +49,7 @@ const SelosContent = () => {
                           <h4 class="c-color-gray">{parser(s.body)}</h4>
                         </div>
                         <div class="imagem-selos">
-                          <img
-                            src={`${API}/selo/image/617ff7c101e8130eb4b25a9a`}
-                            alt=""
-                          />
+                          <img src={`${API}/selo/image/${s._id}`} alt="" />
                         </div>
                       </li>
                     );

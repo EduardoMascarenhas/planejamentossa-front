@@ -221,30 +221,30 @@ display: -webkit-flex;
   cursor: pointer;
 }
 .bg-selos{
-       background: #eaefff;
-   }
-   .imagem-selos{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    align-content: center;
-   }
-   .textos-selos{
-       
-   }
-   .imagem-selos img {
-       max-width: 65%;
-   }
-   .scrolling-area{
-    max-height: initial !important;
-   }
+    background: #eaefff;
+}
+.imagem-selos{
+display: flex;
+flex-direction: column;
+align-items: center;
+align-content: center;
+}
+.textos-selos{
+    
+}
+.imagem-selos img {
+    max-width: 65%;
+}
+.scrolling-area{
+max-height: initial !important;
+}
 
-   .list-group-item{ display:grid; align-items: center;grid-template-columns: 1fr 1fr;  padding-bottom: 5rem !important;
-   }
+.list-group-item{ display:grid; align-items: center;grid-template-columns: 1fr 1fr;  padding-bottom: 5rem !important;
+}
 
-   .selos-mob{
+.selos-mob{
 
-   }
+}
 
    @media (max-width: 680px) {
     .list-group-item{
