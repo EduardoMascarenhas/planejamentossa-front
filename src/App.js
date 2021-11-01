@@ -11,7 +11,6 @@ import PlanosEixosInterna from "./pages/planosEixosInterna";
 import Projeto from "./pages/projeto";
 import AdminRoute from "./auth/AdminRoute";
 import AdminDashboard from "./pages/adminDashboard";
-import Cadastrar from "./pages/cadastrar";
 import AdminDashboardCategorias from "./pages/adminCategorias";
 import AdminCategoriaNova from "./pages/adminCategoriaNova";
 import AdminNoticiaNova from "./pages/adminNoticiaNova";
@@ -35,6 +34,10 @@ import AdminBanner from "./pages/adminBanner";
 import AdminBanners from "./pages/adminBanners";
 import AdminBannerEditar from "./pages/adminBannerEditar";
 import ApresentacaoPlano from "./pages/apresentacaoPlano";
+import AdminSelo from "./pages/adminSelo";
+import AdminSeloEditar from "./pages/adminSeloEditar";
+import AdminSelos from "./pages/adminSelos";
+import Selos from "./pages/selos";
 
 function App() {
   return (
@@ -48,7 +51,7 @@ function App() {
         <Route path="/apresentacao-plano" exact component={ApresentacaoPlano} />
         <Route path="/planos-eixos" exact component={PlanosEixos} />
         <Route path="/projeto-:slug" exact component={Projeto} />
-        <Route path="/selos" exact component={EmDesenvolvimento} />
+        <Route path="/selos" exact component={Selos} />
         <Route
           path="/planos-eixos-:slug"
           exact
@@ -58,6 +61,14 @@ function App() {
 
         {/**ADMIN ROUTES */}
         <AdminRoute exact path="/admin/dashboard" component={AdminDashboard} />
+        <AdminRoute exact path="/admin/selo/novo" component={AdminSelo} />
+        <AdminRoute exact path="/admin/selos" component={AdminSelos} />
+        <AdminRoute
+          exact
+          path="/admin/selo-:seloId"
+          component={AdminSeloEditar}
+        />
+
         <AdminRoute exact path="/admin/banner/novo" component={AdminBanner} />
         <AdminRoute exact path="/admin/banners" component={AdminBanners} />
         <AdminRoute

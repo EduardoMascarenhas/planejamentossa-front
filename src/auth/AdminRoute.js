@@ -9,7 +9,7 @@ const AdminRoute = ({ component: Component, ...rest }) => (
       isAuthenticated() === false ? (
         <Redirect
           to={{
-            pathname: "/entrar",
+            pathname: "/painel",
             state: { from: props.location },
           }}
         />
@@ -19,7 +19,7 @@ const AdminRoute = ({ component: Component, ...rest }) => (
       ) : (
         <Redirect
           to={{
-            pathname: "/entrar",
+            pathname: "/painel",
             state: { from: props.location },
           }}
         />

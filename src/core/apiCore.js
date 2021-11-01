@@ -648,3 +648,70 @@ export const getBanners = () => {
     })
     .catch((err) => console.log(err));
 };
+
+export const createSelo = (userId, token, selo) => {
+  return fetch(`${API}/selo/criar/${userId}`, {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: selo,
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
+export const deleteSelo = (seloId, userId, token) => {
+  return fetch(`${API}/selo/${seloId}/${userId}`, {
+    method: "DELETE",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .catch((err) => console.log(err));
+};
+
+export const updateSelo = (seloId, userId, token, selo) => {
+  return fetch(`${API}/selo/${userId}/${seloId}`, {
+    method: "PUT",
+    headers: {
+      Accept: "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: selo,
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .catch((err) => console.log(err));
+};
+
+export const getSelo = (seloId) => {
+  return fetch(`${API}/selo/${seloId}`, {
+    method: "GET",
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .catch((err) => console.log(err));
+};
+
+export const getSelos = () => {
+  return fetch(`${API}/selos`, {
+    method: "GET",
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .catch((err) => console.log(err));
+};

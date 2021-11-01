@@ -71,7 +71,7 @@ export const handleResponse = (response) => {
   if (response.status === 401) {
     signout(() => {
       Router.push({
-        pathname: "/entrar",
+        pathname: "/painel",
         query: {
           message: "Sua sessão expirou. Por favor faça o login novamente.",
         },
