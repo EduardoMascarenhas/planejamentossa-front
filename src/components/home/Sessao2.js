@@ -28,6 +28,7 @@ const Sessao2 = () => {
 
   function handleChangeProjetos(value) {
     setValues({ ...values, acaoProjetos: true, acaoSelos: false, acao: value });
+    window.location.href = `/projeto-${value}`;
   }
   function handleChangeSelos(value) {
     setValues({ ...values, acaoProjetos: false, acaoSelos: true, acao: value });
@@ -156,11 +157,7 @@ const Sessao2 = () => {
                     {projetos &&
                       projetos.map((p, i) => {
                         return (
-                          <Option
-                            onClick={() => fazerBusca()}
-                            key={i}
-                            value={p.slug}
-                          >
+                          <Option key={i} value={p.slug}>
                             {p.name}
                           </Option>
                         );
