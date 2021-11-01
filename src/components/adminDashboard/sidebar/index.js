@@ -7,6 +7,8 @@ import {
   FaRegNewspaper,
   FaEnvelope,
 } from "react-icons/fa";
+import { RiSlideshow3Line } from "react-icons/ri";
+import { GiPostStamp } from "react-icons/gi";
 import { isAuthenticated, signout } from "../../../auth";
 import { listUsers } from "../../../core/apiCore";
 import { DButton } from "../../../styledComponents/adminDashboardStyle";
@@ -63,7 +65,7 @@ const DashboardSidebar = () => {
         </NavItem>
         <NavItem eventKey="slider">
           <NavIcon>
-            <FaRegNewspaper className="side-dash-ico" />
+            <RiSlideshow3Line className="side-dash-ico" />
           </NavIcon>
           <NavText>
             Slider / Banner
@@ -191,6 +193,29 @@ const DashboardSidebar = () => {
             <NavText>
               <a className="link-sidebar-admin" href="/admin/eixos">
                 Listar Eixos
+              </a>
+            </NavText>
+          </NavItem>
+        </NavItem>
+        <NavItem eventKey="selos">
+          <NavIcon>
+            <GiPostStamp className="side-dash-ico" />
+          </NavIcon>
+          <NavText>
+            Selos
+            <FaAngleDown />
+          </NavText>
+          <NavItem eventKey="/admin/selo/novo">
+            <NavText>
+              <a className="link-sidebar-admin" href="/admin/selo/novo">
+                Novo Selo
+              </a>
+            </NavText>
+          </NavItem>
+          <NavItem eventKey="/admin/selos">
+            <NavText>
+              <a className="link-sidebar-admin" href="/admin/selos">
+                Listar Selos
               </a>
             </NavText>
           </NavItem>

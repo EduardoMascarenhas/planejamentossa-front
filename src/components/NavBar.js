@@ -72,34 +72,6 @@ const NavBar = () => {
                 )}
               </ul>
             </button>
-
-            <button
-              type="button"
-              className="navbar-toggle-always ffawe"
-              aria-expanded="false"
-            >
-              <i className="fas fa-search"></i>
-              <ul
-                className="dropdown-menu"
-                aria-labelledby="navbarDropdownMenuLink"
-              >
-                <li className="search">
-                  <a className="dropdown-item" href="/">
-                    PALAVRAS-CHAVES
-                  </a>
-                </li>
-                <li className="search">
-                  <a className="dropdown-item" href="/">
-                    PROJETO/META
-                  </a>
-                </li>
-                <li className="search">
-                  <a className="dropdown-item" href="/">
-                    UNIDADE/SELO
-                  </a>
-                </li>
-              </ul>
-            </button>
           </div>
 
           <div className="text-center">
