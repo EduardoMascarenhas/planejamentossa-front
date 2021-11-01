@@ -235,6 +235,17 @@ align-content: center;
 .imagem-selos img {
     max-width: 65%;
 }
+.topo-selos{
+  direction: ltr;
+  display: flex;
+  justify-content: space-between;
+}
+.topo-selos h3 {
+  color: #ed028c;
+}
+.selos-inside{
+  max-height: 500px;
+}
 .scrolling-area{
 max-height: initial !important;
 }
