@@ -246,9 +246,6 @@ align-content: center;
 .selos-inside{
   max-height: 500px;
 }
-.scrolling-area{
-max-height: initial !important;
-}
 
 .list-group-item{ display:grid; align-items: center;grid-template-columns: 1fr 1fr;  padding-bottom: 5rem !important;
 }
