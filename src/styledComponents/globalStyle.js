@@ -259,6 +259,9 @@ display: -webkit-flex;
    
 
    @media (max-width: 680px) {
+    .bg-selos .topo-selos {
+      padding-left: 0;
+    }
     .bg-selos .list-group-item{
         display: flex !important;
         display: -webkit-flex !important;
