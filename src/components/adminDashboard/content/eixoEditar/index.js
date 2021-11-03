@@ -125,9 +125,9 @@ const EixoEditar = ({ slug }) => {
         setValues({ ...values, error: true, errorMsg: data.error });
       } else {
         setValues({ ...values, error: false, redirectToReferrer: true });
+        document.location.href = "/admin/eixos";
       }
     });
-    document.location.href = "/admin/eixos";
   };
   const initProjetos = () => {
     getProjetos().then((data) => {
