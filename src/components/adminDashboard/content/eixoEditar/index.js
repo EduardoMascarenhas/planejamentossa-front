@@ -65,8 +65,6 @@ const EixoEditar = ({ slug }) => {
   const handleChange = (name) => (event) => {
     const value = name === "thumb" ? event.target.files[0] : event.target.value;
     if (name === "thumb") {
-      setVis(vis);
-      setMet(met);
       setValues({
         ...values,
         title: title,
