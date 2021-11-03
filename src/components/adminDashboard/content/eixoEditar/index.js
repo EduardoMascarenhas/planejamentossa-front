@@ -47,29 +47,19 @@ const EixoEditar = ({ slug }) => {
     // console.log(e);
     setVis(e);
     formData.set("vis", e);
-    if (typeof window !== "undefined") {
-      localStorage.setItem("eixo-visao", JSON.stringify(e));
-    }
   };
   const handleMet = (e) => {
     // console.log(e);
     setMet(e);
     formData.set("met", e);
-    if (typeof window !== "undefined") {
-      localStorage.setItem("eixo-meta", JSON.stringify(e));
-    }
   };
   const handlePro = (e) => {
     // console.log(e);
     setPro(e);
     formData.set("pro", e);
-    if (typeof window !== "undefined") {
-      localStorage.setItem("eixo-projetos", JSON.stringify(e));
-    }
   };
   const handleChange = (name) => (event) => {
     const value = name === "thumb" ? event.target.files[0] : event.target.value;
-
     setValues({ ...values, [name]: value });
     formData.set(name, value);
   };
