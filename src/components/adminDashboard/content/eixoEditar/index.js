@@ -42,16 +42,25 @@ const EixoEditar = ({ slug }) => {
     // console.log(e);
     setVis(e);
     formData.set("vis", e);
+    if (typeof window !== "undefined") {
+      localStorage.setItem("eixo-visao", JSON.stringify(e));
+    }
   };
   const handleMet = (e) => {
     // console.log(e);
     setMet(e);
     formData.set("met", e);
+    if (typeof window !== "undefined") {
+      localStorage.setItem("eixo-meta", JSON.stringify(e));
+    }
   };
   const handlePro = (e) => {
     // console.log(e);
     setPro(e);
     formData.set("pro", e);
+    if (typeof window !== "undefined") {
+      localStorage.setItem("eixo-projetos", JSON.stringify(e));
+    }
   };
   const handleChange = (name) => (event) => {
     const value = name === "thumb" ? event.target.files[0] : event.target.value;
@@ -137,6 +146,7 @@ const EixoEditar = ({ slug }) => {
         setValues({
           ...values,
           projetos: data,
+          formData: new FormData(),
         });
       }
     });
@@ -160,11 +170,8 @@ const EixoEditar = ({ slug }) => {
       }
     });
   };
-  const init = () => {
-    setValues({ ...values, formData: new FormData() });
-  };
+
   useEffect(() => {
-    init();
     initProjetos();
     if (slug) {
       initEixo(slug);
@@ -242,7 +249,7 @@ const EixoEditar = ({ slug }) => {
           <ReactQuill
             modules={QuillModules}
             formats={QuillFormats}
-            value={vis}
+            value={vis ? vis : ""}
             placeholder="Visão..."
             onChange={handleVis}
           />
@@ -252,7 +259,7 @@ const EixoEditar = ({ slug }) => {
           <ReactQuill
             modules={QuillModules}
             formats={QuillFormats}
-            value={met}
+            value={met ? met : ""}
             placeholder="Metas..."
             onChange={handleMet}
           />
@@ -262,7 +269,7 @@ const EixoEditar = ({ slug }) => {
           <ReactQuill
             modules={QuillModules}
             formats={QuillFormats}
-            value={pro}
+            value={pro ? pro : ""}
             placeholder="Projetos..."
             onChange={handlePro}
           />
