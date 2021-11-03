@@ -67,7 +67,6 @@ const EixoEditar = ({ slug }) => {
     if (name === "thumb") {
       setVis(vis);
       setMet(met);
-      setPro(pro);
       setValues({
         ...values,
         title: title,
