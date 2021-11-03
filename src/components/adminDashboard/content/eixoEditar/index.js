@@ -10,7 +10,7 @@ import {
 import Multiselect from "multiselect-react-dropdown";
 import ReactQuill from "react-quill";
 import { QuillModules, QuillFormats } from "../../../../helpers/quill";
-import {} from "../../../../../node_modules/react-quill/dist/quill.snow.css";
+import "../../../../../node_modules/react-quill/dist/quill.snow.css";
 
 const EixoEditar = ({ slug }) => {
   const { user, token } = isAuthenticated();
