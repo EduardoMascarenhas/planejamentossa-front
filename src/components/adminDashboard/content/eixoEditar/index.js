@@ -1,7 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { API } from "../../../../config";
 import { isAuthenticated } from "../../../../auth";
-import { getProjetos, getEixo, updateEixo } from "../../../../core/apiCore";
+import {
+  createEixo,
+  getProjetos,
+  getEixo,
+  updateEixo,
+} from "../../../../core/apiCore";
 import Multiselect from "multiselect-react-dropdown";
 import ReactQuill from "react-quill";
 import { QuillModules, QuillFormats } from "../../../../helpers/quill";
@@ -64,11 +69,9 @@ const EixoEditar = ({ slug }) => {
   };
   const handleChange = (name) => (event) => {
     const value = name === "thumb" ? event.target.files[0] : event.target.value;
-    if (name === "thumb") {
-      formData.set(name, value);
-    } else {
-      setValues({ ...values, [name]: value });
-    }
+
+    setValues({ ...values, [name]: value });
+    formData.set(name, value);
   };
   const handleMultiSelect = (name) => (event) => {
     let arrayProjetos = [];
@@ -118,12 +121,6 @@ const EixoEditar = ({ slug }) => {
   };
   const clickSubmit = (e) => {
     e.preventDefault();
-    formData.set("title", title);
-    formData.set("subTitle", subTitle);
-    formData.set("borderColor", borderColor);
-    formData.set("vis", vis);
-    formData.set("met", met);
-    formData.set("pro", pro);
     updateEixo(slug, user._id, token, formData).then((data) => {
       if (data.error) {
         setValues({ ...values, error: true, errorMsg: data.error });
@@ -245,7 +242,7 @@ const EixoEditar = ({ slug }) => {
           <ReactQuill
             modules={QuillModules}
             formats={QuillFormats}
-            value={vis ? vis : ""}
+            value={vis}
             placeholder="Visão..."
             onChange={handleVis}
           />
@@ -255,7 +252,7 @@ const EixoEditar = ({ slug }) => {
           <ReactQuill
             modules={QuillModules}
             formats={QuillFormats}
-            value={met ? met : ""}
+            value={met}
             placeholder="Metas..."
             onChange={handleMet}
           />
@@ -265,7 +262,7 @@ const EixoEditar = ({ slug }) => {
           <ReactQuill
             modules={QuillModules}
             formats={QuillFormats}
-            value={pro ? pro : ""}
+            value={pro}
             placeholder="Projetos..."
             onChange={handlePro}
           />
