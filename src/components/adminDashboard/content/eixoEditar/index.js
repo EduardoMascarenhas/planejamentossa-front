@@ -65,16 +65,9 @@ const EixoEditar = ({ slug }) => {
   const handleChange = (name) => (event) => {
     const value = name === "thumb" ? event.target.files[0] : event.target.value;
     if (name === "thumb") {
-      setValues({
-        ...values,
-        title: title,
-        subTitle: subTitle,
-        borderColor: borderColor,
-      });
       formData.set(name, value);
     } else {
       setValues({ ...values, [name]: value });
-      formData.set(name, value);
     }
   };
   const handleMultiSelect = (name) => (event) => {
@@ -125,6 +118,12 @@ const EixoEditar = ({ slug }) => {
   };
   const clickSubmit = (e) => {
     e.preventDefault();
+    formData.set("title", title);
+    formData.set("subTitle", subTitle);
+    formData.set("borderColor", borderColor);
+    formData.set("vis", vis);
+    formData.set("met", met);
+    formData.set("pro", pro);
     updateEixo(slug, user._id, token, formData).then((data) => {
       if (data.error) {
         setValues({ ...values, error: true, errorMsg: data.error });
