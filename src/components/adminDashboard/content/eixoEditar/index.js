@@ -68,6 +68,9 @@ const EixoEditar = ({ slug }) => {
     const value = name === "thumb" ? event.target.files[0] : event.target.value;
     setValues({ ...values, [name]: value });
     formData.set(name, value);
+    for (var pair of formData.entries()) {
+      console.log(pair[0] + ", " + pair[1]);
+    }
   };
   const handleMultiSelect = (name) => (event) => {
     let arrayProjetos = [];
