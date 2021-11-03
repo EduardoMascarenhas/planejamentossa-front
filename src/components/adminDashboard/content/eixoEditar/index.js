@@ -137,7 +137,6 @@ const EixoEditar = ({ slug }) => {
         setValues({
           ...values,
           projetos: data,
-          formData: new FormData(),
         });
       }
     });
@@ -161,8 +160,11 @@ const EixoEditar = ({ slug }) => {
       }
     });
   };
-
+  const init = () => {
+    setValues({ ...values, formData: new FormData() });
+  };
   useEffect(() => {
+    init();
     initProjetos();
     if (slug) {
       initEixo(slug);
