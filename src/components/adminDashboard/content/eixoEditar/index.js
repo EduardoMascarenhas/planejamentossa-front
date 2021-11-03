@@ -60,7 +60,7 @@ const EixoEditar = ({ slug }) => {
   const handlePro = (e) => {
     // console.log(e);
     setPro(e);
-    if (vis) {
+    if (pro) {
       formData.set("pro", e);
     }
   };
