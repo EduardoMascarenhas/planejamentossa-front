@@ -46,17 +46,23 @@ const EixoEditar = ({ slug }) => {
   const handleVis = (e) => {
     // console.log(e);
     setVis(e);
-    formData.set("vis", e);
+    if (vis) {
+      formData.set("vis", e);
+    }
   };
   const handleMet = (e) => {
     // console.log(e);
     setMet(e);
-    formData.set("met", e);
+    if (met) {
+      formData.set("met", e);
+    }
   };
   const handlePro = (e) => {
     // console.log(e);
     setPro(e);
-    formData.set("pro", e);
+    if (vis) {
+      formData.set("pro", e);
+    }
   };
   const handleChange = (name) => (event) => {
     const value = name === "thumb" ? event.target.files[0] : event.target.value;
