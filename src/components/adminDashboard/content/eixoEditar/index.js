@@ -70,19 +70,20 @@ const EixoEditar = ({ slug }) => {
   const handleChange = (name) => (event) => {
     const value = name === "thumb" ? event.target.files[0] : event.target.value;
     if (name === "thumb") {
+      setVis(vis);
+      setMet(met);
+      setPro(pro);
       setValues({
         ...values,
         title: title,
         subTitle: subTitle,
         borderColor: borderColor,
       });
-      setVis(vis);
-      setMet(met);
-      setPro(pro);
+      formData.set(name, value);
     } else {
       setValues({ ...values, [name]: value });
+      formData.set(name, value);
     }
-    formData.set(name, value);
   };
   const handleMultiSelect = (name) => (event) => {
     let arrayProjetos = [];
