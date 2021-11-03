@@ -149,7 +149,8 @@ const DashboardCartasListar = () => {
                       " "
                     ) : (
                       <div className="div-btns-acoes">
-                        {slug === "carta-do-prefeito" ? (
+                        {slug === "carta-do-prefeito" ||
+                        slug === "apresentacao-do-plano" ? (
                           <button
                             type="button"
                             className="btn btn-warning btn-cancelar ml-1 fs-custom"

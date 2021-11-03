@@ -51,37 +51,43 @@ const CartaPrefeito = () => {
   }, []);
 
   return (
-    <section className="mt-0">
-      <div className="container">
-        <div className="col-lg-12 container-noticia">
-          <button className="button-voltar">
-            {" "}
-            <a href="/">
-              Voltar <i className="fas fa-arrow-left"></i>
-            </a>{" "}
-          </button>
-          <div className="noticia-topo">
-            <h3>{subTitle}</h3>
-            <h1>{title}</h1>
-            <p>{postedBy}</p>
-            <p>{moment(createdAt).format("DD-MM-YYYY")}</p>
-          </div>
-          <div className="noticia-corpo scrolling-area mt-4" id="os">
-            <div className="ltr">
-              <img
-                className="update-blog-img"
-                src={`${API}/carta/thumb/${slug}`}
-                alt=""
-              />
-              <h3
-                className="body-noticia"
-                dangerouslySetInnerHTML={{ __html: body }}
-              />
+    <>
+      <section className="mt-0 bg-img-custom">
+        <div className="container">
+          <div className="col-lg-12 container-noticia">
+            <button className="button-voltar">
+              {" "}
+              <a href="/">
+                Voltar <i className="fas fa-arrow-left"></i>
+              </a>{" "}
+            </button>
+            <div className="noticia-topo">
+              <h1>{title}</h1>
+              <p>{postedBy}</p>
+            </div>
+            <div className="scrolling-area area-carta-prefeito mt-4" id="os">
+              <div className="ltr">
+                <div className="col-12 d-flex">
+                  <div className="col-6 w100-991">
+                    <div
+                      className="body-noticia-prefeito"
+                      dangerouslySetInnerHTML={{ __html: body }}
+                    />
+                  </div>
+                  <div className="col-6 dn-991 img-carta-prefeito">
+                    <img
+                      className="img-com-borda"
+                      src={`${API}/carta/thumb/${slug}`}
+                      alt=""
+                    />
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 };
 

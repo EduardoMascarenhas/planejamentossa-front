@@ -7,13 +7,19 @@ import img2 from "../../assets/imgs/barra-center.svg";
 import img3 from "../../assets/imgs/barra-center-mobile.svg";
 import img4 from "../../assets/imgs/bg-card-title.svg";
 import img5 from "../../assets/imgs/barras-pink.svg";
-import { getBlogs, getBanners, getProjetos } from "../../core/apiCore";
+import {
+  getBlogs,
+  getBanners,
+  getProjetos,
+  getSelos,
+} from "../../core/apiCore";
 import moment from "moment";
 
 const Sessao2 = () => {
   const [bannerActive, setBannerActive] = useState(1);
   const [banners, setBanners] = useState([]);
   const [projetos, setProjetos] = useState([]);
+  const [selos, setSelos] = useState([]);
   const [values, setValues] = useState({
     noticias: [],
     acaoProjetos: false,
@@ -60,6 +66,15 @@ const Sessao2 = () => {
       }
     });
   };
+  const initSelos = () => {
+    getSelos().then((data) => {
+      if (!data) {
+        setValues({ ...values, error: true });
+      } else {
+        setSelos(data);
+      }
+    });
+  };
   const abrirLink = (link) => {
     window.open(link, "_blank");
   };
@@ -75,6 +90,7 @@ const Sessao2 = () => {
     initBlogs();
     initBanners();
     initProjetos();
+    initSelos();
   }, []);
   return (
     <section className="pb-0 mt-0 position-relative d-flex bg-home-center">
@@ -96,7 +112,7 @@ const Sessao2 = () => {
               <div className="col-6 col-md-4">
                 <Select
                   showSearch
-                  defaultValue="Projeto/Meta"
+                  defaultValue="Projetos"
                   onChange={handleChangeProjetos}
                 >
                   {projetos &&
@@ -104,6 +120,7 @@ const Sessao2 = () => {
                       return (
                         <Option key={i} value={p.slug}>
                           {p.name}
+                          <hr className="m-0" />
                         </Option>
                       );
                     })}
@@ -112,10 +129,18 @@ const Sessao2 = () => {
               <div className="col-6 col-md-4">
                 <Select
                   showSearch
-                  defaultValue="Unidade/Selo"
+                  defaultValue="Selos"
                   onChange={handleChangeSelos}
                 >
-                  <Option value=""></Option>
+                  {selos &&
+                    selos.map((s, i) => {
+                      return (
+                        <Option key={i} value={s._id}>
+                          {s.title}
+                          <hr className="m-0" />
+                        </Option>
+                      );
+                    })}
                 </Select>
               </div>
             </div>
@@ -151,7 +176,7 @@ const Sessao2 = () => {
                 <div className="col-6 col-md-4">
                   <Select
                     showSearch
-                    defaultValue="Projeto/Meta"
+                    defaultValue="Projetos"
                     onChange={handleChangeProjetos}
                   >
                     {projetos &&
@@ -159,6 +184,7 @@ const Sessao2 = () => {
                         return (
                           <Option key={i} value={p.slug}>
                             {p.name}
+                            <hr className="m-0" />
                           </Option>
                         );
                       })}
@@ -167,10 +193,18 @@ const Sessao2 = () => {
                 <div className="col-6 col-md-4">
                   <Select
                     showSearch
-                    defaultValue="Unidade/Selo"
+                    defaultValue="Selos"
                     onChange={handleChangeSelos}
                   >
-                    <Option value=""></Option>
+                    {selos &&
+                      selos.map((s, i) => {
+                        return (
+                          <Option key={i} value={s._id}>
+                            {s.title}
+                            <hr className="m-0" />
+                          </Option>
+                        );
+                      })}
                   </Select>
                 </div>
               </div>

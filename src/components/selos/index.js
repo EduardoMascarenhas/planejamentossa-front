@@ -36,7 +36,7 @@ const SelosContent = () => {
     <section className="pb-0 mt-0 position-relative d-flex bg-home-center bg-selos">
       <div className="container">
         <div className="col-12 py-5 mb-5 align-items-center mx-auto card-space-home">
-          <div className="scrolling-area mt-3" id="os">
+          <div className="mt-3" id="os">
             <div className="topo-selos">
               <h3>SELOS</h3>
               <button
@@ -50,7 +50,7 @@ const SelosContent = () => {
               </button>
             </div>
 
-            <div className="scrolling-element-inside selos-inside">
+            <div className="">
               <ul className="list-group list-group-flush bg-transparent itens-news">
                 {selos &&
                   selos.map((s, i) => {
