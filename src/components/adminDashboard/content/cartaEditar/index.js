@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { API } from "../../../../config";
 import { isAuthenticated } from "../../../../auth";
-import { createCarta, getCarta, updateCarta } from "../../../../core/apiCore";
-import Multiselect from "multiselect-react-dropdown";
+import { getCarta, updateCarta } from "../../../../core/apiCore";
 import ReactQuill from "react-quill";
 import { QuillModules, QuillFormats } from "../../../../helpers/quill";
 import {} from "../../../../../node_modules/react-quill/dist/quill.snow.css";
@@ -39,8 +38,12 @@ const CartaEditar = ({ slug }) => {
   };
   const handleChange = (name) => (event) => {
     const value = name === "thumb" ? event.target.files[0] : event.target.value;
-
-    setValues({ ...values, [name]: value });
+    if (name === "thumb") {
+      setValues({ ...values, title: title, subTitle: subTitle });
+      setBody(body);
+    } else {
+      setValues({ ...values, [name]: value });
+    }
     formData.set(name, value);
   };
   const showError = () => {

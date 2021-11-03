@@ -69,8 +69,19 @@ const EixoEditar = ({ slug }) => {
   };
   const handleChange = (name) => (event) => {
     const value = name === "thumb" ? event.target.files[0] : event.target.value;
-
-    setValues({ ...values, [name]: value });
+    if (name === "thumb") {
+      setValues({
+        ...values,
+        title: title,
+        subTitle: subTitle,
+        borderColor: borderColor,
+      });
+      setVis(vis);
+      setMet(met);
+      setPro(pro);
+    } else {
+      setValues({ ...values, [name]: value });
+    }
     formData.set(name, value);
   };
   const handleMultiSelect = (name) => (event) => {
