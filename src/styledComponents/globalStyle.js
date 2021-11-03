@@ -253,6 +253,13 @@ display: -webkit-flex;
   font-weight: 300!important;
   font-size: 1.3rem;
 }
+.body-noticia-prefeito h2 {
+  color: #fff;
+}
+.body-noticia-prefeito p {
+  color: #fff;
+  font-size: 1.2rem;
+}
 .img-com-borda{
   box-shadow: 8px 9px 0px 1px #ce4995;
 }
