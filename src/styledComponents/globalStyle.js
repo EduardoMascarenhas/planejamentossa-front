@@ -260,6 +260,9 @@ display: -webkit-flex;
   color: #fff;
   font-size: 1.2rem;
 }
+.body-noticia-prefeito p br {
+  display: none;
+}
 .img-com-borda{
   box-shadow: 8px 9px 0px 1px #ce4995;
 }
