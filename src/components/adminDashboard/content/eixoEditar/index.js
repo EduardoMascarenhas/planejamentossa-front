@@ -1,12 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { API } from "../../../../config";
 import { isAuthenticated } from "../../../../auth";
-import {
-  createEixo,
-  getProjetos,
-  getEixo,
-  updateEixo,
-} from "../../../../core/apiCore";
+import { getProjetos, getEixo, updateEixo } from "../../../../core/apiCore";
 import Multiselect from "multiselect-react-dropdown";
 import ReactQuill from "react-quill";
 import { QuillModules, QuillFormats } from "../../../../helpers/quill";

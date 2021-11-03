@@ -36,4 +36,8 @@ export const QuillFormats = [
   "image",
   "video",
   "code-block",
+  "center",
+  "right",
+  "justify",
+  "align",
 ];
