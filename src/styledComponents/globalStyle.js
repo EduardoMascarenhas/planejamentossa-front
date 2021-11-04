@@ -226,6 +226,9 @@ grid-container {
   margin-right: 0.5rem!important;
   margin-left: 0.5rem!important;
 }
+#contact-list .list-title{
+  width: -webkit-fill-available;
+}
 [short] {
   grid-row: span 1;
   align-items: flex-start;
@@ -375,11 +378,6 @@ grid-container .list-title {
   
   grid-container {
     grid-auto-rows: 155px;
-  }
-
-  grid-container .list-title {
-    margin-left: -45px!important;
-    padding-left: 45px!important;
   }
     
 }
