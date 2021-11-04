@@ -1337,7 +1337,7 @@ main > .container {
 .brd-obj-title-planos:after {
   height: 3px;
   display: block;
-  width: 40vw;
+  width: 80vw;
   background: #0179c0;
   border-radius: 10px;
   content: "";
@@ -1364,9 +1364,12 @@ main > .container {
     max-width: 18em;
     margin-top: 1rem;
   }
+  .brd-obj-title-planos{
+    display: flex
+  }
   .brd-obj-title-planos:after {
     height: 3px;
-    display: block;
+    display: flex;
     width: 18em;
     background: #0179c0;
     border-radius: 10px;
@@ -1421,6 +1424,7 @@ main > .container {
   }
   .brd-obj-title-planos {
     padding: 0 0 25px 0;
+    display: flex;
   }
 }
 @media screen and (max-width: 768px) {

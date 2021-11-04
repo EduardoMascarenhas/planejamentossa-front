@@ -273,11 +273,11 @@ display: -webkit-flex;
     direction: rtl;
 }
 .img-carta-prefeito img{
-  max-width: 325px;
+  max-width: 80%;
 }
 
-.area-carta-prefeito{
-  max-height: 60vh!important;
+.area-carta-prefeito {
+  max-height: 100vh!important;
 }
 .ant-select-dropdown {
   border-bottom-right-radius: 25px;

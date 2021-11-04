@@ -80,7 +80,10 @@ const PEMobile = () => {
                                 />
                               </div>
                             </div>
-                            <div className="text-white list-title text-uppercase">
+                            <div
+                              className="text-white list-title text-uppercase"
+                              style={{ border: `2px solid ${e.borderColor}` }}
+                            >
                               <div className="name fw-bold">{e.title}</div>
                             </div>
                           </li>

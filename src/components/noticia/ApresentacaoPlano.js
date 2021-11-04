@@ -65,23 +65,23 @@ const ApresentacaoPlano = () => {
               <h1>{title}</h1>
               <p>{postedBy}</p>
             </div>
-            <div className="scrolling-area area-carta-prefeito mt-4" id="os">
-              <div className="ltr">
-                <div className="col-12 d-flex">
-                  <div className="col-6 w100-991">
+            <div className="col-12 d-flex">
+              <div className="scrolling-area area-carta-prefeito mt-4" id="os">
+                <div className="ltr">
+                  <div className="w100-991">
                     <div
                       className="body-noticia-prefeito"
                       dangerouslySetInnerHTML={{ __html: body }}
                     />
                   </div>
-                  <div className="col-6 dn-991 img-carta-prefeito">
-                    <img
-                      className="img-com-borda-2"
-                      src={`${API}/carta/thumb/${slug}`}
-                      alt=""
-                    />
-                  </div>
                 </div>
+              </div>
+              <div className="col-6 dn-991 img-carta-prefeito">
+                <img
+                  className="img-com-borda"
+                  src={`${API}/carta/thumb/${slug}`}
+                  alt=""
+                />
               </div>
             </div>
           </div>

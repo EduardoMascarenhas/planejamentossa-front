@@ -38,6 +38,7 @@ const Sessao2 = () => {
   }
   function handleChangeSelos(value) {
     setValues({ ...values, acaoProjetos: false, acaoSelos: true, acao: value });
+    window.location.href = `/selos`;
   }
   const initBlogs = () => {
     getBlogs().then((data) => {
@@ -105,7 +106,7 @@ const Sessao2 = () => {
                   name=""
                   id=""
                   className="form-control"
-                  placeholder="Palavras-chaves"
+                  placeholder="Palavras-chave"
                   aria-describedby="helpId"
                 />
               </div>
@@ -169,7 +170,7 @@ const Sessao2 = () => {
                     name=""
                     id=""
                     className="form-control"
-                    placeholder="Palavras-chaves"
+                    placeholder="Palavras-chave"
                     aria-describedby="helpId"
                   />
                 </div>
@@ -239,7 +240,7 @@ const Sessao2 = () => {
                   name=""
                   id=""
                   className="form-control"
-                  placeholder="Palavras-chaves"
+                  placeholder="Palavras-chave"
                   aria-describedby="helpId"
                 />
               </div>
