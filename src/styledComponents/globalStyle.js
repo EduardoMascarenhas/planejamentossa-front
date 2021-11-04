@@ -269,7 +269,17 @@ grid-container .name{
 }
 }
 
+@media (max-width: 760px){
+  grid-container{
+    grid-auto-rows: 75px;
+  }
+}
 @media (max-width: 480px){
+grid-container {
+  grid-auto-rows: 75px;
+  gap: 15px;
+  justify-content: center;
+}
 grid-container #brd-image  {
 padding-left: 0px !important;
 }
@@ -280,6 +290,7 @@ margin-top:0;
 grid-container .name{
 font-size: .5rem !important;
 }
+
 }
 
 @media (max-width: 767px) {
