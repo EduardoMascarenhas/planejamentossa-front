@@ -110,10 +110,16 @@ const PEMobile = () => {
                                       src={`${API}/eixo/thumb/${e.slug}`}
                                       alt=""
                                       class="thumbnail rounded-circle"
+                                      style={{ background: `${e.borderColor}` }}
                                     />
                                   </div>
                                 </div>
-                                <div class="text-white list-title">
+                                <div
+                                  class="text-white list-title"
+                                  style={{
+                                    border: `2px solid ${e.borderColor}`,
+                                  }}
+                                >
                                   <div class="name text-uppercase">
                                     {e.title}
                                   </div>
