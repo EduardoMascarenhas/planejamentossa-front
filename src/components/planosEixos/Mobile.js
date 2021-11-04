@@ -57,7 +57,7 @@ const PEMobile = () => {
           <div className="col-12 brd-pink" id="brd-pink">
             <div className="col-12 pt-1 position-relative">
               <div className="row-flex" style={{ justifyContent: "center" }}>
-                <div>
+                <div className="mx-1 vw-100">
                   <grid-container id="contact-list">
                     {eixos &&
                       eixos.map((e, i) => {

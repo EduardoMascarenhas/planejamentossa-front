@@ -175,7 +175,11 @@ const PEIMobile = ({ slug }) => {
                         })
                       }
                       className="span-texto"
-                      style={{ color: "#fff" }}
+                      style={
+                        visAtivo === true
+                          ? { color: "#48a2da" }
+                          : { color: "#fff" }
+                      }
                     >
                       VISÃO
                     </h3>
@@ -214,7 +218,11 @@ const PEIMobile = ({ slug }) => {
                         })
                       }
                       className="span-texto"
-                      style={{ color: "#fff" }}
+                      style={
+                        metAtivo === true
+                          ? { color: "#48a2da" }
+                          : { color: "#fff" }
+                      }
                     >
                       METAS
                     </h3>
@@ -253,7 +261,11 @@ const PEIMobile = ({ slug }) => {
                         })
                       }
                       className="span-texto"
-                      style={{ color: "#fff" }}
+                      style={
+                        proAtivo === true
+                          ? { color: "#48a2da" }
+                          : { color: "#fff" }
+                      }
                     >
                       PROJETOS
                     </h3>
