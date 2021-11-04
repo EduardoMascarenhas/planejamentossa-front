@@ -273,7 +273,7 @@ const Sessao2 = () => {
           </a>
         </div>
 
-        <div className="col-12 mt-5 pt-5 align-items-center">
+        <div className="col-12 mt-5 align-items-center">
           <div className="w728-h90 mx-auto">
             <div
               id="carouselExampleInterval2"

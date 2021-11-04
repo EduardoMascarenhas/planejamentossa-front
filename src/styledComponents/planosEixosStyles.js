@@ -1364,9 +1364,6 @@ main > .container {
     max-width: 18em;
     margin-top: 1rem;
   }
-  .brd-obj-title-planos{
-    display: flex
-  }
   .brd-obj-title-planos:after {
     height: 3px;
     display: flex;
@@ -1408,6 +1405,9 @@ main > .container {
 @media screen and (max-width: 1200px) {
 }
 @media screen and (max-width: 991px) {
+  .brd-obj-title-planos{
+    display: flex
+  }
   .brd-pink::after {
     display: none;
   }
