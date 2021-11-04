@@ -18,6 +18,7 @@ const PEIDesktop = ({ slug }) => {
     projeto: {},
     title: "",
     subTitle: "",
+    borderColor: "",
     visAtivo: false,
     metAtivo: false,
     proAtivo: false,
@@ -26,7 +27,15 @@ const PEIDesktop = ({ slug }) => {
     redirectToReferrer: false,
     formData: "",
   });
-  const { title, projetos, visAtivo, metAtivo, proAtivo, subTitle } = values;
+  const {
+    title,
+    projetos,
+    borderColor,
+    visAtivo,
+    metAtivo,
+    proAtivo,
+    subTitle,
+  } = values;
 
   const abrirProjeto = (s) => {
     window.location.href = `/projeto-${s}`;
@@ -45,6 +54,7 @@ const PEIDesktop = ({ slug }) => {
           title: data.title,
           subTitle: data.subTitle,
           projetos: data.projetos,
+          borderColor: data.borderColor,
         });
       }
     });
@@ -59,7 +69,14 @@ const PEIDesktop = ({ slug }) => {
     <main className="h-100 dn-991">
       <div className="container-fluid position-relative pb-5 pt-5 bg-blue-0-deg">
         <div className="position-absolute bg-blue"></div>
-        <section className="position-relative bar-yellow c-bgc-yellow-light">
+        <section
+          className="position-relative bar-yellow c-bgc-yellow-light"
+          style={
+            borderColor
+              ? { backgroundColor: `${borderColor}` }
+              : { backgroundColor: `#df6825` }
+          }
+        >
           <div className="container position-relative d-flex align-items-center justify-content-center">
             <div className="space-thumb">
               <img
@@ -82,7 +99,12 @@ const PEIDesktop = ({ slug }) => {
         </section>
         <section className="d-flex pt-5 my-4">
           <div className="container">
-            <div className="col-xs-12 col-sm-6 c-color-yellow-light title text-uppercase">
+            <div
+              className="col-xs-12 col-sm-6 c-color-yellow-light title text-uppercase"
+              style={
+                borderColor ? { color: `${borderColor}` } : { color: `#df6825` }
+              }
+            >
               {" "}
               {title}
             </div>
@@ -101,7 +123,14 @@ const PEIDesktop = ({ slug }) => {
         <div className="container container-eixos-interna">
           <div className="row">
             <div className="col-4 position-relative py-5 pe-0 topo">
-              <div className="bg-yellow"></div>
+              <div
+                className="bg-yellow"
+                style={
+                  borderColor
+                    ? { background: `${borderColor}` }
+                    : { background: `#df6825` }
+                }
+              ></div>
               <ul className="list-group" id="contact-list">
                 <li
                   data-id="conteudo1"
@@ -137,7 +166,13 @@ const PEIDesktop = ({ slug }) => {
                         })
                       }
                       className="name fw-bold botao-eixo-interna"
-                      style={visAtivo ? { color: "#48a2da" } : {}}
+                      style={
+                        borderColor && visAtivo === false
+                          ? { color: `${borderColor}` }
+                          : visAtivo === true
+                          ? { color: "#48a2da" }
+                          : { color: "#df6825" }
+                      }
                     >
                       VISÃO
                     </span>
@@ -177,7 +212,13 @@ const PEIDesktop = ({ slug }) => {
                         })
                       }
                       className="name fw-bold botao-eixo-interna"
-                      style={metAtivo ? { color: "#48a2da" } : {}}
+                      style={
+                        borderColor && metAtivo === false
+                          ? { color: `${borderColor}` }
+                          : metAtivo === true
+                          ? { color: "#48a2da" }
+                          : { color: "#df6825" }
+                      }
                     >
                       METAS
                     </span>
@@ -217,7 +258,13 @@ const PEIDesktop = ({ slug }) => {
                         })
                       }
                       className="name fw-bold botao-eixo-interna"
-                      style={proAtivo ? { color: "#48a2da" } : {}}
+                      style={
+                        borderColor && proAtivo === false
+                          ? { color: `${borderColor}` }
+                          : proAtivo === true
+                          ? { color: "#48a2da" }
+                          : { color: "#df6825" }
+                      }
                     >
                       PROJETOS
                     </span>

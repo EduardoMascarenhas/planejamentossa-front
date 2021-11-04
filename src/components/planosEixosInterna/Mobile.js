@@ -16,6 +16,7 @@ const PEIMobile = ({ slug }) => {
     projeto: {},
     title: "",
     subTitle: "",
+    borderColor: "",
     visAtivo: false,
     metAtivo: false,
     proAtivo: false,
@@ -24,7 +25,15 @@ const PEIMobile = ({ slug }) => {
     redirectToReferrer: false,
     formData: "",
   });
-  const { title, projetos, visAtivo, metAtivo, proAtivo, subTitle } = values;
+  const {
+    title,
+    projetos,
+    borderColor,
+    visAtivo,
+    metAtivo,
+    proAtivo,
+    subTitle,
+  } = values;
 
   const initEixo = (s) => {
     getEixo(s).then((data) => {
@@ -39,6 +48,7 @@ const PEIMobile = ({ slug }) => {
           title: data.title,
           subTitle: data.subTitle,
           projetos: data.projetos,
+          borderColor: data.borderColor,
         });
       }
     });
@@ -64,7 +74,14 @@ const PEIMobile = ({ slug }) => {
           <div className="dots dots-voltar dot-esquerdo">
             <img src={img1} className="d-block w-100" alt="..." />
           </div>
-          <button className="button-voltar">
+          <button
+            className="button-voltar"
+            style={
+              borderColor
+                ? { background: `${borderColor}` }
+                : { background: `#df6825` }
+            }
+          >
             {" "}
             <a href="/">
               Voltar <i className="fas fa-arrow-left"></i>
@@ -75,18 +92,37 @@ const PEIMobile = ({ slug }) => {
           </div>
         </div>
 
-        <section className="position-relative bar-yellow c-bgc-yellow-light">
+        <section
+          className="position-relative bar-yellow c-bgc-yellow-light"
+          style={
+            borderColor
+              ? { backgroundColor: `${borderColor}` }
+              : { backgroundColor: `#df6825` }
+          }
+        >
           <div className="container position-relative d-flex align-items-center justify-content-center">
             <div className="space-thumb img-topo-eixos-interna">
               <img
                 src={`${API}/eixo/thumb/${slug}`}
                 alt=""
                 className="thumbnail rounded-circle"
+                style={
+                  borderColor
+                    ? { border: `8px solid ${borderColor}`, padding: 0 }
+                    : { backgroundColor: `#df6825` }
+                }
               />
             </div>
           </div>
         </section>
-        <section className="d-flex c-bgc-yellow-light">
+        <section
+          className="d-flex c-bgc-yellow-light"
+          style={
+            borderColor
+              ? { backgroundColor: `${borderColor}` }
+              : { backgroundColor: `#df6825` }
+          }
+        >
           <div className="container text-center">
             <h1 className="titulo-eixos text-uppercase">{title}</h1>
             <hr className="hr-eixos" />
@@ -97,7 +133,14 @@ const PEIMobile = ({ slug }) => {
         <div className="container container-eixos-interna">
           <div className="row">
             <div className="col-4 position-relative py-5 topo">
-              <div className="bg-yellow"></div>
+              <div
+                className="bg-yellow"
+                style={
+                  borderColor
+                    ? { background: `${borderColor}` }
+                    : { background: `#df6825` }
+                }
+              ></div>
               <ul className="list-group" id="contact-list">
                 <li
                   data-id="conteudo1"
@@ -132,7 +175,13 @@ const PEIMobile = ({ slug }) => {
                         })
                       }
                       className="span-texto"
-                      style={visAtivo ? { color: "#48a2da" } : {}}
+                      style={
+                        borderColor && visAtivo === false
+                          ? { color: `${borderColor}` }
+                          : visAtivo === true
+                          ? { color: "#48a2da" }
+                          : { color: "#df6825" }
+                      }
                     >
                       VISÃO
                     </h3>
@@ -171,7 +220,13 @@ const PEIMobile = ({ slug }) => {
                         })
                       }
                       className="span-texto"
-                      style={metAtivo ? { color: "#48a2da" } : {}}
+                      style={
+                        borderColor && metAtivo === false
+                          ? { color: `${borderColor}` }
+                          : metAtivo === true
+                          ? { color: "#48a2da" }
+                          : { color: "#df6825" }
+                      }
                     >
                       METAS
                     </h3>
@@ -210,7 +265,13 @@ const PEIMobile = ({ slug }) => {
                         })
                       }
                       className="span-texto"
-                      style={proAtivo ? { color: "#48a2da" } : {}}
+                      style={
+                        borderColor && proAtivo === false
+                          ? { color: `${borderColor}` }
+                          : proAtivo === true
+                          ? { color: "#48a2da" }
+                          : { color: "#df6825" }
+                      }
                     >
                       PROJETOS
                     </h3>

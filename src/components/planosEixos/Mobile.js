@@ -89,7 +89,7 @@ const PEMobile = () => {
                             <>
                               <grid-item tall id="brd-image">
                                 <img
-                                  src={`${API}/eixo/thumb/capital-da-qualidade-de-vida`}
+                                  src={`${API}/eixo/thumb/${e.slug}`}
                                   class="img-content"
                                   alt=""
                                 />
