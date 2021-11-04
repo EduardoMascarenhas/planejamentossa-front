@@ -33,20 +33,7 @@ body {
   height: 100%;
   overflow-x: hidden;
 }
-::-webkit-scrollbar-track {
-  border: 5px solid #e6ebef;
-  background-color: #d2d2d2;
-}
 
-::-webkit-scrollbar {
-    width: 6px;
-    background-color: rgb(230, 235, 239);
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: #EC008B;
-  border-radius: 10px;
-}
 .c-color-primary {
   color: var(--bs-primary);
 }

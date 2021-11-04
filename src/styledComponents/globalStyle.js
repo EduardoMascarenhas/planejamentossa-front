@@ -286,15 +286,18 @@ display: -webkit-flex;
   border-top: 4px solid #ed028c;
   text-align: center;
 }
-.ant-select-dropdown::-webkit-scrollbar-track  {
-  border: 5px solid #e6ebef;
-  background-color: #d2d2d2;
+
+.custom-scroll::-webkit-scrollbar-track {
+  border: 5px solid transparent;
+  background-color: transparent;
 }
-.ant-select-dropdown::-webkit-scrollbar{
-  width: 6px;
-  background-color: rgb(230, 235, 239);
+
+.custom-scroll::-webkit-scrollbar {
+    width: 6px;
+    background-color: transparent;
 }
-.ant-select-dropdown::-webkit-scrollbar-thumb {
+
+.custom-scroll::-webkit-scrollbar-thumb {
   background-color: #EC008B;
   border-radius: 10px;
 }

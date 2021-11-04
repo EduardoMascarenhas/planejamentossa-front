@@ -331,7 +331,7 @@ const Sessao2 = () => {
                 </div>
               </div>
 
-              <div className="scrolling-area mt-3" id="os">
+              <div className="custom-scroll scrolling-area mt-3" id="os">
                 <div className="scrolling-element-inside">
                   <ul className="list-group list-group-flush bg-transparent itens-news">
                     {noticias.map(
