@@ -101,9 +101,7 @@ const PEIDesktop = ({ slug }) => {
           <div className="container">
             <div
               className="col-xs-12 col-sm-6 c-color-yellow-light title text-uppercase"
-              style={
-                borderColor ? { color: `${borderColor}` } : { color: `#df6825` }
-              }
+              style={{ color: "#fff" }}
             >
               {" "}
               {title}
