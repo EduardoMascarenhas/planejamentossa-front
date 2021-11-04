@@ -61,7 +61,7 @@ const PEMobile = () => {
                   <grid-container id="contact-list">
                     {eixos &&
                       eixos.map((e, i) => {
-                        if (i !== 4) {
+                        if (i !== 1) {
                           return (
                             <grid-item short>
                               <div>
@@ -79,7 +79,7 @@ const PEMobile = () => {
                             </grid-item>
                           );
                         }
-                        if (i === 4) {
+                        if (i === 1) {
                           return (
                             <grid-item tall id="brd-image">
                               <img
