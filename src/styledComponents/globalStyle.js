@@ -383,15 +383,6 @@ grid-container .list-title {
   }
     
 }
-@media (max-width: 991px){
-  grid-container #brd-image img {
-  width: 55vw;
-  margin-top:0;
-}
-#contact-list .list-title {
-  width: 215px
-}
-}
 
 @media (max-width: 760px){
   grid-container{
