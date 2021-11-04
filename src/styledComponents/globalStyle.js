@@ -263,8 +263,8 @@ grid-container .list-title {
 
 @media (min-width: 320px){
   grid-container {
-    grid-auto-rows: 70px;
-  }
+    grid-auto-rows: 115px;
+}
   grid-container .name{
     font-size: .5rem!important;
   }
@@ -311,9 +311,7 @@ grid-container .list-title {
   }
 }
 @media (min-width: 648px) {
-  grid-container {
-    grid-auto-rows: 125px;
-  }
+  
   grid-container .name {
     font-size: 1.15rem!important;
   }
@@ -381,12 +379,12 @@ grid-container .list-title {
   }
     
 }
-
-@media (max-width: 760px){
-  grid-container{
-    grid-auto-rows: 75px;
+@media (max-width: 991px){
+  grid-container {
+    grid-auto-rows: 125px;
   }
 }
+
 @media (max-width: 480px){
 grid-container {
   grid-auto-rows: 75px;
