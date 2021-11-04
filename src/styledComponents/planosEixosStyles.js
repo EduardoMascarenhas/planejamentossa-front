@@ -1408,6 +1408,9 @@ main > .container {
   .brd-obj-title-planos{
     display: flex
   }
+  .obj-title-planos{
+    display: -webkit-box;
+  }
   .brd-pink::after {
     display: none;
   }
