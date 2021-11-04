@@ -63,7 +63,12 @@ const PEMobile = () => {
                       eixos.map((e, i) => {
                         if (i !== 1) {
                           return (
-                            <grid-item short>
+                            <grid-item
+                              short
+                              onClick={() =>
+                                redirectTo(`/planos-eixos-${e.slug}`)
+                              }
+                            >
                               <div>
                                 <div class="space-thumb">
                                   <img
@@ -89,7 +94,12 @@ const PEMobile = () => {
                                   alt=""
                                 />
                               </grid-item>
-                              <grid-item short>
+                              <grid-item
+                                short
+                                onClick={() =>
+                                  redirectTo(`/planos-eixos-${e.slug}`)
+                                }
+                              >
                                 <div>
                                   <div class="space-thumb">
                                     <img
