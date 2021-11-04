@@ -234,7 +234,7 @@ align-items: flex-start;
 }
 
 [tall] {
-grid-row: span 3;
+grid-row: span 2;
 align-items: baseline;
 position: relative;
 }
@@ -263,6 +263,9 @@ grid-container .name{
   grid-container #brd-image img {
   width: 55vw;
   margin-top:0;
+}
+#contact-list .list-title {
+  width: 215px
 }
 }
 
