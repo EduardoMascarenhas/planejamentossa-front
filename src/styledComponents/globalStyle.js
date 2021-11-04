@@ -379,11 +379,6 @@ grid-container .list-title {
   }
     
 }
-@media (max-width: 991px){
-  grid-container {
-    grid-auto-rows: 125px;
-  }
-}
 
 @media (max-width: 480px){
 grid-container {
