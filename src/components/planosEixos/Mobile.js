@@ -56,7 +56,7 @@ const PEMobile = () => {
         <div className="col-12 d-flex">
           <div className="col-12 brd-pink" id="brd-pink">
             <div className="col-12 pt-1 position-relative">
-              <div className="row-flex">
+              <div className="row-flex" style={{ justifyContent: "center" }}>
                 <div>
                   <grid-container id="contact-list">
                     {eixos &&

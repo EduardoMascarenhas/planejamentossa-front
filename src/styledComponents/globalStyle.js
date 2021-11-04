@@ -234,7 +234,7 @@ align-items: flex-start;
 }
 
 [tall] {
-grid-row: span 2;
+grid-row: span 3;
 align-items: baseline;
 position: relative;
 }
@@ -259,9 +259,10 @@ grid-container .space-thumb .thumbnail {
 grid-container .name{
     font-size: .6rem !important;
 }
-@media (max-width: 480px){
-grid-container .name{
-font-size: .5rem !important;
+@media (max-width: 991px){
+  grid-container #brd-image img {
+  width: 55vw;
+  margin-top:0;
 }
 }
 
@@ -272,6 +273,9 @@ padding-left: 0px !important;
 grid-container #brd-image img {
 width: 60vw;
 margin-top:0;
+}
+grid-container .name{
+font-size: .5rem !important;
 }
 }
 
