@@ -81,13 +81,31 @@ const PEMobile = () => {
                         }
                         if (i === 1) {
                           return (
-                            <grid-item tall id="brd-image">
-                              <img
-                                src={`${API}/eixo/thumb/capital-da-qualidade-de-vida`}
-                                class="img-content"
-                                alt=""
-                              />
-                            </grid-item>
+                            <>
+                              <grid-item tall id="brd-image">
+                                <img
+                                  src={`${API}/eixo/thumb/capital-da-qualidade-de-vida`}
+                                  class="img-content"
+                                  alt=""
+                                />
+                              </grid-item>
+                              <grid-item short>
+                                <div>
+                                  <div class="space-thumb">
+                                    <img
+                                      src={`${API}/eixo/thumb/${e.slug}`}
+                                      alt=""
+                                      class="thumbnail rounded-circle"
+                                    />
+                                  </div>
+                                </div>
+                                <div class="text-white list-title">
+                                  <div class="name text-uppercase">
+                                    {e.title}
+                                  </div>
+                                </div>
+                              </grid-item>
+                            </>
                           );
                         }
                       })}
