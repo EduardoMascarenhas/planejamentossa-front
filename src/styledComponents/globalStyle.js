@@ -214,8 +214,9 @@ display: -webkit-flex;
     display: none;
 }
 #conteudo-corpo h5 {
-    color: #fcb831;
+    color: #df6825;
     padding-bottom: 10px;
+    font-weight: 800;
 }
 .space-thumb{
   cursor: pointer;

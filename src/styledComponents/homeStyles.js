@@ -10,7 +10,7 @@ const HomeStyle = createGlobalStyle`
   --bs-dark-blue: #2d3752;
   --bs-pink: #ec008b;
   --bs-yellow: #ce9028;
-  --bs-yellow-light: #fcb831;
+  --bs-yellow-light: #df6825;
 }
 
 * {

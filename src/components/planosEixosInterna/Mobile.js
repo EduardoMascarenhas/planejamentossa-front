@@ -16,7 +16,7 @@ const PEIMobile = ({ slug }) => {
     projeto: {},
     title: "",
     subTitle: "",
-    visAtivo: true,
+    visAtivo: false,
     metAtivo: false,
     proAtivo: false,
     error: false,
@@ -218,16 +218,25 @@ const PEIMobile = ({ slug }) => {
                 </li>
               </ul>
             </div>
-            <div className="col-8 position-relative pb-5 mb-5 corpo">
-              <div className="container">
-                <h4
-                  className="c-color-yellow-light title-text"
-                  id="conteudo-titulo-2"
-                >
-                  {subTitle}
-                </h4>
-              </div>
-              <div className="scrolling-area mt-3" id="os">
+            <div className="col-8 position-relative pb-5 corpo">
+              {!visAtivo && !metAtivo && !proAtivo ? (
+                <img
+                  src={`${API}/eixo/thumb/${slug}`}
+                  className="eixo-interna-img"
+                  alt={slug}
+                />
+              ) : (
+                ""
+              )}
+              <div
+                className="scrolling-area mt-3"
+                style={
+                  !visAtivo && !metAtivo && !proAtivo
+                    ? { display: "none" }
+                    : { display: "block" }
+                }
+                id="os"
+              >
                 <div className="scrolling-element-inside">
                   <div className="container position-relative">
                     {visAtivo ? (
@@ -264,16 +273,6 @@ const PEIMobile = ({ slug }) => {
                     )}
                   </div>
                 </div>
-              </div>
-              <div className="btn-scroll-2 position-relative">
-                <button
-                  type="button"
-                  className="btn btn-link btn-sm btn-more"
-                  id="conteudo-button-2"
-                >
-                  +
-                </button>
-                <div className="txt">Conheça a ficha do projeto</div>
               </div>
             </div>
           </div>

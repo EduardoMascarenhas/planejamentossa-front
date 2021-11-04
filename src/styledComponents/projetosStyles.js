@@ -10,7 +10,7 @@ const ProjetosStyle = createGlobalStyle`
   --bs-dark-blue: #2d3752;
   --bs-pink: #ec008b;
   --bs-yellow: #ce9028;
-  --bs-yellow-light: #fcb831;
+  --bs-yellow-light: #df6825;
 }
 
 * {
@@ -1411,6 +1411,7 @@ body {
   right: -20px;
   bottom: -67px;
   content: "";
+  z-index: 10;
 }
 
 .text-white::after {
@@ -1422,6 +1423,7 @@ body {
   right: -20px;
   top: 0;
   border-top-right-radius: 10px;
+  z-index: 10;
 }
 
 .title-text {
@@ -1542,6 +1544,9 @@ body {
   color: #fff;
   padding: 25px 0 25px 0;
 }
+.bg-rosa-titulo h1 {
+  color: #fff;
+}
 .button-voltar {
   -webkit-appearance: none;
   background: -webkit-gradient(to right, #9e4b96 0%, #f756b4 30%, #ed028c 100%);
@@ -1617,13 +1622,14 @@ body {
   margin: 0 !important;
 }
 .titulo-eixos {
-  color: #014892;
+  color: #fff;
   font-weight: 700;
 }
 .hr-eixos {
   border: 3px solid #014892;
   opacity: 1;
   border-radius: 3px;
+  color: #014892;
 }
 .border-blue-button {
   border: 8px solid #014892;

@@ -18,7 +18,7 @@ const PEIDesktop = ({ slug }) => {
     projeto: {},
     title: "",
     subTitle: "",
-    visAtivo: true,
+    visAtivo: false,
     metAtivo: false,
     proAtivo: false,
     error: false,
@@ -225,16 +225,25 @@ const PEIDesktop = ({ slug }) => {
                 </li>
               </ul>
             </div>
-            <div className="col-8 position-relative pb-5 mb-5 corpo">
-              <div className="container">
-                <h4
-                  id="conteudo-titulo"
-                  className="c-color-yellow-light title-text"
-                >
-                  {subTitle}
-                </h4>
-              </div>
-              <div className="scrolling-area mt-3" id="os">
+            <div className="col-8 position-relative p-0 corpo">
+              {!visAtivo && !metAtivo && !proAtivo ? (
+                <img
+                  src={`${API}/eixo/thumb/${slug}`}
+                  className="eixo-interna-img"
+                  alt={slug}
+                />
+              ) : (
+                ""
+              )}
+              <div
+                className="scrolling-area mt-3"
+                style={
+                  !visAtivo && !metAtivo && !proAtivo
+                    ? { display: "none" }
+                    : { display: "block" }
+                }
+                id="os"
+              >
                 <div className="scrolling-element-inside">
                   <div className="container position-relative">
                     {visAtivo ? (
@@ -271,16 +280,6 @@ const PEIDesktop = ({ slug }) => {
                     )}
                   </div>
                 </div>
-              </div>
-              <div className="btn-scroll position-absolute">
-                <button
-                  type="button"
-                  id="conteudo-button"
-                  className="btn btn-link btn-sm btn-more"
-                >
-                  +
-                </button>
-                <div className="txt">Conheça a ficha do projeto</div>
               </div>
             </div>
           </div>
