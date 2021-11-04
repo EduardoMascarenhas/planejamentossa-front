@@ -1201,6 +1201,7 @@ main > .container {
 
 .obj-title-planos {
   max-width: 40vw;
+  display: -webkit-box;
 }
 
 #brd-pink {
@@ -1406,10 +1407,7 @@ main > .container {
 }
 @media screen and (max-width: 991px) {
   .brd-obj-title-planos{
-    display: flex
-  }
-  .obj-title-planos{
-    display: -webkit-box;
+    display: block!important;
   }
   .brd-pink::after {
     display: none;
