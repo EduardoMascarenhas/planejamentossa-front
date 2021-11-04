@@ -54,65 +54,46 @@ const PEMobile = () => {
           </div>
         </div>
         <div className="col-12 d-flex">
-          <div className="col-6 brd-pink" id="brd-pink">
+          <div className="col-12 brd-pink" id="brd-pink">
             <div className="col-12 pt-1 position-relative">
               <div className="row-flex">
-                <div className="col-um"></div>
-                <div className="col-dois">
-                  <ul className="list-group" id="contact-list">
+                <div>
+                  <grid-container id="contact-list">
                     {eixos &&
                       eixos.map((e, i) => {
-                        return (
-                          <li
-                            key={i}
-                            className="list-group-item pb-5 px-0 bg-transparent border-0"
-                            onClick={() =>
-                              redirectTo(`/planos-eixos-${e.slug}`)
-                            }
-                          >
-                            <div className="me-2">
-                              <div className="space-thumb">
-                                <img
-                                  src={`${API}/eixo/thumb/${e.slug}`}
-                                  alt=""
-                                  className="thumbnail rounded-circle"
-                                  style={{ background: `${e.borderColor}` }}
-                                />
+                        if (i !== 4) {
+                          return (
+                            <grid-item short>
+                              <div>
+                                <div class="space-thumb">
+                                  <img
+                                    src={`${API}/eixo/thumb/${e.slug}`}
+                                    alt=""
+                                    class="thumbnail rounded-circle"
+                                  />
+                                </div>
                               </div>
-                            </div>
-                            <div
-                              className="text-white list-title text-uppercase"
-                              style={{ border: `2px solid ${e.borderColor}` }}
-                            >
-                              <div className="name fw-bold">{e.title}</div>
-                            </div>
-                          </li>
-                        );
+                              <div class="text-white list-title">
+                                <div class="name text-uppercase">{e.title}</div>
+                              </div>
+                            </grid-item>
+                          );
+                        }
+                        if (i === 4) {
+                          return (
+                            <grid-item tall id="brd-image">
+                              <img
+                                src={`${API}/eixo/thumb/capital-da-qualidade-de-vida`}
+                                class="img-content"
+                                alt=""
+                              />
+                            </grid-item>
+                          );
+                        }
                       })}
-                  </ul>
+                  </grid-container>
                 </div>
               </div>
-            </div>
-          </div>
-          <div className="col-6 col-com-img">
-            <div className="position-relative" id="brd-image">
-              {slug === "" ? (
-                eixos && eixos.length ? (
-                  <img
-                    src={`${API}/eixo/thumb/${eixos[0].slug}`}
-                    className="img-content"
-                    alt=""
-                  />
-                ) : (
-                  ""
-                )
-              ) : (
-                <img
-                  src={`${API}/eixo/thumb/${slug}`}
-                  className="img-content"
-                  alt=""
-                />
-              )}
             </div>
           </div>
         </div>
