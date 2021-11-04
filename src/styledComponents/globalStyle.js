@@ -263,7 +263,7 @@ grid-container .list-title {
 
 @media (min-width: 320px){
   grid-container {
-    grid-auto-rows: 115px;
+    grid-auto-rows: 125px;
 }
   grid-container .name{
     font-size: .5rem!important;
@@ -294,9 +294,6 @@ grid-container .list-title {
   }     
 }
 @media (min-width: 480px) {
-  grid-container {
-    grid-auto-rows: 95px;
-  }
   grid-container .space-thumb {
     width: 70px !important;
     height: 70px!important ;
