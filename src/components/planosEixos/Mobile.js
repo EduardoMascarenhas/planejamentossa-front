@@ -91,10 +91,13 @@ const PEMobile = () => {
                         if (i === 1) {
                           return (
                             <>
-                              <grid-item tall id="brd-image">
+                              <grid-item
+                                tall
+                                id="brd-image"
+                                class="img-eixo-mobile"
+                              >
                                 <img
                                   src={`${API}/eixo/thumb/${e.slug}`}
-                                  class="img-content"
                                   alt=""
                                 />
                               </grid-item>

@@ -221,10 +221,9 @@ display: -webkit-flex;
 grid-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-auto-rows: 90px;
   grid-gap: 5px;
-  margin-right: 0.5rem!important;
-  margin-left: 0.5rem!important;
+  margin-right: 0.5rem;
+  margin-left: 0.5rem;
 }
 #contact-list .list-title{
   width: -webkit-fill-available;
@@ -254,147 +253,13 @@ grid-container .space-thumb .thumbnail {
 }
 
 grid-container .name{
-  font-size: .6rem !important;
+  font-size: .6rem;
 }
 grid-container .list-title {
   min-height:70px;
-  padding-right: 0 !important;
+  padding-right: 0;
 }
 
-@media (min-width: 320px){
-  grid-container {
-    grid-auto-rows: 125px;
-}
-  grid-container .name{
-    font-size: .5rem!important;
-  }
-
-  #brd-image img {
-    width: 55vw;
-    margin-left:0;
-    margin-top:0
-  }
-}
-@media (min-width: 360px){
-  grid-container .name{
-    font-size: .6rem!important;
-  }
-  grid-container #brd-image  {
-    padding-left: 0px !important;
-  }
-  #brd-image img {
-    width: 45vw;
-    margin-top:0;
-    margin-left: 1rem;
-    position: absolute;
-  }
-  grid-container .space-thumb {
-    width: 60px !important;
-    height: 60px!important ;
-  }     
-}
-@media (min-width: 480px) {
-  grid-container .space-thumb {
-    width: 70px !important;
-    height: 70px!important ;
-  }
-  grid-container .name {
-    font-size: .9rem!important;
-  }
-}
-@media (min-width: 550px) {
-  #brd-image img {
-    width: 45vw !important;
-  }
-}
-@media (min-width: 648px) {
-  
-  grid-container .name {
-    font-size: 1.15rem!important;
-  }
-
-  grid-container .list-title {
-    height:90px!important;
-  }
-
-  grid-container .space-thumb {
-    width: 90px !important;
-    height: 90px!important ;
-  }      
-}
-@media (min-width: 740px) {
-  #brd-image img {
-    width: 45vw;
-  }
-}
-@media (min-width: 767px) {
-  #brd-image img {
-    width: 50vw;
-  }
-  grid-container .name {
-    font-size: 1.2rem!important;
-  }
-  
-  grid-container {
-    grid-auto-rows: 145px;
-  }
-
-  grid-container .list-title {
-    height:85px!important;
-  }
-}
-@media (min-width: 900px) {
-  #brd-image img {
-    width: 50vw;
-  }
-  grid-container .name {
-    font-size: 1.2rem!important;
-  }
-  
-  grid-container {
-    grid-auto-rows: 145px;
-  }
-
-  grid-container .list-title {
-    height:105px!important;
-  }
-  grid-container .space-thumb {
-    width: 105px !important;
-    height: 105px!important ;
-  }  
-}
-@media (min-width: 950px) {
-  #brd-image img {
-    width: 50vw;
-  }
-  grid-container .name {
-    font-size: 1.3rem!important;
-  }
-  
-  grid-container {
-    grid-auto-rows: 155px;
-  }
-    
-}
-
-@media (max-width: 480px){
-grid-container {
-  grid-auto-rows: 75px;
-  gap: 15px;
-  justify-content: center;
-}
-grid-container #brd-image  {
-padding-left: 0px !important;
-}
-grid-container #brd-image img {
-width: 60vw;
-margin-top:0;
-}
-grid-container .name{
-font-size: .5rem !important;
-}
-
-}
 
 @media (max-width: 767px) {
 #contact-list .list-title {
@@ -551,8 +416,39 @@ font-size: .5rem !important;
   .w100-991{
     width: 100%!important;
   }
+  #contact-list .name{
+    font-size: 1rem;
+    font-weight: 700;
+  }
+  #contact-list .space-thumb .thumbnail {
+    padding: 0.2rem;
+    width: 85px;
+    height: 85px;
+    margin-top: -3px;
+    margin-left: 20px;
+  }
+  grid-container { 
+    grid-auto-rows: 90px
+  }
 }
 @media screen and (max-width: 768px) {
+  grid-container {
+    grid-auto-rows: 55px;
+    grid-gap: 30px;
+    margin-left: 1.5rem;
+  }
+  #contact-list .space-thumb .thumbnail{
+    width: 75px;
+    height: 75px;
+    margin-left: -10px;
+  }
+  #brd-image img{
+    width: 230px!important;
+    margin-left: 15px!important;
+  }
+  #contact-list .name{
+    margin-left: 30px;
+  }
   .div-btns-acoes{
     text-align: center
   }
@@ -566,6 +462,17 @@ font-size: .5rem !important;
   }
 }
 @media screen and (max-width: 560px){
+  grid-container{
+    margin-left: 1rem;
+  }
+  #contact-list .name{
+    font-size: 0.6rem!important;
+  }
+  #brd-image img{
+    width: 40vw!important;
+    margin-left: 0px!important;
+    margin-top: 5px!important;
+  }
   .form-modal{
     width: 100%
   }
@@ -583,7 +490,22 @@ font-size: .5rem !important;
   .ReactModal__Content.ReactModal__Content--after-open{
     padding: 5px!important;
   }
-}`;
+}
+@media screen and (max-width: 480px){
+  #brd-image img{
+    margin-left: -15px!important;
+    margin-top: 20px!important;
+  }
+}
+@media screen and (max-width: 380px){
+  #contact-list .name {
+    font-size: 0.5rem!important;
+  }
+  #brd-image img {
+    margin-top: 35px!important;
+  }
+}
+`;
 
 export const GLink = styled.a`
   color: blue;

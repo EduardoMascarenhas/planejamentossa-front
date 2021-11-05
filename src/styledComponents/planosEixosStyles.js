@@ -463,6 +463,12 @@ body {
 }
 
 @media (max-width: 991px) {
+  #brd-image img {
+    width: 26vw;
+    margin-left: 25%;
+    margin-top: 3px;
+    box-shadow: -8px 9px 0px 1px #ce4995;
+  }
   .text-btn-mob-barra {
     width: 100%;
     font-size: 0.8rem;
@@ -595,16 +601,16 @@ body {
     font-size: 3rem !important;
     padding-right: 30px !important;
   }
+  .img-eixo-mobile {
+    height: 275px!important;
+    margin-top: -10px!important;
+}
   #contact-list .space-thumb {
-    width: 60px !important;
-    height: 60px !important;
+    width: 110px !important;
+    height: 110px !important;
+    margin-right: -20px;
   }
-  #contact-list .space-thumb .thumbnail {
-    padding: 0.2rem;
-    width: 85px;
-    height: 85px;
-    margin-top: -12px;
-  }
+  
   #contact-list .brd-yellow {
     border: 1px solid #cb840d !important;
   }
@@ -638,12 +644,7 @@ body {
   #brd-image {
     padding-left: 0 !important;
   }
-  #brd-image img {
-    width: 90vw;
-    margin-left: 15px;
-    margin-top: 10px;
-    box-shadow: -8px 9px 0px 1px #ce4995;
-  }
+  
   .space-inputs {
     text-align: center;
     border: none;
@@ -823,11 +824,6 @@ body {
   #contact-list .space-thumb {
     width: 60px !important;
     height: 60px !important;
-  }
-  #contact-list .space-thumb .thumbnail {
-    padding: 0.2rem;
-    width: 100% !important;
-    height: 100% !important;
   }
   #contact-list .brd-yellow {
     border: 1px solid #cb840d !important;
@@ -1424,9 +1420,6 @@ main > .container {
   .col-dois {
     width: 100%;
     padding-left: 2rem;
-  }
-  #contact-list .space-thumb .thumbnail {
-    margin-top: 0;
   }
 }
 @media screen and (max-width: 550px) {
