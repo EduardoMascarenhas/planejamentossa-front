@@ -101,14 +101,21 @@ const Sessao2 = () => {
           <div className="container col-lg-10">
             <div className="row d-flex inputs">
               <div className="col-12 col-md-4">
-                <input
-                  type="text"
-                  name=""
-                  id=""
-                  className="form-control"
-                  placeholder="Palavras-chave"
-                  aria-describedby="helpId"
-                />
+                <Select
+                  showSearch
+                  defaultValue="Palavras-chave"
+                  onChange={handleChangeProjetos}
+                >
+                  {projetos &&
+                    projetos.map((p, i) => {
+                      return (
+                        <Option key={i} value={p.slug}>
+                          {p.name}
+                          <hr className="m-0" />
+                        </Option>
+                      );
+                    })}
+                </Select>
               </div>
               <div className="col-6 col-md-4">
                 <Select
@@ -165,14 +172,21 @@ const Sessao2 = () => {
             <div className="container col-lg-10">
               <div className="row d-flex py-1 inputs">
                 <div className="col-12 col-md-4">
-                  <input
-                    type="text"
-                    name=""
-                    id=""
-                    className="form-control"
-                    placeholder="Palavras-chave"
-                    aria-describedby="helpId"
-                  />
+                  <Select
+                    showSearch
+                    defaultValue="Palavras-chave"
+                    onChange={handleChangeProjetos}
+                  >
+                    {projetos &&
+                      projetos.map((p, i) => {
+                        return (
+                          <Option key={i} value={p.slug}>
+                            {p.name}
+                            <hr className="m-0" />
+                          </Option>
+                        );
+                      })}
+                  </Select>
                 </div>
                 <div className="col-6 col-md-4">
                   <Select
