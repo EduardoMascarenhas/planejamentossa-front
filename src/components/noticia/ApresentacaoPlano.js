@@ -66,7 +66,10 @@ const ApresentacaoPlano = () => {
               <p>{postedBy}</p>
             </div>
             <div className="col-12 d-flex">
-              <div className="scrolling-area area-carta-prefeito mt-4" id="os">
+              <div
+                className="custom-scroll scrolling-area area-carta-prefeito mt-4"
+                id="os"
+              >
                 <div className="ltr">
                   <div className="w100-991">
                     <div
