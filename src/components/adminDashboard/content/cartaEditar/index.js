@@ -73,9 +73,9 @@ const CartaEditar = ({ slug }) => {
         setValues({ ...values, error: true, errorMsg: data.error });
       } else {
         setValues({ ...values, error: false, redirectToReferrer: true });
+        document.location.href = "/admin/cartas";
       }
     });
-    document.location.href = "/admin/cartas";
   };
   const init = () => {
     setValues({
