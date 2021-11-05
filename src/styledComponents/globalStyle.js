@@ -323,7 +323,7 @@ grid-container .list-title {
     direction: rtl;
 }
 .img-carta-prefeito img{
-  max-width: 80%;
+  max-width: 90%;
 }
 
 .area-carta-prefeito {
