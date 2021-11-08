@@ -38,7 +38,7 @@ const Sessao2 = () => {
   }
   function handleChangeSelos(value) {
     setValues({ ...values, acaoProjetos: false, acaoSelos: true, acao: value });
-    window.location.href = `/selos`;
+    window.location.href = `/selo-${value}`;
   }
   const initBlogs = () => {
     getBlogs().then((data) => {

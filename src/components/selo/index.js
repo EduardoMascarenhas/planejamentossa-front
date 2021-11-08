@@ -58,7 +58,7 @@ const SeloContent = ({ selo }) => {
         <div className="col-12 py-5 mb-5 align-items-center mx-auto card-space-home">
           <div className="mt-3" id="os">
             <div className="topo-selos">
-              <h3>SELOS</h3>
+              <h3>SELO</h3>
               <button
                 className="button-voltar"
                 style={{ position: "relative", marginTop: "0" }}
@@ -87,7 +87,7 @@ const SeloContent = ({ selo }) => {
                   projetos.map((p, i) => {
                     if (p.selos && p.selos.includes(selo)) {
                       return (
-                        <div key={i} className="textos-selos mb-4">
+                        <div key={i} className="textos-selos mb-4 ps-3">
                           <h3
                             className="c-color-gray fw-bolder"
                             onClick={() => goToProject(p.slug)}
