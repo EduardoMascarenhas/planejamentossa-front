@@ -40,7 +40,9 @@ const PEIDesktop = ({ slug, projetosOpen }) => {
   const abrirProjeto = (s) => {
     window.location.href = `/projeto-${s}`;
   };
-
+  const paginaAnterior = () => {
+    window.location.href = `/planos-eixos`;
+  };
   const initEixo = (s) => {
     getEixo(s).then((data) => {
       if (!data || data.error) {
@@ -103,6 +105,17 @@ const PEIDesktop = ({ slug, projetosOpen }) => {
               className="barra-center"
               aria-label=" "
             ></object>
+            <div className="div-button-voltar">
+              <button
+                className="button-voltar"
+                style={{ background: "#002e6a" }}
+              >
+                {" "}
+                <a href="#" onClick={() => paginaAnterior()}>
+                  Voltar <i className="fas fa-arrow-left"></i>
+                </a>{" "}
+              </button>
+            </div>
 
             <div className="dots dots-l">
               <img src={img3} className="d-block w-100" alt="..." />

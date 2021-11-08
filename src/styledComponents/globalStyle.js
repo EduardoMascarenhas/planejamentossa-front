@@ -164,6 +164,10 @@ display: -webkit-flex;
 #conteudo-corpo-2 p img {
   width: auto;
 }
+.div-button-voltar{
+  position: absolute;
+  right: 0;
+}
 .form-dashboard{
   max-width: calc(85vw - 65px);
   margin: auto;
