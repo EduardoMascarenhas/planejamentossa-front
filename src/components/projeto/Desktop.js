@@ -19,7 +19,7 @@ const PDesktop = ({ slug }) => {
     });
   };
   const paginaAnterior = () => {
-    console.log(window.history.back());
+    window.location.href = `/planos-eixos-${projeto.eixo.slug}/projetos`;
   };
   useEffect(() => {
     init(slug);
@@ -42,13 +42,15 @@ const PDesktop = ({ slug }) => {
           </div>
         </div>
         <div className="div-titulo-projeto">
-          <h1 className="text-uppercase">{projeto.name}</h1>
+          <h1 className="text-uppercase">
+            {projeto && projeto.eixo ? projeto.eixo.title : ""}
+          </h1>
         </div>
 
         <section className="position-relative bar-yellow bar-yellow-projetos c-bgc-yellow-light">
           <div className="container position-relative d-flex align-items-center justify-content-center">
             <div className="titulo-projetos">
-              <h3 style={{ color: "#fff" }}>PROJETOS</h3>
+              <h3 style={{ color: "#fff" }}>{projeto.name}</h3>
             </div>
           </div>
         </section>

@@ -6,18 +6,21 @@ import PlanosEixosInternaStyle from "../../styledComponents/planosEixosInternaSt
 
 const PlanosEixosInterna = (props) => {
   const [slug, setSlug] = useState("");
+  const [projetosOpen, setProjetosOpen] = useState("");
 
   useEffect(() => {
     const slugProp = props.match.params.slug;
+    const projetosProp = props.match.params.projetos;
     setSlug(slugProp);
+    setProjetosOpen(projetosProp);
   }, []);
 
   return (
     <>
       <PlanosEixosInternaStyle />
       <Layout>
-        <PEIDesktop slug={slug} />
-        <PEIMobile slug={slug} />
+        <PEIDesktop slug={slug} projetosOpen={projetosOpen} />
+        <PEIMobile slug={slug} projetosOpen={projetosOpen} />
       </Layout>
     </>
   );

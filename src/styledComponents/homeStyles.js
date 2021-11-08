@@ -437,6 +437,12 @@ body {
 }
 
 @media (max-width: 992px) {
+  .select-home-projetos .ant-select-selector {
+    border-bottom-left-radius: 30px!important;
+  }
+  .select-home-selos .ant-select-selector {
+    border-bottom-right-radius: 30px!important;
+  }
   .text-btn-mob-barra {
     width: 100%;
     padding-top: 100px;
@@ -445,7 +451,7 @@ body {
     margin-top: 0 !important;
   }
   .bg-home-center .inputs > div > div {
-    height: 20px;
+    height: 32px;
   }
   .bg-home-center .inputs button {
     border: none !important;
@@ -678,9 +684,6 @@ display: -webkit-flex;
   }
   .bg-home-center .inputs {
     margin-top: 0 !important;
-  }
-  .bg-home-center .inputs > div > div {
-    height: 20px;
   }
   .bg-home-center .inputs button {
     border: none !important;

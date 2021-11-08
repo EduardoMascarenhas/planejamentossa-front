@@ -1,22 +1,27 @@
 import React, { useEffect, useState } from "react";
 import { isAuthenticated } from "../../../../auth";
-import { criarProjeto } from "../../../../core/apiCore";
+import { criarProjeto, getEixos, getSelos } from "../../../../core/apiCore";
+import { Select } from "antd";
 import ReactQuill from "react-quill";
 import { QuillModules, QuillFormats } from "../../../../helpers/quill";
 import {} from "../../../../../node_modules/react-quill/dist/quill.snow.css";
 
 const ProjetoNovo = () => {
   const { user, token } = isAuthenticated();
+  const [eixos, setEixos] = useState([]);
+  const [selos, setSelos] = useState([]);
   const [body, setBody] = useState("");
   const [values, setValues] = useState({
     name: "",
     subTitle: "",
+    eixo: "",
     formData: "",
   });
   const [error, setError] = useState("");
   const [redirectToReferrer, setRedirectToReferrer] = useState(false);
+  const { Option } = Select;
 
-  const { name, subTitle, formData } = values;
+  const { name, subTitle, eixo, formData } = values;
 
   const handleChange = (name) => (event) => {
     const value = name === "thumb" ? event.target.files[0] : event.target.value;
@@ -64,11 +69,39 @@ const ProjetoNovo = () => {
       localStorage.setItem("noticia", JSON.stringify(e));
     }
   };
+  function handleChangeEixos(value) {
+    setValues({ ...values, eixo: value });
+    formData.set("eixo", value);
+  }
+  function handleChangeSelos(value) {
+    setValues({ ...values, selo: value });
+    formData.set("selo", value);
+  }
   const init = () => {
     setValues({ ...values, formData: new FormData() });
   };
+  const initEixos = () => {
+    getEixos().then((data) => {
+      if (data.error || !data) {
+        console.log("Erro ao carregar os eixos!");
+      } else {
+        setEixos(data);
+      }
+    });
+  };
+  const initSelos = () => {
+    getSelos().then((data) => {
+      if (data.error || !data) {
+        console.log("Erro ao carregar os selos!");
+      } else {
+        setSelos(data);
+      }
+    });
+  };
   useEffect(() => {
     init();
+    initEixos();
+    initSelos();
   }, []);
   return (
     <div className="dashboard-content">
@@ -101,6 +134,44 @@ const ProjetoNovo = () => {
               onChange={handleChange("subTitle")}
               value={subTitle}
             />
+          </div>
+        </div>
+        <div className="col-12 d-flex">
+          <div className="col-6 p-2">
+            <Select
+              showSearch
+              defaultValue="Eixos"
+              onChange={handleChangeEixos}
+              className="select-custom"
+            >
+              {eixos &&
+                eixos.map((e, i) => {
+                  return (
+                    <Option key={i} value={e._id}>
+                      {e.title}
+                      <hr className="m-0" />
+                    </Option>
+                  );
+                })}
+            </Select>
+          </div>
+          <div className="col-6 p-2">
+            <Select
+              showSearch
+              defaultValue="Selos"
+              onChange={handleChangeSelos}
+              className="select-custom"
+            >
+              {selos &&
+                selos.map((s, i) => {
+                  return (
+                    <Option key={i} value={s._id}>
+                      {s.title}
+                      <hr className="m-0" />
+                    </Option>
+                  );
+                })}
+            </Select>
           </div>
         </div>
         <div>

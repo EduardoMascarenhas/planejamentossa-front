@@ -57,6 +57,11 @@ function App() {
           exact
           component={PlanosEixosInterna}
         />
+        <Route
+          path="/planos-eixos-:slug/:projetos"
+          exact
+          component={PlanosEixosInterna}
+        />
         <Route path="/painel" exact component={Entrar} />
 
         {/**ADMIN ROUTES */}

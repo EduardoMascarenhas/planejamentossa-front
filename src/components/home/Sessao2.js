@@ -108,12 +108,14 @@ const Sessao2 = () => {
                 >
                   {projetos &&
                     projetos.map((p, i) => {
-                      return (
-                        <Option key={i} value={p.slug}>
-                          {p.name}
-                          <hr className="m-0" />
-                        </Option>
-                      );
+                      if (p.slug !== "prefeitura-de-salvador") {
+                        return (
+                          <Option key={i} value={p.slug}>
+                            {p.name}
+                            <hr className="m-0" />
+                          </Option>
+                        );
+                      }
                     })}
                 </Select>
               </div>
@@ -121,16 +123,19 @@ const Sessao2 = () => {
                 <Select
                   showSearch
                   defaultValue="Projetos"
+                  className="select-home-projetos"
                   onChange={handleChangeProjetos}
                 >
                   {projetos &&
                     projetos.map((p, i) => {
-                      return (
-                        <Option key={i} value={p.slug}>
-                          {p.name}
-                          <hr className="m-0" />
-                        </Option>
-                      );
+                      if (p.slug !== "prefeitura-de-salvador") {
+                        return (
+                          <Option key={i} value={p.slug}>
+                            {p.name}
+                            <hr className="m-0" />
+                          </Option>
+                        );
+                      }
                     })}
                 </Select>
               </div>
@@ -138,6 +143,7 @@ const Sessao2 = () => {
                 <Select
                   showSearch
                   defaultValue="Selos"
+                  className="select-home-selos"
                   onChange={handleChangeSelos}
                 >
                   {selos &&
@@ -179,35 +185,41 @@ const Sessao2 = () => {
                   >
                     {projetos &&
                       projetos.map((p, i) => {
-                        return (
-                          <Option key={i} value={p.slug}>
-                            {p.name}
-                            <hr className="m-0" />
-                          </Option>
-                        );
+                        if (p.slug !== "prefeitura-de-salvador") {
+                          return (
+                            <Option key={i} value={p.slug}>
+                              {p.name}
+                              <hr className="m-0" />
+                            </Option>
+                          );
+                        }
                       })}
                   </Select>
                 </div>
                 <div className="col-6 col-md-4">
                   <Select
                     showSearch
+                    className="select-home"
                     defaultValue="Projetos"
                     onChange={handleChangeProjetos}
                   >
                     {projetos &&
                       projetos.map((p, i) => {
-                        return (
-                          <Option key={i} value={p.slug}>
-                            {p.name}
-                            <hr className="m-0" />
-                          </Option>
-                        );
+                        if (p.slug !== "prefeitura-de-salvador") {
+                          return (
+                            <Option key={i} value={p.slug}>
+                              {p.name}
+                              <hr className="m-0" />
+                            </Option>
+                          );
+                        }
                       })}
                   </Select>
                 </div>
                 <div className="col-6 col-md-4">
                   <Select
                     showSearch
+                    className="select-home"
                     defaultValue="Selos"
                     onChange={handleChangeSelos}
                   >

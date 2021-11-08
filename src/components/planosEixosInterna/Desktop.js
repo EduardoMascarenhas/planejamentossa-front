@@ -9,7 +9,7 @@ import img5 from "../../assets/imgs/btn-eixo-interna-1.png";
 import img6 from "../../assets/imgs/btn-eixo-interna-2.png";
 import img7 from "../../assets/imgs/btn-eixo-interna-3.png";
 
-const PEIDesktop = ({ slug }) => {
+const PEIDesktop = ({ slug, projetosOpen }) => {
   const [vis, setVis] = useState("");
   const [met, setMet] = useState("");
   const [pro, setPro] = useState("");
@@ -49,22 +49,34 @@ const PEIDesktop = ({ slug }) => {
         setVis(data.vis);
         setMet(data.met);
         setPro(data.pro);
-        setValues({
-          ...values,
-          title: data.title,
-          subTitle: data.subTitle,
-          projetos: data.projetos,
-          borderColor: data.borderColor,
-        });
+        if (projetosOpen === "projetos") {
+          setValues({
+            ...values,
+            metAtivo: false,
+            visAtivo: false,
+            proAtivo: true,
+            title: data.title,
+            subTitle: data.subTitle,
+            projetos: data.projetos,
+            borderColor: data.borderColor,
+          });
+        } else {
+          setValues({
+            ...values,
+            title: data.title,
+            subTitle: data.subTitle,
+            projetos: data.projetos,
+            borderColor: data.borderColor,
+          });
+        }
       }
     });
   };
-
   useEffect(() => {
     if (slug) {
       initEixo(slug);
     }
-  }, [slug]);
+  }, [slug, projetosOpen]);
   return (
     <main className="h-100 dn-991">
       <div className="container-fluid position-relative pb-5 pt-5 bg-blue-0-deg">

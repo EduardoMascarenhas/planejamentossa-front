@@ -1,7 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { API } from "../../../../config";
 import { isAuthenticated } from "../../../../auth";
-import { getProjeto, updateProjeto } from "../../../../core/apiCore";
+import { Select } from "antd";
+import {
+  getProjeto,
+  updateProjeto,
+  getEixos,
+  getSelos,
+} from "../../../../core/apiCore";
 import ReactQuill from "react-quill";
 import { QuillModules, QuillFormats } from "../../../../helpers/quill";
 import {} from "../../../../../node_modules/react-quill/dist/quill.snow.css";
@@ -9,11 +15,16 @@ import {} from "../../../../../node_modules/react-quill/dist/quill.snow.css";
 const ProjetoEditar = ({ slug }) => {
   const { user, token } = isAuthenticated();
   const [body, setBody] = useState("");
+  const [eixos, setEixos] = useState([]);
+  const [selos, setSelos] = useState([]);
+  const { Option } = Select;
   const [values, setValues] = useState({
     selectedValues: [],
     projeto: {},
     name: "",
     subTitle: "",
+    eixo: {},
+    selo: {},
     error: false,
     errorMsg: "",
     redirectToReferrer: false,
@@ -22,6 +33,8 @@ const ProjetoEditar = ({ slug }) => {
   const {
     projeto,
     selectedValues,
+    eixo,
+    selo,
     name,
     subTitle,
     error,
@@ -63,6 +76,14 @@ const ProjetoEditar = ({ slug }) => {
       }
     }
   };
+  function handleChangeEixos(value) {
+    setValues({ ...values, eixo: value });
+    formData.set("eixo", value);
+  }
+  function handleChangeSelos(value) {
+    setValues({ ...values, selo: value });
+    formData.set("selo", value);
+  }
   const clickSubmit = (e) => {
     e.preventDefault();
     updateProjeto(slug, user._id, token, formData).then((data) => {
@@ -90,16 +111,37 @@ const ProjetoEditar = ({ slug }) => {
           ...values,
           name: data.name,
           subTitle: data.subTitle,
+          eixo: data.eixo,
+          selo: data.selo,
         });
       }
     });
   };
-
+  const initSelos = () => {
+    getSelos().then((data) => {
+      if (data.error || !data) {
+        console.log("erro ao carregar os selos");
+      } else {
+        setSelos(data);
+      }
+    });
+  };
+  const initEixos = () => {
+    getEixos().then((data) => {
+      if (data.error || !data) {
+        console.log("erro ao carregar os eixos");
+      } else {
+        setEixos(data);
+      }
+    });
+  };
   useEffect(() => {
     init();
     if (slug) {
       initProjeto(slug);
     }
+    initEixos();
+    initSelos();
   }, [slug]);
 
   return (
@@ -132,6 +174,46 @@ const ProjetoEditar = ({ slug }) => {
               onChange={handleChange("subTitle")}
               value={subTitle}
             />
+          </div>
+        </div>
+        <div className="col-12 d-flex">
+          <div className="col-6 p-2">
+            {eixo && eixo ? <span>Eixo atual: {eixo.title}</span> : ""}
+            <Select
+              showSearch
+              defaultValue="Eixos"
+              onChange={handleChangeEixos}
+              className="select-custom"
+            >
+              {eixos &&
+                eixos.map((e, i) => {
+                  return (
+                    <Option key={i} value={e._id}>
+                      {e.title}
+                      <hr className="m-0" />
+                    </Option>
+                  );
+                })}
+            </Select>
+          </div>
+          <div className="col-6 p-2">
+            {selo && selo ? <span>Selo atual: {selo.title}</span> : ""}
+            <Select
+              showSearch
+              defaultValue="Selos"
+              onChange={handleChangeSelos}
+              className="select-custom"
+            >
+              {selos &&
+                selos.map((s, i) => {
+                  return (
+                    <Option key={i} value={s._id}>
+                      {s.title}
+                      <hr className="m-0" />
+                    </Option>
+                  );
+                })}
+            </Select>
           </div>
         </div>
         <div>
