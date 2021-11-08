@@ -52,7 +52,7 @@ const ApresentacaoPlano = () => {
 
   return (
     <>
-      <section className="mt-0 bg-img-custom-2">
+      <section className="dn-991 mt-0 bg-img-custom-2">
         <div className="container">
           <div className="col-lg-12 container-noticia">
             <button className="button-voltar button-apresentacao-plano">
@@ -85,6 +85,44 @@ const ApresentacaoPlano = () => {
                   src={`${API}/carta/thumb/${slug}`}
                   alt=""
                 />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* MOBILE */}
+      <section className="mt-0 bg-img-custom-2">
+        <div className="container">
+          <div className="col-lg-12 container-noticia">
+            <button className="button-voltar button-apresentacao-plano">
+              {" "}
+              <a href="/">
+                Voltar <i className="fas fa-arrow-left"></i>
+              </a>{" "}
+            </button>
+            <div className="noticia-topo">
+              <h1 className="titulo-mobile">{title}</h1>
+              <p>{postedBy}</p>
+            </div>
+            <div className="col-12 d-flex">
+              <div
+                className="custom-scroll scrolling-area area-carta-prefeito mt-4"
+                id="os"
+              >
+                <div className="ltr">
+                  <div className="w100-991">
+                    <img
+                      className="img-com-borda img-com-borda-mobile"
+                      src={`${API}/carta/thumb/${slug}`}
+                      alt=""
+                    />
+                    <div
+                      className="body-noticia-prefeito texto-noticia-mobile"
+                      dangerouslySetInnerHTML={{ __html: body }}
+                    />
+                  </div>
+                </div>
               </div>
             </div>
           </div>

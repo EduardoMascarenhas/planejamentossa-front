@@ -100,7 +100,7 @@ const CartaPrefeito = () => {
               </a>{" "}
             </button>
             <div className="noticia-topo">
-              <h1>{title}</h1>
+              <h1 className="titulo-mobile">{title}</h1>
               <p>{postedBy}</p>
             </div>
             <div className="col-12 d-flex">
@@ -110,14 +110,14 @@ const CartaPrefeito = () => {
               >
                 <div className="ltr">
                   <div className="w100-991">
-                    <div
-                      className="body-noticia-prefeito"
-                      dangerouslySetInnerHTML={{ __html: body }}
-                    />
                     <img
-                      className="img-com-borda"
+                      className="img-com-borda img-com-borda-mobile"
                       src={`${API}/carta/thumb/${slug}`}
                       alt=""
+                    />
+                    <div
+                      className="body-noticia-prefeito texto-noticia-mobile"
+                      dangerouslySetInnerHTML={{ __html: body }}
                     />
                   </div>
                 </div>

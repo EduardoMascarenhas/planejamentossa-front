@@ -48,6 +48,18 @@ display: -webkit-flex;
     padding: 3vw;
     margin: 0 15px 0 15px;
 }
+.img-com-borda-mobile{
+  float: left;
+  max-width: 50%;
+  margin-right: 1.2rem;
+  margin-bottom: 10px;
+}
+.titulo-mobile{
+  font-size: 2rem!important;
+}
+.texto-noticia-mobile h3{
+  font-size: 0.85rem!important;
+}
 .w728-h90{
   max-width: 728px;
   max-height: 90px;
