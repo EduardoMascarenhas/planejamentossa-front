@@ -288,8 +288,9 @@ const PEIDesktop = ({ slug, projetosOpen }) => {
               ) : (
                 ""
               )}
-              <div
+              <DivCustom
                 className="custom-scroll scrolling-area mt-3"
+                color={borderColor}
                 style={
                   !visAtivo && !metAtivo && !proAtivo
                     ? { display: "none" }
@@ -336,7 +337,7 @@ const PEIDesktop = ({ slug, projetosOpen }) => {
                     )}
                   </div>
                 </div>
-              </div>
+              </DivCustom>
             </div>
           </div>
         </div>

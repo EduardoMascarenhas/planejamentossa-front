@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { getCarta } from "../../core/apiCore";
 import { API } from "../../config";
-import moment from "moment";
-import img1 from "../../assets/imgs/img-noticia-1.png";
 
 const CartaPrefeito = () => {
   const [body, setBody] = useState("");
@@ -52,7 +50,7 @@ const CartaPrefeito = () => {
 
   return (
     <>
-      <section className="mt-0 bg-img-custom">
+      <section className=" dn-991 mt-0 bg-img-custom">
         <div className="container">
           <div className="col-lg-12 container-noticia">
             <button className="button-voltar">
@@ -79,12 +77,50 @@ const CartaPrefeito = () => {
                   </div>
                 </div>
               </div>
-              <div className="col-6 dn-991 img-carta-prefeito">
+              <div className="col-6 img-carta-prefeito">
                 <img
                   className="img-com-borda"
                   src={`${API}/carta/thumb/${slug}`}
                   alt=""
                 />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* MOBILE */}
+      <section className="mt-0 bg-img-custom">
+        <div className="container">
+          <div className="col-lg-12 container-noticia">
+            <button className="button-voltar">
+              {" "}
+              <a href="/">
+                Voltar <i className="fas fa-arrow-left"></i>
+              </a>{" "}
+            </button>
+            <div className="noticia-topo">
+              <h1>{title}</h1>
+              <p>{postedBy}</p>
+            </div>
+            <div className="col-12 d-flex">
+              <div
+                className="custom-scroll scrolling-area area-carta-prefeito mt-4"
+                id="os"
+              >
+                <div className="ltr">
+                  <div className="w100-991">
+                    <div
+                      className="body-noticia-prefeito"
+                      dangerouslySetInnerHTML={{ __html: body }}
+                    />
+                    <img
+                      className="img-com-borda"
+                      src={`${API}/carta/thumb/${slug}`}
+                      alt=""
+                    />
+                  </div>
+                </div>
               </div>
             </div>
           </div>

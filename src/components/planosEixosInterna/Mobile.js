@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { API } from "../../config";
 import { getEixo } from "../../core/apiCore";
+import { DivCustom } from "../../styledComponents/globalStyle";
 import img1 from "../../assets/imgs/dots.png";
 import img2 from "../../assets/imgs/Terreiro-de-Jesus---PROPEG_PMS_TDEJESUS_V3.jpg";
 import img3 from "../../assets/imgs/btn-eixo-interna-1.png";
@@ -283,8 +284,9 @@ const PEIMobile = ({ slug }) => {
               ) : (
                 ""
               )}
-              <div
+              <DivCustom
                 className="custom-scroll scrolling-area mt-3"
+                color={borderColor}
                 style={
                   !visAtivo && !metAtivo && !proAtivo
                     ? { display: "none" }
@@ -328,7 +330,7 @@ const PEIMobile = ({ slug }) => {
                     )}
                   </div>
                 </div>
-              </div>
+              </DivCustom>
             </div>
           </div>
         </div>

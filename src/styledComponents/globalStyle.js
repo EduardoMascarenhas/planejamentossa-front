@@ -621,5 +621,8 @@ export const DivCustom = styled.div.attrs((props) => props)`
   & h5 {
     color: ${(props) => props.color}!important;
   }
+  &::-webkit-scrollbar-thumb {
+    background-color: ${(props) => props.color}!important;
+  }
 `;
 export default GlobalStyle;
