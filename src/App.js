@@ -38,6 +38,7 @@ import AdminSelo from "./pages/adminSelo";
 import AdminSeloEditar from "./pages/adminSeloEditar";
 import AdminSelos from "./pages/adminSelos";
 import Selos from "./pages/selos";
+import Selo from "./pages/selo";
 
 function App() {
   return (
@@ -51,7 +52,9 @@ function App() {
         <Route path="/apresentacao-plano" exact component={ApresentacaoPlano} />
         <Route path="/planos-eixos" exact component={PlanosEixos} />
         <Route path="/projeto-:slug" exact component={Projeto} />
+        <Route path="/projeto-:slug/:selo" exact component={Projeto} />
         <Route path="/selos" exact component={Selos} />
+        <Route path="/selo-:seloId" exact component={Selo} />
         <Route
           path="/planos-eixos-:slug"
           exact

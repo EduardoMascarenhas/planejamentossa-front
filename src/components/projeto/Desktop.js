@@ -4,7 +4,7 @@ import { DivCustom } from "../../styledComponents/globalStyle";
 import { getProjeto } from "../../core/apiCore";
 import img1 from "../../assets/imgs/dots.png";
 
-const PDesktop = ({ slug }) => {
+const PDesktop = ({ slug, selo }) => {
   const [values, setValues] = useState({
     projeto: {},
   });
@@ -20,7 +20,11 @@ const PDesktop = ({ slug }) => {
     });
   };
   const paginaAnterior = () => {
-    window.location.href = `/planos-eixos-${projeto.eixo.slug}/projetos`;
+    if (selo === "selo") {
+      window.history.back();
+    } else {
+      window.location.href = `/planos-eixos-${projeto.eixo.slug}/projetos`;
+    }
   };
   useEffect(() => {
     init(slug);
@@ -60,9 +64,6 @@ const PDesktop = ({ slug }) => {
           style={{ backgroundColor: "#03163c" }}
         >
           <div className="container position-relative d-flex align-items-center justify-content-center">
-            {projeto && projeto.eixo
-              ? console.log(projeto.eixo.borderColor)
-              : ""}
             <div
               className="titulo-projetos"
               style={

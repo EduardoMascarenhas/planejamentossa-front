@@ -13,6 +13,9 @@ const SelosContent = () => {
     formData: "",
   });
   const { selos, error, errorMsg, formData, redirectToReferrer } = values;
+  const goToSelo = (id) => {
+    window.location.href = `/selo-${id}`;
+  };
   const initSelos = (s) => {
     getSelos(s).then((data) => {
       if (!data || data.error) {
@@ -60,11 +63,20 @@ const SelosContent = () => {
                         className="list-group-item  bg-transparent border-0 pl-0"
                       >
                         <div className="textos-selos">
-                          <h2 className="c-color-gray fw-bolder">{s.title}</h2>
+                          <h2
+                            className="c-color-gray fw-bolder"
+                            onClick={() => goToSelo(s._id)}
+                          >
+                            {s.title}
+                          </h2>
                           <h4 className="c-color-gray">{parser(s.body)}</h4>
                         </div>
                         <div className="imagem-selos">
-                          <img src={`${API}/selo/image/${s._id}`} alt="" />
+                          <img
+                            src={`${API}/selo/image/${s._id}`}
+                            onClick={() => goToSelo(s._id)}
+                            alt=""
+                          />
                         </div>
                       </li>
                     );
