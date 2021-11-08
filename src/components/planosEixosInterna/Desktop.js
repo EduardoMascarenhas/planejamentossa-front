@@ -289,7 +289,7 @@ const PEIDesktop = ({ slug, projetosOpen }) => {
                 ""
               )}
               <div
-                className="scrolling-area mt-3"
+                className="custom-scroll scrolling-area mt-3"
                 style={
                   !visAtivo && !metAtivo && !proAtivo
                     ? { display: "none" }

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import parse from "html-react-parser";
+import { DivCustom } from "../../styledComponents/globalStyle";
 import { getProjeto } from "../../core/apiCore";
 import img1 from "../../assets/imgs/dots.png";
 
@@ -79,12 +80,18 @@ const PDesktop = ({ slug }) => {
         <div className="container-eixos-interna">
           <div className="row">
             <div className="col-12 position-relative pb-5 mb-5 corpo">
-              <div className="scrolling-area mt-3" id="os">
+              <div className="custom-scroll scrolling-area mt-3" id="os">
                 <div className="scrolling-element-inside">
                   <div className="container position-relative">
-                    <p className="c-color-grey" id="conteudo-corpo-2">
+                    <DivCustom
+                      className="c-color-grey"
+                      color={
+                        projeto && projeto.eixo ? projeto.eixo.borderColor : ""
+                      }
+                      id="conteudo-corpo-2"
+                    >
                       {parse(`${projeto.body}`)}
-                    </p>
+                    </DivCustom>
                   </div>
                 </div>
               </div>

@@ -284,7 +284,7 @@ const PEIMobile = ({ slug }) => {
                 ""
               )}
               <div
-                className="scrolling-area mt-3"
+                className="custom-scroll scrolling-area mt-3"
                 style={
                   !visAtivo && !metAtivo && !proAtivo
                     ? { display: "none" }
