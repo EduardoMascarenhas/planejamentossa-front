@@ -1405,7 +1405,7 @@ body {
   width: 20px;
   background: #002e6a;
   content: "";
-  height: 67px;
+  height: 68px;
   position: absolute;
   right: -20px;
   top: 0;

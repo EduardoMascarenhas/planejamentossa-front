@@ -47,14 +47,17 @@ const PDesktop = ({ slug }) => {
           </h1>
         </div>
 
-        <section className="position-relative bar-yellow bar-yellow-projetos c-bgc-yellow-light">
+        <section
+          className="position-relative bar-yellow bar-yellow-projetos"
+          style={{ backgroundColor: "#03163c" }}
+        >
           <div className="container position-relative d-flex align-items-center justify-content-center">
             <div
               className="titulo-projetos"
               style={
                 projeto && projeto.eixo
                   ? { backgroundColor: `${projeto.eixo.borderColor}` }
-                  : { backgroundColor: "#000" }
+                  : { backgroundColor: "#00b3ef" }
               }
             >
               <h3 style={{ color: "#fff" }}>{projeto.name}</h3>
