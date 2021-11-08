@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { API } from "../../config";
 import { getEixo } from "../../core/apiCore";
+import { DivCustom } from "../../styledComponents/globalStyle";
 import img1 from "../../assets/imgs/Terreiro-de-Jesus---PROPEG_PMS_TDEJESUS_V3.jpg";
 import img2 from "../../assets/imgs/barra-center-interna.svg";
 import img3 from "../../assets/imgs/Ativo 2.png";
@@ -297,23 +298,26 @@ const PEIDesktop = ({ slug, projetosOpen }) => {
                 id="os"
               >
                 <div className="scrolling-element-inside">
-                  <div className="container position-relative">
+                  <div className="container ps-5 me-0 pe-2 position-relative">
                     {visAtivo ? (
-                      <p
+                      <DivCustom
                         className="c-color-grey text-break"
                         id="conteudo-corpo"
+                        color={borderColor}
                         dangerouslySetInnerHTML={{ __html: vis }}
                       />
                     ) : metAtivo ? (
-                      <p
+                      <DivCustom
                         className="c-color-grey text-break"
                         id="conteudo-corpo"
+                        color={borderColor}
                         dangerouslySetInnerHTML={{ __html: met }}
                       />
                     ) : proAtivo ? (
-                      <p
+                      <DivCustom
                         className="c-color-grey text-break text-uppercase"
                         id="conteudo-corpo"
+                        color={borderColor}
                       >
                         {projetos.map(({ name, slug }, i) => {
                           return (
@@ -326,7 +330,7 @@ const PEIDesktop = ({ slug, projetosOpen }) => {
                             </h5>
                           );
                         })}
-                      </p>
+                      </DivCustom>
                     ) : (
                       ""
                     )}

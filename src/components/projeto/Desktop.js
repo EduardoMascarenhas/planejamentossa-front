@@ -31,7 +31,14 @@ const PDesktop = ({ slug }) => {
           <div className="dots dots-voltar dot-esquerdo">
             <img src={img1} className="d-block w-100" alt="..." />
           </div>
-          <button className="button-voltar">
+          <button
+            className="button-voltar"
+            style={
+              projeto && projeto.eixo
+                ? { background: `${projeto.eixo.borderColor}` }
+                : {}
+            }
+          >
             {" "}
             <a href="#" onClick={() => paginaAnterior()}>
               Voltar <i className="fas fa-arrow-left"></i>

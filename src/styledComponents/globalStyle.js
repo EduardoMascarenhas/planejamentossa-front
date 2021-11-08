@@ -602,4 +602,9 @@ export const DivBorderDynamic = styled.div.attrs((props) => props)`
     background: ${(props) => props.color}!important;
   }
 `;
+export const DivCustom = styled.div.attrs((props) => props)`
+  & strong {
+    color: ${(props) => props.color}!important;
+  }
+`;
 export default GlobalStyle;
