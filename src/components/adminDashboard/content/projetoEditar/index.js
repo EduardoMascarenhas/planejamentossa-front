@@ -8,6 +8,7 @@ import {
   getEixos,
   getSelos,
 } from "../../../../core/apiCore";
+import Multiselect from "multiselect-react-dropdown";
 import ReactQuill from "react-quill";
 import { QuillModules, QuillFormats } from "../../../../helpers/quill";
 import {} from "../../../../../node_modules/react-quill/dist/quill.snow.css";
@@ -16,7 +17,7 @@ const ProjetoEditar = ({ slug }) => {
   const { user, token } = isAuthenticated();
   const [body, setBody] = useState("");
   const [eixos, setEixos] = useState([]);
-  const [selos, setSelos] = useState([]);
+  const [selos2, setSelos2] = useState([]);
   const { Option } = Select;
   const [values, setValues] = useState({
     selectedValues: [],
@@ -24,7 +25,7 @@ const ProjetoEditar = ({ slug }) => {
     name: "",
     subTitle: "",
     eixo: {},
-    selo: {},
+    selos: [],
     error: false,
     errorMsg: "",
     redirectToReferrer: false,
@@ -34,7 +35,7 @@ const ProjetoEditar = ({ slug }) => {
     projeto,
     selectedValues,
     eixo,
-    selo,
+    selos,
     name,
     subTitle,
     error,
@@ -55,6 +56,14 @@ const ProjetoEditar = ({ slug }) => {
 
     setValues({ ...values, [name]: value });
     formData.set(name, value);
+  };
+  const handleMultiSelect = (name) => (event) => {
+    let arraySelos = [];
+    event.map((c) => {
+      arraySelos.push(c._id);
+    });
+    setValues({ ...values, [name]: arraySelos });
+    formData.set("selos", arraySelos);
   };
   const showError = () => {
     return (
@@ -80,10 +89,6 @@ const ProjetoEditar = ({ slug }) => {
     setValues({ ...values, eixo: value });
     formData.set("eixo", value);
   }
-  function handleChangeSelos(value) {
-    setValues({ ...values, selo: value });
-    formData.set("selo", value);
-  }
   const clickSubmit = (e) => {
     e.preventDefault();
     updateProjeto(slug, user._id, token, formData).then((data) => {
@@ -93,7 +98,6 @@ const ProjetoEditar = ({ slug }) => {
         setValues({ ...values, error: false, redirectToReferrer: true });
       }
     });
-    document.location.href = "/admin/projetos";
   };
   const init = () => {
     setValues({
@@ -112,7 +116,8 @@ const ProjetoEditar = ({ slug }) => {
           name: data.name,
           subTitle: data.subTitle,
           eixo: data.eixo,
-          selo: data.selo,
+          selos: data.selos,
+          selectedValues: data.selos,
         });
       }
     });
@@ -122,7 +127,7 @@ const ProjetoEditar = ({ slug }) => {
       if (data.error || !data) {
         console.log("erro ao carregar os selos");
       } else {
-        setSelos(data);
+        setSelos2(data);
       }
     });
   };
@@ -203,29 +208,20 @@ const ProjetoEditar = ({ slug }) => {
             </Select>
           </div>
           <div className="col-6 p-2">
-            {selo && selo ? (
-              <span>
-                Selo atual: <b>{selo.title}</b>
-              </span>
+            {selos2 && selos2.length > 0 ? (
+              <Multiselect
+                options={selos2}
+                showCheckbox
+                selectedValues={selectedValues}
+                onSelect={handleMultiSelect("selos")}
+                onRemove={handleMultiSelect("selos")}
+                displayValue="title"
+                placeholder="Selecionar Selo"
+                emptyRecordMsg="Nenhuma Selo foi encontrado!"
+              />
             ) : (
               ""
             )}
-            <Select
-              showSearch
-              defaultValue="Selos"
-              onChange={handleChangeSelos}
-              className="select-custom"
-            >
-              {selos &&
-                selos.map((s, i) => {
-                  return (
-                    <Option key={i} value={s._id}>
-                      {s.title}
-                      <hr className="m-0" />
-                    </Option>
-                  );
-                })}
-            </Select>
           </div>
         </div>
         <div>

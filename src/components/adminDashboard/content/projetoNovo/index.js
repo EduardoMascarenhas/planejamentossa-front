@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { isAuthenticated } from "../../../../auth";
 import { criarProjeto, getEixos, getSelos } from "../../../../core/apiCore";
+import Multiselect from "multiselect-react-dropdown";
 import { Select } from "antd";
 import ReactQuill from "react-quill";
 import { QuillModules, QuillFormats } from "../../../../helpers/quill";
@@ -9,11 +10,13 @@ import {} from "../../../../../node_modules/react-quill/dist/quill.snow.css";
 const ProjetoNovo = () => {
   const { user, token } = isAuthenticated();
   const [eixos, setEixos] = useState([]);
-  const [selos, setSelos] = useState([]);
+  const [selos2, setSelos2] = useState([]);
   const [body, setBody] = useState("");
   const [values, setValues] = useState({
     name: "",
     subTitle: "",
+    selos: [],
+    selectedValues: [],
     eixo: "",
     formData: "",
   });
@@ -21,12 +24,20 @@ const ProjetoNovo = () => {
   const [redirectToReferrer, setRedirectToReferrer] = useState(false);
   const { Option } = Select;
 
-  const { name, subTitle, eixo, formData } = values;
+  const { name, subTitle, eixo, selos, selectedValues, formData } = values;
 
   const handleChange = (name) => (event) => {
     const value = name === "thumb" ? event.target.files[0] : event.target.value;
     setValues({ ...values, [name]: value });
     formData.set(name, value);
+  };
+  const handleMultiSelect = (name) => (event) => {
+    let arraySelos = [];
+    event.map((c) => {
+      arraySelos.push(c._id);
+    });
+    setValues({ ...values, [name]: arraySelos });
+    formData.set("selos", arraySelos);
   };
   const showError = () => {
     return (
@@ -94,7 +105,7 @@ const ProjetoNovo = () => {
       if (data.error || !data) {
         console.log("Erro ao carregar os selos!");
       } else {
-        setSelos(data);
+        setSelos2(data);
       }
     });
   };
@@ -156,22 +167,20 @@ const ProjetoNovo = () => {
             </Select>
           </div>
           <div className="col-6 p-2">
-            <Select
-              showSearch
-              defaultValue="Selos"
-              onChange={handleChangeSelos}
-              className="select-custom"
-            >
-              {selos &&
-                selos.map((s, i) => {
-                  return (
-                    <Option key={i} value={s._id}>
-                      {s.title}
-                      <hr className="m-0" />
-                    </Option>
-                  );
-                })}
-            </Select>
+            {selos2 && selos2.length > 0 ? (
+              <Multiselect
+                options={selos2}
+                showCheckbox
+                selectedValues={selectedValues}
+                onSelect={handleMultiSelect("selos")}
+                onRemove={handleMultiSelect("selos")}
+                displayValue="title"
+                placeholder="Selecionar Selo"
+                emptyRecordMsg="Nenhuma Selo foi encontrado!"
+              />
+            ) : (
+              ""
+            )}
           </div>
         </div>
         <div>
