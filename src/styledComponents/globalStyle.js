@@ -12,6 +12,9 @@ th, td {
   background-position: center;
   background-image: url(${bg1});
 }
+p {
+  margin-bottom: 0;
+}
 .bg-form-center {
   position: relative;
   min-height: 100vh;
@@ -336,9 +339,6 @@ grid-container .list-title {
 .body-noticia-prefeito p {
   color: #fff;
   font-size: 1.2rem;
-}
-.body-noticia-prefeito p br {
-  display: none;
 }
 .img-com-borda{
   box-shadow: 8px 9px 0px 1px #ce4995;
