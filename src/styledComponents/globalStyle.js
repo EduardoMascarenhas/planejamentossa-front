@@ -79,6 +79,18 @@ display: -webkit-flex;
 #conteudo-button {
   padding-bottom: 10px;
 }
+.ql-align-right{
+  text-align: right!important;
+}
+.ql-align-left{
+  text-align: left!important;
+}
+.ql-align-center{
+  text-align: center!important;
+}
+.ql-align-justify{
+  text-align: justify!important;
+}
 .button-voltar:hover {
   animation-name: gradientVoltar;
   -webkit-animation-name: gradientVoltar;
