@@ -52,12 +52,12 @@ display: -webkit-flex;
   float: left;
   max-width: 50%;
   margin-right: 1.2rem;
-  margin-bottom: 10px;
+  margin-bottom: 11px;
 }
 .titulo-mobile{
   font-size: 2rem!important;
 }
-.texto-noticia-mobile h3{
+.texto-noticia-mobile h3, .texto-noticia-mobile p{
   font-size: 0.85rem!important;
 }
 .w728-h90{
