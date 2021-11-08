@@ -52,6 +52,9 @@ const PDesktop = ({ slug }) => {
           style={{ backgroundColor: "#03163c" }}
         >
           <div className="container position-relative d-flex align-items-center justify-content-center">
+            {projeto && projeto.eixo
+              ? console.log(projeto.eixo.borderColor)
+              : ""}
             <div
               className="titulo-projetos"
               style={
