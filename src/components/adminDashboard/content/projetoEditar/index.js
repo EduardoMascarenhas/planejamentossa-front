@@ -178,7 +178,13 @@ const ProjetoEditar = ({ slug }) => {
         </div>
         <div className="col-12 d-flex">
           <div className="col-6 p-2">
-            {eixo && eixo ? <span>Eixo atual: {eixo.title}</span> : ""}
+            {eixo && eixo ? (
+              <span>
+                Eixo atual: <b>{eixo.title}</b>
+              </span>
+            ) : (
+              ""
+            )}
             <Select
               showSearch
               defaultValue="Eixos"
@@ -197,7 +203,13 @@ const ProjetoEditar = ({ slug }) => {
             </Select>
           </div>
           <div className="col-6 p-2">
-            {selo && selo ? <span>Selo atual: {selo.title}</span> : ""}
+            {selo && selo ? (
+              <span>
+                Selo atual: <b>{selo.title}</b>
+              </span>
+            ) : (
+              ""
+            )}
             <Select
               showSearch
               defaultValue="Selos"
