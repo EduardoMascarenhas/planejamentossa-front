@@ -8,28 +8,36 @@ const Footer = () => {
           <div className="text-center my-1 btn-container-footer">
             <div className="mb-1 mr-3 align-self-center pt-0 d-inline-block">
               <a
-                href="/"
+                href="https://www.youtube.com/user/PrefeituradoSalvador"
+                target="_blank"
+                rel="noreferrer noopener"
                 role="button"
                 className="p-2 m-2 c-color-secondary-light"
               >
                 <i className="fab fa-youtube" aria-hidden="true"></i>
               </a>
               <a
-                href="/"
+                href="https://twitter.com/prefsalvador"
+                target="_blank"
+                rel="noreferrer noopener"
                 role="button"
                 className="p-2 m-2 c-color-secondary-light"
               >
                 <i className="fab fa-twitter" aria-hidden="true"></i>
               </a>
               <a
-                href="/"
+                href="https://www.facebook.com/prefsalvador/"
+                target="_blank"
+                rel="noreferrer noopener"
                 role="button"
                 className="p-2 m-2 c-color-secondary-light"
               >
                 <i className="fab fa-facebook-f" aria-hidden="true"></i>
               </a>
               <a
-                href="/"
+                href="https://www.instagram.com/prefsalvador/?hl=pt-br"
+                target="_blank"
+                rel="noreferrer noopener"
                 role="button"
                 className="p-2 m-2 c-color-secondary-light"
               >
