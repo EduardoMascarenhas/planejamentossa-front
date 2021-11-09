@@ -34,6 +34,16 @@ const PesquisaContent = ({ pChave }) => {
       }
     });
   };
+  function removeAcento(text) {
+    text = text.toLowerCase();
+    text = text.replace(new RegExp("[ÁÀÂÃ]", "gi"), "a");
+    text = text.replace(new RegExp("[ÉÈÊ]", "gi"), "e");
+    text = text.replace(new RegExp("[ÍÌÎ]", "gi"), "i");
+    text = text.replace(new RegExp("[ÓÒÔÕ]", "gi"), "o");
+    text = text.replace(new RegExp("[ÚÙÛ]", "gi"), "u");
+    text = text.replace(new RegExp("[Ç]", "gi"), "c");
+    return text;
+  }
   useEffect(() => {
     initProjetos();
     initSelos();
@@ -58,20 +68,41 @@ const PesquisaContent = ({ pChave }) => {
             </div>
 
             <div className="">
+              <h1>PROJETOS</h1>
               {projetos &&
                 projetos.map((p, i) => {
-                  if (slugify(pChave).toLocaleLowerCase() === p.slug) {
-                    return <h1 key={i}>Existe nos Projetos</h1>;
-                  } else {
-                    return "";
+                  if (
+                    removeAcento(pChave.toLowerCase()).includes(
+                      removeAcento(p.name.toLowerCase())
+                    ) ||
+                    removeAcento(p.name.toLowerCase()).includes(
+                      removeAcento(pChave.toLowerCase())
+                    )
+                  ) {
+                    return (
+                      <h4 key={i} style={{ color: "red" }}>
+                        {p.name}
+                      </h4>
+                    );
                   }
                 })}
+
+              <h1>SELOS</h1>
               {selos &&
                 selos.map((s, i) => {
-                  if (slugify(pChave).toLocaleLowerCase() === s.slug) {
-                    return <h1 key={i}>Existe nos Selos</h1>;
-                  } else {
-                    return "";
+                  if (
+                    removeAcento(pChave.toLowerCase()).includes(
+                      removeAcento(s.title.toLowerCase())
+                    ) ||
+                    removeAcento(s.title.toLowerCase()).includes(
+                      removeAcento(pChave.toLowerCase())
+                    )
+                  ) {
+                    return (
+                      <h4 key={i} style={{ color: "red" }}>
+                        {s.title}
+                      </h4>
+                    );
                   }
                 })}
             </div>
