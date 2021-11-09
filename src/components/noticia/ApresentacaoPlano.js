@@ -92,7 +92,7 @@ const ApresentacaoPlano = () => {
       </section>
 
       {/* MOBILE */}
-      <section className="mt-0 bg-img-custom-2">
+      <section className="db-991 mt-0 bg-img-custom-2">
         <div className="container">
           <div className="col-lg-12 container-noticia">
             <button className="button-voltar button-apresentacao-plano">

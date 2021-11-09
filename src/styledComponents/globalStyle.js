@@ -94,6 +94,9 @@ display: -webkit-flex;
 #conteudo-button {
   padding-bottom: 10px;
 }
+.db-991 {
+  display: none;
+}
 .ql-align-right{
   text-align: right!important;
 }
@@ -451,6 +454,9 @@ grid-container .list-title {
 @media screen and (max-width: 991px) {
   .dn-991 {
     display: none;
+  }
+  .db-991 {
+    display: block;
   }
   .w100-991{
     width: 100%!important;

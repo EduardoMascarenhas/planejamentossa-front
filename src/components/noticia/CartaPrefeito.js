@@ -90,7 +90,7 @@ const CartaPrefeito = () => {
       </section>
 
       {/* MOBILE */}
-      <section className="mt-0 bg-img-custom">
+      <section className="db-991 mt-0 bg-img-custom">
         <div className="container">
           <div className="col-lg-12 container-noticia">
             <button className="button-voltar">
