@@ -62,12 +62,15 @@ const Sessao1 = () => {
       className="text-white position-relative align-items-top d-flex flex-column section-top-home"
       id="appSection"
     >
-      <div className="position-absolute bg-l">
+      {/**
+       <div className="position-absolute bg-l">
         <img src={img1} className="img-fluid" alt="" />
       </div>
       <div className="position-absolute bg-r">
         <img src={img2} className="img-fluid" alt="" />
       </div>
+       */}
+
       <div className="position-absolute bg-blue"></div>
 
       <div className="container position-relative slide">
