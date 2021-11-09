@@ -80,7 +80,7 @@ const PesquisaContent = ({ pChave }) => {
                     )
                   ) {
                     return (
-                      <h4 key={i} style={{ color: "red" }}>
+                      <h4 key={i} style={{ color: "pink" }}>
                         {p.name}
                       </h4>
                     );
@@ -99,7 +99,7 @@ const PesquisaContent = ({ pChave }) => {
                     )
                   ) {
                     return (
-                      <h4 key={i} style={{ color: "red" }}>
+                      <h4 key={i} style={{ color: "pink" }}>
                         {s.title}
                       </h4>
                     );
