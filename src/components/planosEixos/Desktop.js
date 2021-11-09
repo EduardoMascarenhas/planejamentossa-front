@@ -3,8 +3,7 @@ import { getEixos } from "../../core/apiCore";
 import { DivBorderDynamic } from "../../styledComponents/globalStyle";
 import { API } from "../../config";
 import img1 from "../../assets/imgs/eixos-planos.svg";
-import img2 from "../../assets/imgs/Terreiro-de-Jesus---PROPEG_PMS_TDEJESUS_V3.jpg";
-import img3 from "../../assets/imgs/02_09_19_Iluminacao_Itapua.jpg";
+import img2 from "../../assets/imgs/eixo-padrao.jpg";
 
 const PEDesktop = () => {
   const redirectTo = (link) => {
@@ -110,11 +109,7 @@ const PEDesktop = () => {
             {/**TORNAR DINAMICO COM O HOVER NOS LI's */}
             {slug === "" ? (
               eixos && eixos.length ? (
-                <img
-                  src={`${API}/eixo/thumb/${eixos[0].slug}`}
-                  className="img-content"
-                  alt=""
-                />
+                <img src={img2} className="img-content" alt="" />
               ) : (
                 ""
               )

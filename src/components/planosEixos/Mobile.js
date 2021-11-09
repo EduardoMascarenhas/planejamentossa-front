@@ -64,26 +64,29 @@ const PEMobile = () => {
                         if (i !== 1) {
                           return (
                             <grid-item
+                              key={i}
                               short
                               onClick={() =>
                                 redirectTo(`/planos-eixos-${e.slug}`)
                               }
                             >
                               <div>
-                                <div class="space-thumb">
+                                <div className="space-thumb">
                                   <img
                                     src={`${API}/eixo/thumb/${e.slug}`}
                                     alt=""
-                                    class="thumbnail rounded-circle"
+                                    className="thumbnail rounded-circle"
                                     style={{ background: `${e.borderColor}` }}
                                   />
                                 </div>
                               </div>
                               <div
-                                class="text-white list-title"
+                                className="text-white list-title"
                                 style={{ border: `2px solid ${e.borderColor}` }}
                               >
-                                <div class="name text-uppercase">{e.title}</div>
+                                <div className="name text-uppercase">
+                                  {e.title}
+                                </div>
                               </div>
                             </grid-item>
                           );
@@ -94,7 +97,7 @@ const PEMobile = () => {
                               <grid-item
                                 tall
                                 id="brd-image"
-                                class="img-eixo-mobile"
+                                className="img-eixo-mobile"
                               >
                                 <img
                                   src={`${API}/eixo/thumb/${e.slug}`}
@@ -108,22 +111,22 @@ const PEMobile = () => {
                                 }
                               >
                                 <div>
-                                  <div class="space-thumb">
+                                  <div className="space-thumb">
                                     <img
                                       src={`${API}/eixo/thumb/${e.slug}`}
                                       alt=""
-                                      class="thumbnail rounded-circle"
+                                      className="thumbnail rounded-circle"
                                       style={{ background: `${e.borderColor}` }}
                                     />
                                   </div>
                                 </div>
                                 <div
-                                  class="text-white list-title"
+                                  className="text-white list-title"
                                   style={{
                                     border: `2px solid ${e.borderColor}`,
                                   }}
                                 >
-                                  <div class="name text-uppercase">
+                                  <div className="name text-uppercase">
                                     {e.title}
                                   </div>
                                 </div>
