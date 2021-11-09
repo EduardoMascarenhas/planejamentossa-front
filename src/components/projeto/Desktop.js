@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import parse from "html-react-parser";
-import { DivCustom } from "../../styledComponents/globalStyle";
+import reactStringReplace from "react-string-replace";
+import { DivCustom, SpanCustom } from "../../styledComponents/globalStyle";
 import { getProjeto } from "../../core/apiCore";
 import img1 from "../../assets/imgs/dots.png";
+import { replaceElement } from "htmlparser2/node_modules/domutils";
 
 const PDesktop = ({ slug, selo }) => {
   const [values, setValues] = useState({
@@ -24,6 +26,14 @@ const PDesktop = ({ slug, selo }) => {
       window.history.back();
     } else {
       window.location.href = `/planos-eixos-${projeto.eixo.slug}/projetos`;
+    }
+  };
+  const dotsFormatados = (txt) => {
+    if (txt) {
+      const regex = /•/gm;
+      return txt.replaceAll(regex, `<span className="bullet">•</span>`);
+    } else {
+      return "";
     }
   };
   useEffect(() => {
@@ -95,7 +105,9 @@ const PDesktop = ({ slug, selo }) => {
                       }
                       id="conteudo-corpo-2"
                     >
-                      {parse(`${projeto.body}`)}
+                      <DivCustom>
+                        {parse(dotsFormatados(`${projeto.body}`))}
+                      </DivCustom>
                     </DivCustom>
                   </div>
                 </div>

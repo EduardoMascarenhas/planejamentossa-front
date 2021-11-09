@@ -64,7 +64,7 @@ const SelosContent = () => {
                       >
                         <div className="textos-selos">
                           <h2
-                            className="c-color-gray fw-bolder"
+                            className="c-color-gray fw-bolder cursor-pointer"
                             onClick={() => goToSelo(s._id)}
                           >
                             {s.title}
@@ -73,6 +73,7 @@ const SelosContent = () => {
                         </div>
                         <div className="imagem-selos">
                           <img
+                            className="cursor-pointer"
                             src={`${API}/selo/image/${s._id}`}
                             onClick={() => goToSelo(s._id)}
                             alt=""

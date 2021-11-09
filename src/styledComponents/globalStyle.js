@@ -649,5 +649,8 @@ export const DivCustom = styled.div.attrs((props) => props)`
   &::-webkit-scrollbar-thumb {
     background-color: ${(props) => props.color}!important;
   }
+  & span.bullet {
+    color: ${(props) => props.color}!important;
+  }
 `;
 export default GlobalStyle;
