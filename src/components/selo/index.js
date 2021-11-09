@@ -80,7 +80,11 @@ const SeloContent = ({ selo }) => {
                     <h4 className="c-color-gray">{parser(body)}</h4>
                   </div>
                   <div className="imagem-selos">
-                    <img src={`${API}/selo/image/${selo}`} alt="" />
+                    <img
+                      className="cursor-pointer"
+                      src={`${API}/selo/image/${selo}`}
+                      alt=""
+                    />
                   </div>
                 </li>
                 {projetos &&
@@ -89,7 +93,7 @@ const SeloContent = ({ selo }) => {
                       return (
                         <div key={i} className="textos-selos mb-4 ps-3">
                           <h3
-                            className="c-color-gray fw-bolder"
+                            className="c-color-gray fw-bolder cursor-pointer"
                             onClick={() => goToProject(p.slug)}
                           >
                             {p.name}

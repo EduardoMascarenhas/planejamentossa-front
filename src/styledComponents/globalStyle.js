@@ -195,6 +195,9 @@ display: -webkit-flex;
 #conteudo-corpo-2 p img {
   width: auto;
 }
+.ant-select{
+  display: -moz-box;
+}
 .div-button-voltar{
   position: absolute;
   right: 0;
