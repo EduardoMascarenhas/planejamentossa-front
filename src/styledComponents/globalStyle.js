@@ -192,9 +192,6 @@ display: -webkit-flex;
   font-size: 1.1rem;
   line-height: 2.5rem;
 }
-#conteudo-corpo-2 p br {
-  display: none;
-}
 #conteudo-corpo-2 p img {
   width: auto;
 }
