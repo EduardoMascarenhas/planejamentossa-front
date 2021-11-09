@@ -1478,6 +1478,7 @@ body {
   max-height: 450px;
   overflow: auto;
   padding: 0.5rem;
+  overflow-x: hidden;
 }
 
 .itens-news div {

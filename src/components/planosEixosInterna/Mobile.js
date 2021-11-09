@@ -295,7 +295,7 @@ const PEIMobile = ({ slug }) => {
                 id="os"
               >
                 <div className="scrolling-element-inside">
-                  <div className="container ps-5 me-0 pe-2 position-relative">
+                  <div className="container ps-5 pe-2 position-relative">
                     {visAtivo ? (
                       <p
                         className="c-color-grey text-break"

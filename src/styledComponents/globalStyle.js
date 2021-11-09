@@ -188,6 +188,10 @@ display: -webkit-flex;
 .link-sidebar-admin{
   color: #000;
 }
+#conteudo-corpo, #conteudo-corpo-2 {
+  font-size: 1.1rem;
+  line-height: 2.5rem;
+}
 #conteudo-corpo-2 p br {
   display: none;
 }
@@ -452,6 +456,9 @@ grid-container .list-title {
 }
 /*media queries*/
 @media screen and (max-width: 991px) {
+  #conteudo-corpo-2 p img{
+    width: 100%!important;
+  }
   .dn-991 {
     display: none;
   }
