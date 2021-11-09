@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { API } from "../../config";
-import { Select } from "antd";
+import { Select, Input } from "antd";
 import parse from "html-react-parser";
 import img1 from "../../assets/imgs/barra-center-mobile-planejamento.svg";
 import img2 from "../../assets/imgs/barra-center.svg";
@@ -18,6 +18,7 @@ import moment from "moment";
 const Sessao2 = () => {
   const [bannerActive, setBannerActive] = useState(1);
   const [banners, setBanners] = useState([]);
+  const [pChave, setPChave] = useState("");
   const [projetos, setProjetos] = useState([]);
   const [selos, setSelos] = useState([]);
   const [values, setValues] = useState({
@@ -39,30 +40,6 @@ const Sessao2 = () => {
   function handleChangeSelos(value) {
     setValues({ ...values, acaoProjetos: false, acaoSelos: true, acao: value });
     window.location.href = `/selo-${value}`;
-  }
-  function verificarBusca(value, input) {
-    console.log(value, input);
-  }
-  function retira_acentos(str) {
-    let com_acento =
-      "ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝŔÞßàáâãäåæçèéêëìíîïðñòóôõöøùúûüýþÿŕ";
-    let sem_acento =
-      "AAAAAAACEEEEIIIIDNOOOOOOUUUUYRsBaaaaaaaceeeeiiiionoooooouuuuybyr";
-    let novastr = "";
-    for (let i = 0; i < str.length; i++) {
-      let troca = false;
-      for (let a = 0; a < com_acento.length; a++) {
-        if (str.substr(i, 1) == com_acento.substr(a, 1)) {
-          novastr += sem_acento.substr(a, 1);
-          troca = true;
-          break;
-        }
-      }
-      if (troca == false) {
-        novastr += str.substr(i, 1);
-      }
-    }
-    return novastr;
   }
   const initBlogs = () => {
     getBlogs().then((data) => {
@@ -104,12 +81,15 @@ const Sessao2 = () => {
     window.open(link, "_blank");
   };
   const fazerBusca = () => {
-    if (acaoProjetos === true) {
-      window.location.href = `/projeto-${acao}`;
+    if (pChave === "") {
+      console.log("é necessário digitar uma palavra chave!");
+    } else {
+      window.location.href = `/pesquisa-${pChave}`;
     }
-    if (acaoSelos === true) {
-      window.location.href = `/`;
-    }
+  };
+  const setPalavraChave = (name) => (event) => {
+    const value = event.target.value;
+    setPChave(value);
   };
   useEffect(() => {
     initBlogs();
@@ -125,7 +105,11 @@ const Sessao2 = () => {
           <div className="container col-lg-10">
             <div className="row d-flex inputs">
               <div className="col-12 col-md-4">
-                <Select
+                <Input
+                  placeholder="Palavra-Chave"
+                  onChange={setPalavraChave("pChave")}
+                ></Input>
+                {/* <Select
                   showSearch
                   defaultValue="Palavras-chave"
                   onChange={handleChangeProjetos}
@@ -141,11 +125,10 @@ const Sessao2 = () => {
                         );
                       }
                     })}
-                </Select>
+                </Select> */}
               </div>
               <div className="col-6 col-md-4">
                 <Select
-                  showSearch
                   defaultValue="Projetos"
                   className="select-home-projetos"
                   onChange={handleChangeProjetos}
@@ -165,7 +148,6 @@ const Sessao2 = () => {
               </div>
               <div className="col-6 col-md-4">
                 <Select
-                  showSearch
                   defaultValue="Selos"
                   className="select-home-selos"
                   onChange={handleChangeSelos}
@@ -202,7 +184,11 @@ const Sessao2 = () => {
             <div className="container col-lg-10">
               <div className="row d-flex py-1 inputs">
                 <div className="col-12 col-md-4">
-                  <Select
+                  <Input
+                    placeholder="Palavra-Chave"
+                    onChange={setPalavraChave("pChave")}
+                  ></Input>
+                  {/* <Select
                     showSearch
                     defaultValue="Palavras-chave"
                     onChange={handleChangeProjetos}
@@ -218,11 +204,10 @@ const Sessao2 = () => {
                           );
                         }
                       })}
-                  </Select>
+                  </Select> */}
                 </div>
                 <div className="col-6 col-md-4">
                   <Select
-                    showSearch
                     className="select-home"
                     defaultValue="Projetos"
                     onChange={handleChangeProjetos}
@@ -242,7 +227,6 @@ const Sessao2 = () => {
                 </div>
                 <div className="col-6 col-md-4">
                   <Select
-                    showSearch
                     className="select-home"
                     defaultValue="Selos"
                     onChange={handleChangeSelos}
@@ -384,26 +368,30 @@ const Sessao2 = () => {
               <div className="custom-scroll scrolling-area mt-3" id="os">
                 <div className="scrolling-element-inside">
                   <ul className="list-group list-group-flush bg-transparent itens-news">
-                    {noticias.map(
-                      ({ title, subTitle, link, slug, _id, createdAt }, i) => {
-                        return (
-                          <li
-                            key={i}
-                            className="list-group-item bg-transparent border-0 pl-0"
-                          >
-                            <h3>{subTitle}</h3>
-                            <h4 className="c-color-gray">{title}</h4>
-                            <button
-                              onClick={() => abrirLink(link)}
-                              type="button"
-                              className="text-white border-50"
+                    {noticias &&
+                      noticias.map(
+                        (
+                          { title, subTitle, link, slug, _id, createdAt },
+                          i
+                        ) => {
+                          return (
+                            <li
+                              key={i}
+                              className="list-group-item bg-transparent border-0 pl-0"
                             >
-                              Saiba mais
-                            </button>
-                          </li>
-                        );
-                      }
-                    )}
+                              <h3>{subTitle}</h3>
+                              <h4 className="c-color-gray">{title}</h4>
+                              <button
+                                onClick={() => abrirLink(link)}
+                                type="button"
+                                className="text-white border-50"
+                              >
+                                Saiba mais
+                              </button>
+                            </li>
+                          );
+                        }
+                      )}
                   </ul>
                 </div>
               </div>

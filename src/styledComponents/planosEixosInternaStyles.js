@@ -33,7 +33,9 @@ body {
   height: 100%;
   overflow-x: hidden;
 }
-
+#root{
+  min-height: 1100px;
+}
 .c-color-primary {
   color: var(--bs-primary);
 }
@@ -1405,7 +1407,7 @@ body {
   width: 20px;
   background: #002e6a;
   content: "";
-  height: 68px;
+  height: 69px;
   position: absolute;
   right: -20px;
   top: 0;
@@ -1477,7 +1479,8 @@ body {
 }
 
 .scrolling-area {
-  max-height: 450px;
+  max-height: 650px;
+  min-height: 650px;
   overflow: auto;
   padding: 0.5rem;
 }

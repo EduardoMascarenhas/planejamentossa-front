@@ -261,16 +261,6 @@ const EixoEditar = ({ slug }) => {
             onChange={handleMet}
           />
         </div>
-        <div className="mt-3 mb-3">
-          <h4>Projetos</h4>
-          <ReactQuill
-            modules={QuillModules}
-            formats={QuillFormats}
-            value={pro}
-            placeholder="Projetos..."
-            onChange={handlePro}
-          />
-        </div>
         <div className="col-12 d-flex p-3">
           <div className="m-a">{showError()}</div>{" "}
         </div>

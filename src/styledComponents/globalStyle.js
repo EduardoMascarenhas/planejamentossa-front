@@ -94,6 +94,12 @@ display: -webkit-flex;
 #conteudo-button {
   padding-bottom: 10px;
 }
+.img-content-custom{
+  height: 100%;
+}
+.col-custom-dinamica{
+  max-height: 1100px;
+}
 .db-991 {
   display: none;
 }
@@ -197,6 +203,7 @@ display: -webkit-flex;
 }
 .ant-select{
   display: -moz-box;
+  display: -webkit-box;
 }
 .div-button-voltar{
   position: absolute;
@@ -255,9 +262,6 @@ display: -webkit-flex;
 }
 .botao-eixo-interna{
   cursor: pointer;
-}
-#conteudo-corpo p br {
-    display: none;
 }
 #conteudo-corpo h5 {
     color: #df6825;

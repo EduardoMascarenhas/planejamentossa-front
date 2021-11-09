@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { API } from "../../config";
 import { getEixo } from "../../core/apiCore";
+import parse from "html-react-parser";
 import { DivCustom } from "../../styledComponents/globalStyle";
 import img1 from "../../assets/imgs/Terreiro-de-Jesus---PROPEG_PMS_TDEJESUS_V3.jpg";
 import img2 from "../../assets/imgs/barra-center-interna.svg";
@@ -74,6 +75,14 @@ const PEIDesktop = ({ slug, projetosOpen }) => {
         }
       }
     });
+  };
+  const dotsFormatados = (txt) => {
+    if (txt) {
+      const regex = /•/gm;
+      return txt.replaceAll(regex, `<span className="bullet">•</span>`);
+    } else {
+      return "";
+    }
   };
   useEffect(() => {
     if (slug) {
@@ -305,15 +314,17 @@ const PEIDesktop = ({ slug, projetosOpen }) => {
                         className="c-color-grey text-break"
                         id="conteudo-corpo"
                         color={borderColor}
-                        dangerouslySetInnerHTML={{ __html: vis }}
-                      />
+                      >
+                        <DivCustom>{parse(dotsFormatados(vis))}</DivCustom>
+                      </DivCustom>
                     ) : metAtivo ? (
                       <DivCustom
                         className="c-color-grey text-break"
                         id="conteudo-corpo"
                         color={borderColor}
-                        dangerouslySetInnerHTML={{ __html: met }}
-                      />
+                      >
+                        <DivCustom>{parse(dotsFormatados(met))}</DivCustom>
+                      </DivCustom>
                     ) : proAtivo ? (
                       <DivCustom
                         className="c-color-grey text-break text-uppercase"

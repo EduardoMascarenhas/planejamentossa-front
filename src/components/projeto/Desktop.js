@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
 import parse from "html-react-parser";
-import reactStringReplace from "react-string-replace";
 import { DivCustom, SpanCustom } from "../../styledComponents/globalStyle";
 import { getProjeto } from "../../core/apiCore";
 import img1 from "../../assets/imgs/dots.png";
-import { replaceElement } from "htmlparser2/node_modules/domutils";
 
 const PDesktop = ({ slug, selo }) => {
   const [values, setValues] = useState({

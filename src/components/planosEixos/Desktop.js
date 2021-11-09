@@ -41,7 +41,7 @@ const PEDesktop = () => {
   return (
     <main className="dn-991">
       <div className="row">
-        <div className="col-12 d-flex">
+        <div className="col-12 d-flex col-custom-dinamica">
           <DivBorderDynamic
             className="col-5 bg-blue-0-deg brd-pink"
             color={borderDinamicaColor}
@@ -109,14 +109,14 @@ const PEDesktop = () => {
             {/**TORNAR DINAMICO COM O HOVER NOS LI's */}
             {slug === "" ? (
               eixos && eixos.length ? (
-                <img src={img2} className="img-content" alt="" />
+                <img src={img2} className="img-content-custom" alt="" />
               ) : (
                 ""
               )
             ) : (
               <img
                 src={`${API}/eixo/thumb/${slug}`}
-                className="img-content"
+                className="img-content-custom"
                 alt=""
               />
             )}
