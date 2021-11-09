@@ -80,11 +80,7 @@ const SeloContent = ({ selo }) => {
                     <h4 className="c-color-gray">{parser(body)}</h4>
                   </div>
                   <div className="imagem-selos">
-                    <img
-                      className="cursor-pointer"
-                      src={`${API}/selo/image/${selo}`}
-                      alt=""
-                    />
+                    <img src={`${API}/selo/image/${selo}`} alt="" />
                   </div>
                 </li>
                 {projetos &&
