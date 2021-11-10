@@ -2,12 +2,14 @@ import React, { useState, useEffect } from "react";
 import slugify from "slugify";
 import { getProjetos, getSelos, getEixos } from "../../core/apiCore";
 import parser from "html-react-parser";
+import { Input } from "antd";
 import { API } from "../../config";
 
 const PesquisaContent = ({ pChave }) => {
   const [projetos, setProjetos] = useState([]);
   const [selos, setSelos] = useState([]);
   const [eixos, setEixos] = useState([]);
+  const [pChave2, setPChave2] = useState("");
   const [values, setValues] = useState({
     error: false,
     errorMsg: "",
@@ -63,6 +65,17 @@ const PesquisaContent = ({ pChave }) => {
     text = text.replace(new RegExp("[Ç]", "gi"), "c");
     return text;
   }
+  const fazerBusca = () => {
+    if (pChave2 === "") {
+      console.log("é necessário digitar uma palavra chave!");
+    } else {
+      window.location.href = `/pesquisa-${pChave2}`;
+    }
+  };
+  const setPalavraChave2 = (name) => (event) => {
+    const value = event.target.value;
+    setPChave2(value);
+  };
   useEffect(() => {
     initEixos();
     initProjetos();
@@ -76,6 +89,7 @@ const PesquisaContent = ({ pChave }) => {
           <div className="mt-3" id="os">
             <div className="topo-selos">
               <h3>Resultado da Pesquisa</h3>
+
               <button
                 className="button-voltar"
                 style={{ position: "relative", marginTop: "0" }}
@@ -86,7 +100,19 @@ const PesquisaContent = ({ pChave }) => {
                 </a>{" "}
               </button>
             </div>
-
+            <div className="pesquisar-novamente mb-3 ps-3">
+              <Input
+                placeholder="Pesquisar Novamente"
+                onChange={setPalavraChave2("pChave2")}
+              ></Input>
+              <a
+                className="btn-search-custom-2"
+                onClick={() => fazerBusca()}
+                href="#"
+              >
+                <i className="fas fa-search"></i>
+              </a>
+            </div>
             <div className="ps-3">
               {projetos &&
                 projetos.map((p, i) => {

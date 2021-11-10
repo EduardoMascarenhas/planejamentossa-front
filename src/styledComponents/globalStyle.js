@@ -194,6 +194,16 @@ display: -webkit-flex;
 .btn-search-custom{
   display: none;
 }
+.pesquisar-novamente{
+  width: 300px;
+  position: relative;
+}
+.btn-search-custom-2{
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  color: #ed028c;
+}
 .link-sidebar-admin{
   color: #000;
 }
