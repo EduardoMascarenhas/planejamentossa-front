@@ -194,6 +194,14 @@ display: -webkit-flex;
 .link-sidebar-admin{
   color: #000;
 }
+.span-pesquisa-item {
+  color: #8c8c8c;
+  font-size: 1.5rem;
+}
+.pesquisa-item:hover{
+  color: #ed028c;
+  cursor: pointer;
+}
 #conteudo-corpo, #conteudo-corpo-2 {
   font-size: 1.1rem;
   line-height: 2.5rem;

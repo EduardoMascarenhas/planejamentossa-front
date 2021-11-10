@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import slugify from "slugify";
-import { getProjetos, getSelos } from "../../core/apiCore";
+import { getProjetos, getSelos, getEixos } from "../../core/apiCore";
 import parser from "html-react-parser";
 import { API } from "../../config";
 
 const PesquisaContent = ({ pChave }) => {
   const [projetos, setProjetos] = useState([]);
   const [selos, setSelos] = useState([]);
+  const [eixos, setEixos] = useState([]);
   const [values, setValues] = useState({
     error: false,
     errorMsg: "",
@@ -15,6 +16,15 @@ const PesquisaContent = ({ pChave }) => {
   const { error, errorMsg, redirectToReferrer } = values;
   const paginaAnterior = () => {
     console.log(window.history.back());
+  };
+  const initEixos = () => {
+    getEixos().then((data) => {
+      if (data.error || !data) {
+        console.log("erro ao carregar os eixos");
+      } else {
+        setEixos(data);
+      }
+    });
   };
   const initProjetos = () => {
     getProjetos().then((data) => {
@@ -34,6 +44,15 @@ const PesquisaContent = ({ pChave }) => {
       }
     });
   };
+  const openSelo = (id) => {
+    window.location.href = `/selo-${id}`;
+  };
+  const openProjeto = (slug) => {
+    window.location.href = `/projeto-${slug}`;
+  };
+  const openEixo = (slug) => {
+    window.location.href = `/planos-eixos-${slug}`;
+  };
   function removeAcento(text) {
     text = text.toLowerCase();
     text = text.replace(new RegExp("[ÁÀÂÃ]", "gi"), "a");
@@ -45,6 +64,7 @@ const PesquisaContent = ({ pChave }) => {
     return text;
   }
   useEffect(() => {
+    initEixos();
     initProjetos();
     initSelos();
   }, [pChave]);
@@ -67,8 +87,7 @@ const PesquisaContent = ({ pChave }) => {
               </button>
             </div>
 
-            <div className="">
-              <h1>PROJETOS</h1>
+            <div className="pl-2">
               {projetos &&
                 projetos.map((p, i) => {
                   if (
@@ -80,14 +99,17 @@ const PesquisaContent = ({ pChave }) => {
                     )
                   ) {
                     return (
-                      <h4 key={i} style={{ color: "#ed028c" }}>
-                        {p.name}
-                      </h4>
+                      <h2
+                        className="c-color-gray fw-bolder pesquisa-item"
+                        key={i}
+                        onClick={() => openProjeto(p.slug)}
+                      >
+                        {p.name}{" "}
+                        <span className="span-pesquisa-item">| Projeto</span>
+                      </h2>
                     );
                   }
                 })}
-
-              <h1>SELOS</h1>
               {selos &&
                 selos.map((s, i) => {
                   if (
@@ -99,9 +121,36 @@ const PesquisaContent = ({ pChave }) => {
                     )
                   ) {
                     return (
-                      <h4 key={i} style={{ color: "#ed028c" }}>
-                        {s.title}
-                      </h4>
+                      <h2
+                        className="c-color-gray fw-bolder pesquisa-item"
+                        key={i}
+                        onClick={() => openSelo(s._id)}
+                      >
+                        {s.title}{" "}
+                        <span className="span-pesquisa-item">| Selo</span>
+                      </h2>
+                    );
+                  }
+                })}
+              {eixos &&
+                eixos.map((e, i) => {
+                  if (
+                    removeAcento(pChave.toLowerCase()).includes(
+                      removeAcento(e.title.toLowerCase())
+                    ) ||
+                    removeAcento(e.title.toLowerCase()).includes(
+                      removeAcento(pChave.toLowerCase())
+                    )
+                  ) {
+                    return (
+                      <h2
+                        className="c-color-gray fw-bolder pesquisa-item"
+                        key={i}
+                        onClick={() => openEixo(e.slug)}
+                      >
+                        {e.title}{" "}
+                        <span className="span-pesquisa-item">| Eixo</span>
+                      </h2>
                     );
                   }
                 })}
