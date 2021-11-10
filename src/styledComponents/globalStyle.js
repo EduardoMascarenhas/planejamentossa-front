@@ -191,6 +191,9 @@ display: -webkit-flex;
 .cursor-pointer-custom:hover {
   color: #00306e!important;
 }
+.btn-search-custom{
+  display: none;
+}
 .link-sidebar-admin{
   color: #000;
 }
@@ -324,6 +327,13 @@ grid-container .list-title {
         
         padding-right: 0 !important;
     }
+}
+.btn-search-custom {
+  display: flex;
+  position: absolute;
+  right: 15px;
+  top: 6px;
+  color: #ed028c;
 }
 .bg-home-center .inputs > div > div {
     height: 32px;
@@ -519,6 +529,7 @@ grid-container .list-title {
   }
 }
 @media screen and (max-width: 768px) {
+  
   grid-container {
     grid-auto-rows: 55px;
     grid-gap: 30px;
