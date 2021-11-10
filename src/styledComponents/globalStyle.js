@@ -467,6 +467,11 @@ grid-container .list-title {
        
 }
 /*media queries*/
+@media screen and (min-width: 1920px) {
+  .col-8.position-relative.p-0.corpo {
+    min-height: 100vh;
+  }
+}
 @media screen and (max-width: 991px) {
   .ant-select:not(.ant-select-customize-input) .ant-select-selector {
     border:  none !important;
