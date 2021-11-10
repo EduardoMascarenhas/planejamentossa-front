@@ -187,7 +187,6 @@ const Sessao2 = () => {
                   <Input
                     placeholder="Palavra-Chave"
                     onChange={setPalavraChave("pChave")}
-                    onSubmit={fazerBusca()}
                   ></Input>
                   {/* <Select
                     showSearch
