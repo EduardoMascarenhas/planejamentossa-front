@@ -90,7 +90,7 @@ const PDesktop = ({ slug, selo }) => {
           <div className="row">
             <div className="col-12 position-relative pb-5 mb-5 corpo">
               <DivCustom
-                className="custom-scroll scrolling-area mt-3"
+                className="custom-scroll scrolling-area mt-3 custom-scroll-projeto"
                 color={projeto && projeto.eixo ? projeto.eixo.borderColor : ""}
                 id="os"
               >

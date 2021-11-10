@@ -474,6 +474,10 @@ grid-container .list-title {
   .bg-selos{
     min-height: 100vh!important;
   }
+  .custom-scroll-projeto{
+    min-height: 100vh!important;
+    max-height: 100vh!important;
+  }
 }
 @media screen and (max-width: 991px) {
   .ant-select:not(.ant-select-customize-input) .ant-select-selector {
