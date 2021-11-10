@@ -468,6 +468,20 @@ grid-container .list-title {
 }
 /*media queries*/
 @media screen and (max-width: 991px) {
+  .ant-select:not(.ant-select-customize-input) .ant-select-selector {
+    border:  none !important;
+  }
+  .select-home-projetos .ant-select-selector {
+    border-radius: 0px !important;
+    border-bottom-left-radius: 30px !important;
+  }
+  .select-home-selos .ant-select-selector {
+    border-radius: 0px !important;
+    border-bottom-right-radius: 30px !important;
+  }
+  .ant-select-dropdown{
+    width:90% !important
+  }
   #conteudo-corpo-2 p img{
     width: 100%!important;
   }

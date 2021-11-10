@@ -87,7 +87,7 @@ const PesquisaContent = ({ pChave }) => {
               </button>
             </div>
 
-            <div className="pl-2">
+            <div className="p-3">
               {projetos &&
                 projetos.map((p, i) => {
                   if (
