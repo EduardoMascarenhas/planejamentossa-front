@@ -472,7 +472,7 @@ grid-container .list-title {
     min-height: 100vh;
   }
   .bg-selos{
-    min-height: 100vh;
+    min-height: 100vh!important;
   }
 }
 @media screen and (max-width: 991px) {
