@@ -484,9 +484,6 @@ grid-container .list-title {
     border-radius: 0px !important;
     border-bottom-right-radius: 30px !important;
   }
-  .ant-select-dropdown{
-    width:90% !important
-  }
   #conteudo-corpo-2 p img{
     width: 100%!important;
   }
