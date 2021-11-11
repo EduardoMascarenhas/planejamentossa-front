@@ -19,7 +19,7 @@ import img15 from "../../assets/imgs/btn-eixo3.png";
 import img16 from "../../assets/imgs/btn-eixo3h.png";
 import img17 from "../../assets/imgs/btn-eixo4.png";
 import img18 from "../../assets/imgs/btn-eixo4h.png";
-import livroPDF from "../../assets/files/Livro_PlanejamentoEstrategico_SSA.pdf";
+import livroPDF from "../../assets/files/bts_prefeitura_ssa_relatorio_FINAL_versao-WEB.pdf";
 
 const Sessao1 = () => {
   const [sliderActive, setSliderActive] = useState(1);

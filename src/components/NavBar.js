@@ -1,7 +1,7 @@
 import React from "react";
 import logoNav from "../assets/imgs/logo-topo-home.png";
 import dotAtivo2 from "../assets/imgs/Ativo 2.png";
-import livroPDF from "../assets/files/Livro_PlanejamentoEstrategico_SSA.pdf";
+import livroPDF from "../assets/files/bts_prefeitura_ssa_relatorio_FINAL_versao-WEB.pdf";
 import { isAuthenticated, signout } from "../auth";
 
 const NavBar = () => {
