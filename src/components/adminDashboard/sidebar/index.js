@@ -63,25 +63,25 @@ const DashboardSidebar = () => {
             <a href="/admin/dashboard">Usuários do Sistema</a>
           </NavText>
         </NavItem>
-        <NavItem eventKey="slider">
+        <NavItem eventKey="slides">
           <NavIcon>
             <RiSlideshow3Line className="side-dash-ico" />
           </NavIcon>
           <NavText>
-            Slider / Banner
+            Slides / Banner
             <FaAngleDown />
           </NavText>
           <NavItem eventKey="/admin/slider/novo">
             <NavText>
               <a className="link-sidebar-admin" href="/admin/slider/novo">
-                Novo Slider
+                Novo Slide
               </a>
             </NavText>
           </NavItem>
           <NavItem eventKey="/admin/sliders">
             <NavText>
               <a className="link-sidebar-admin" href="/admin/sliders">
-                Listar Sliders
+                Listar Slides
               </a>
             </NavText>
           </NavItem>

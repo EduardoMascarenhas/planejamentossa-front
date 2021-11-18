@@ -230,7 +230,7 @@ const EixoEditar = ({ slug }) => {
             />
           </div>
           <div className="col text-center p-3">
-            <span>Thumbnail</span>
+            <h4>Thumbnail</h4>
             <br />
             <input
               onChange={handleChange("thumb")}

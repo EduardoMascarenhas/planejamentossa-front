@@ -172,7 +172,7 @@ const EixoNovo = () => {
         </div>
         <div className="col-12 d-flex form-novo-eixo-thumb">
           <div className="col text-center p-3">
-            <span>Thumbnail</span>
+            <h4>Thumbnail</h4>
             <br />
             <input
               onChange={handleChange("thumb")}

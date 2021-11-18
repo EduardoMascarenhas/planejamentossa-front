@@ -121,7 +121,7 @@ const SeloEditar = ({ id }) => {
             />
           </div>
           <div className="col text-center p-3">
-            <span>Imagem Selo</span>
+            <h4>Imagem</h4>
             <br />
             <input
               onChange={handleChange("image")}

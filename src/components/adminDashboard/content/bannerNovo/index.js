@@ -79,7 +79,9 @@ const DashboardBannerContent = () => {
         </div>
         <div className="col-12 d-flex form-nova-noticia-thumb">
           <div className="col text-center p-3">
-            <span>Imagem</span>
+            <h4>Imagem</h4>
+            <br />
+            <span>Tamanho: 728x90 px </span>
             <br />
             <input
               onChange={handleChange("image")}

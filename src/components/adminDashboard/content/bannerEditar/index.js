@@ -108,7 +108,9 @@ const BannerEditar = ({ id }) => {
             />
           </div>
           <div className="col text-center p-3">
-            <span>Imagem Banner</span>
+            <h4>Imagem Banner</h4>
+            <br />
+            <span>Tamanho: 728x90 px </span>
             <br />
             <input
               onChange={handleChange("image")}

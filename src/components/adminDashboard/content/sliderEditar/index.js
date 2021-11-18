@@ -82,11 +82,11 @@ const SliderEditar = ({ id }) => {
       {redirectUser()}
       <form className="form-dashboard p-3" onSubmit={clickSubmit}>
         <div className="text-center">
-          <h1>Editar Slider</h1>
+          <h1>Editar Slide</h1>
         </div>
         <div className="col-12 d-flex">
           <div className="col-6 p-2 m-a">
-            <span>Link do Slider</span>
+            <span>Link do Slide</span>
             <input
               type="text"
               className="form-control"
@@ -108,7 +108,9 @@ const SliderEditar = ({ id }) => {
             />
           </div>
           <div className="col text-center p-3">
-            <span>Imagem Slider</span>
+            <h4>Imagem</h4>
+            <br />
+            <span>Tamanho: 1000x470 px </span>
             <br />
             <input
               onChange={handleChange("image")}
@@ -128,7 +130,7 @@ const SliderEditar = ({ id }) => {
             className="btn btn-info btn-editar mr-1 fs-custom"
           >
             {" "}
-            Editar Slider
+            Editar Slide
           </button>
         </h3>
       </form>

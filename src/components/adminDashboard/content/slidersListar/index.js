@@ -90,7 +90,7 @@ const DashboardSlidersListar = () => {
   const init = () => {
     getSliders().then((data) => {
       if (!data) {
-        console.log("A busca por sliders não teve nenhum retorno.");
+        console.log("A busca por slides não teve nenhum retorno.");
       } else if (data.error) {
         setValues({ ...values, error: data.error });
       } else {
@@ -109,14 +109,14 @@ const DashboardSlidersListar = () => {
           className="btn btn-info btn-editar mr-1 fs-custom"
           onClick={() => redirectTo("/admin/slider/novo")}
         >
-          <FaPlusCircle /> Novo Slider
+          <FaPlusCircle /> Novo Slide
         </button>
       </div>
       <table className="table table-striped table-hover table-responsive">
         <thead>
           <tr>
             <th scope="col">
-              <strong className="fs-custom">Slider</strong>
+              <strong className="fs-custom">Slide</strong>
             </th>
             {user.role === 2 ? (
               <th scope="col">
@@ -132,7 +132,7 @@ const DashboardSlidersListar = () => {
             return (
               <tr key={i}>
                 <th className="td-custom-responsive fs-custom" scope="row">
-                  Slider {i + 1}
+                  Slide {i + 1}
                 </th>
                 {user.role === 2 ? (
                   <td className="td-custom-responsive fs-custom">
@@ -203,7 +203,7 @@ const DashboardSlidersListar = () => {
         <ModalBody>
           <ModalHeader>
             <h2>
-              Deletar Slider <span className="span-red">{modalId}</span>?
+              Deletar Slide <span className="span-red">{modalId}</span>?
             </h2>
           </ModalHeader>
           <ModalFooter className="w-f-a">
