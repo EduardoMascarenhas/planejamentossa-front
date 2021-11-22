@@ -40,6 +40,9 @@ import AdminSelos from "./pages/adminSelos";
 import Selos from "./pages/selos";
 import Selo from "./pages/selo";
 import Pesquisa from "./pages/pesquisa";
+import AdminArquivo from "./pages/adminArquivo";
+import AdminArquivos from "./pages/adminArquivos";
+import AdminArquivoEditar from "./pages/adminArquivoEditar";
 
 function App() {
   return (
@@ -79,6 +82,13 @@ function App() {
           component={AdminSeloEditar}
         />
 
+        <AdminRoute exact path="/admin/arquivo/novo" component={AdminArquivo} />
+        <AdminRoute exact path="/admin/arquivos" component={AdminArquivos} />
+        <AdminRoute
+          exact
+          path="/admin/arquivo-:arquivoId"
+          component={AdminArquivoEditar}
+        />
         <AdminRoute exact path="/admin/banner/novo" component={AdminBanner} />
         <AdminRoute exact path="/admin/banners" component={AdminBanners} />
         <AdminRoute

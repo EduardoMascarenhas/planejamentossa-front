@@ -68,7 +68,7 @@ const DashboardSidebar = () => {
             <RiSlideshow3Line className="side-dash-ico" />
           </NavIcon>
           <NavText>
-            Slides / Banner
+            Slides / Banner / PDF
             <FaAngleDown />
           </NavText>
           <NavItem eventKey="/admin/slider/novo">
@@ -96,6 +96,20 @@ const DashboardSidebar = () => {
             <NavText>
               <a className="link-sidebar-admin" href="/admin/banners">
                 Listar Banners
+              </a>
+            </NavText>
+          </NavItem>
+          <NavItem eventKey="/admin/banners">
+            <NavText>
+              <a className="link-sidebar-admin" href="/admin/arquivo/novo">
+                Novo PDF
+              </a>
+            </NavText>
+          </NavItem>
+          <NavItem eventKey="/admin/banners">
+            <NavText>
+              <a className="link-sidebar-admin" href="/admin/arquivos">
+                Editar PDF
               </a>
             </NavText>
           </NavItem>

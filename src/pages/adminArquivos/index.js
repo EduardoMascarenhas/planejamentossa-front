@@ -2,18 +2,18 @@ import React from "react";
 import HomeStyle from "../../styledComponents/homeStyles";
 import AdminDashboardStyle from "../../styledComponents/adminDashboardStyle";
 import Layout from "../../components/Layout";
-import DashboardSelo from "../../components/adminDashboard/adminSelo";
+import DashboardArquivos from "../../components/adminDashboard/adminArquivos";
 
-const AdminSelo = () => {
+const AdminArquivos = () => {
   return (
     <>
       <HomeStyle />
       <AdminDashboardStyle />
       <Layout>
-        <DashboardSelo />
+        <DashboardArquivos />
       </Layout>
     </>
   );
 };
 
-export default AdminSelo;
+export default AdminArquivos;

@@ -715,3 +715,70 @@ export const getSelos = () => {
     })
     .catch((err) => console.log(err));
 };
+
+export const createArquivo = (userId, token, arquivo) => {
+  return fetch(`${API}/arquivo/criar/${userId}`, {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: arquivo,
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
+export const deleteArquivo = (arquivoId, userId, token) => {
+  return fetch(`${API}/arquivo/${arquivoId}/${userId}`, {
+    method: "DELETE",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .catch((err) => console.log(err));
+};
+
+export const updateArquivo = (arquivoId, userId, token, arquivo) => {
+  return fetch(`${API}/arquivo/${userId}/${arquivoId}`, {
+    method: "PUT",
+    headers: {
+      Accept: "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: arquivo,
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .catch((err) => console.log(err));
+};
+
+export const getArquivo = (arquivoId) => {
+  return fetch(`${API}/arquivo/pdf-${arquivoId}`, {
+    method: "GET",
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .catch((err) => console.log(err));
+};
+
+export const getArquivos = () => {
+  return fetch(`${API}/arquivos`, {
+    method: "GET",
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .catch((err) => console.log(err));
+};

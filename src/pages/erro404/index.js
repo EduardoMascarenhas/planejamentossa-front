@@ -1,12 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Layout from "../../components/Layout";
 import HomeStyle from "../../styledComponents/homeStyles";
 
 const Erro404 = () => {
-  const [error, setError] = useState(false);
-
-  useEffect(() => {}, []);
-
   return (
     <>
       <HomeStyle />

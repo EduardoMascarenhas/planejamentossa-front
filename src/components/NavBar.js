@@ -1,11 +1,28 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import logoNav from "../assets/imgs/logo-topo-home.png";
 import dotAtivo2 from "../assets/imgs/Ativo 2.png";
 import livroPDF from "../assets/files/bts_prefeitura_ssa_relatorio_FINAL_versao-WEB.pdf";
 import { isAuthenticated, signout } from "../auth";
+import { API } from "../config";
+import { getArquivos } from "../core/apiCore";
 
 const NavBar = () => {
   const { user, token } = isAuthenticated();
+  const [arquivo, setArquivo] = useState("");
+
+  const init = () => {
+    getArquivos().then((data) => {
+      if (data.error || !data) {
+        console.log("erro ao carregar os arquivos");
+      } else {
+        setArquivo(data[0]._id);
+      }
+    });
+  };
+
+  useEffect(() => {
+    init();
+  }, []);
   return (
     <header>
       <nav className="navbar bg-default-blue sticky-top navbar-light bg-white navbar-expand-md">
@@ -54,7 +71,7 @@ const NavBar = () => {
                 <li>
                   <a
                     className="dropdown-item"
-                    href={livroPDF}
+                    href={`${API}/arquivo/pdf/${arquivo}`}
                     target="_blank"
                     rel="noreferrer noopener"
                   >

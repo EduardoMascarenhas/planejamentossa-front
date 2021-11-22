@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Layout from "../../components/Layout";
 import Carta from "../../components/noticia/CartaPrefeito";
 import HomeStyle from "../../styledComponents/homeStyles";

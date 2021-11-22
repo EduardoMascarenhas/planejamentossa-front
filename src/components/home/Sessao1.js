@@ -19,9 +19,8 @@ import img15 from "../../assets/imgs/btn-eixo3.png";
 import img16 from "../../assets/imgs/btn-eixo3h.png";
 import img17 from "../../assets/imgs/btn-eixo4.png";
 import img18 from "../../assets/imgs/btn-eixo4h.png";
-import livroPDF from "../../assets/files/bts_prefeitura_ssa_relatorio_FINAL_versao-WEB.pdf";
 
-const Sessao1 = () => {
+const Sessao1 = ({ pdf }) => {
   const [sliderActive, setSliderActive] = useState(1);
   const [values, setValues] = useState({
     sliders: [],
@@ -259,7 +258,11 @@ const Sessao1 = () => {
                     </div>
                   </div>
                 </div>
-                <a href={livroPDF} target="_blank" rel="noreferrer noopener">
+                <a
+                  href={`${API}/arquivo/pdf/${pdf}`}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                >
                   <figure className="on-hover">
                     <img
                       src={img17}
@@ -274,7 +277,11 @@ const Sessao1 = () => {
                   </figure>
                 </a>
                 <div className="d-lg-none text-break text-btn-mob-barra">
-                  <a href={livroPDF} target="_blank" rel="noreferrer noopener">
+                  <a
+                    href={`${API}/arquivo/pdf/${pdf}`}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                  >
                     {" "}
                     LIVRO EM PDF
                   </a>
