@@ -764,7 +764,7 @@ export const updateArquivo = (arquivoId, userId, token, arquivo) => {
 };
 
 export const getArquivo = (arquivoId) => {
-  return fetch(`${API}/arquivo/pdf-${arquivoId}`, {
+  return fetch(`${API}/arquivo/pdf/${arquivoId}`, {
     method: "GET",
   })
     .then((response) => {
