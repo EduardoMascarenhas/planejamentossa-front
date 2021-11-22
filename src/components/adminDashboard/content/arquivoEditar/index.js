@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { API } from "../../../../config";
 import { isAuthenticated } from "../../../../auth";
-import { getArquivo, updateArquivo } from "../../../../core/apiCore";
+import {
+  getArquivo,
+  updateArquivo,
+  getArquivos,
+} from "../../../../core/apiCore";
 
 const ArquivoEditar = ({ id }) => {
   const { user, token } = isAuthenticated();
@@ -70,7 +74,22 @@ const ArquivoEditar = ({ id }) => {
       });
     }
   };
+  const [arquivo, setArquivo] = useState("");
 
+  const initArquivos = () => {
+    getArquivos().then((data) => {
+      if (data.error || !data) {
+        console.log("erro ao carregar os arquivos");
+      } else {
+        setArquivo(data[0]._id);
+      }
+    });
+  };
+
+  useEffect(() => {
+    init();
+    initArquivos();
+  }, []);
   useEffect(() => {
     init();
     if (id) {
@@ -93,7 +112,7 @@ const ArquivoEditar = ({ id }) => {
             <h4>Arquivo PDF</h4>
             <br />
             <a
-              href={`${API}/arquivo/pdf/619ba540fccc5b24386ac661`}
+              href={`${API}/arquivo/pdf/${arquivo}`}
               target="_blank"
               rel="noreferrer noopener"
               style={{ color: "#2b2b2b" }}
